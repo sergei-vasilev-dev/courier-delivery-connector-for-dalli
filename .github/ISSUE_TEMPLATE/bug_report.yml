@@ -1,0 +1,41 @@
+name: Bug report
+description: Something does not work as expected
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for reporting! **Never paste your Dalli token or real customer data.** For security issues use the private advisory form instead (see SECURITY.md).
+  - type: textarea
+    id: what
+    attributes:
+      label: What happened?
+      description: What did you expect and what happened instead?
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to reproduce
+    validations:
+      required: true
+  - type: dropdown
+    id: checkout
+    attributes:
+      label: Checkout type
+      options: ["Block checkout", "Classic (shortcode) checkout", "Admin only / not checkout-related"]
+    validations:
+      required: true
+  - type: input
+    id: versions
+    attributes:
+      label: Versions
+      description: Plugin, WordPress, WooCommerce, PHP (WooCommerce → Status shows all of them)
+    validations:
+      required: true
+  - type: textarea
+    id: logs
+    attributes:
+      label: Log excerpt
+      description: WooCommerce → Status → Logs, source `dalli-delivery` (enable "Debug log" in the settings). Remove personal data first.
+      render: text

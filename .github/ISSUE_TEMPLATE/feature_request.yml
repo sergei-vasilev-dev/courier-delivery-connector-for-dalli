@@ -1,0 +1,19 @@
+name: Feature request
+description: Suggest an improvement
+labels: ["enhancement"]
+body:
+  - type: textarea
+    id: problem
+    attributes:
+      label: Problem to solve
+    validations:
+      required: true
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Proposed solution
+  - type: textarea
+    id: api
+    attributes:
+      label: Dalli API reference
+      description: Link to the relevant page of the Dalli API documentation, if the feature depends on an API method.
