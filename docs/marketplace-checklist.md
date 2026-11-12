@@ -46,7 +46,7 @@ Alternative that needs none of the above: publish the free plugin on **WordPress
 QIT is only available to **approved vendors**; the Marketplace runs these suites on submission: **API, End-to-end, Activation, Security, PHPCompatibility, Malware, Validation**.
 
 - [ ] Run each locally once the vendor account exists (`composer require --dev woocommerce/qit-cli`, then `qit run:activation` etc.). I could not run QIT here (no vendor account).
-- What I ran instead (documented in `docs/testing.md`): PHPCS (WordPress + WooCommerce + PHPCompatibilityWP 7.4-), PHPStan level 6, 97 PHPUnit tests, the official **Plugin Check**, and a Docker smoke test (classic + Blocks checkout, admin screens, order sync).
+- What I ran instead (documented in `docs/testing.md`): PHPCS (WordPress + WooCommerce + PHPCompatibilityWP 8.1-), PHPStan level 6, 97 PHPUnit tests, the official **Plugin Check**, and a Docker smoke test (classic + Blocks checkout, admin screens, order sync).
 - Likely QIT *E2E* gap: the E2E suite exercises Woo core flows with your plugin active (not your own features). Make sure activation does not add notices, redirects or fatal errors on a fresh site - verified on a fresh install with `WP_DEBUG` on (no PHP notices).
 - *Validation* checks plugin headers/readme: `readme.txt` is WordPress.org style and the main file carries `Requires Plugins: woocommerce`, `WC requires at least`, `WC tested up to`.
 

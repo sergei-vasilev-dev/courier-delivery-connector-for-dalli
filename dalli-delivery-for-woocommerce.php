@@ -5,7 +5,7 @@
  * Description:          Unofficial WooCommerce integration with the Dalli courier service: live shipping rates, pickup points, order creation, tracking and labels. Not affiliated with or endorsed by Dalli.
  * Version:              1.0.0
  * Requires at least:    6.4
- * Requires PHP:         7.4
+ * Requires PHP:         8.1
  * Requires Plugins:     woocommerce
  * Author:               Sergey Vasilev
  * Author URI:           https://github.com/sergei-vasilev-dev

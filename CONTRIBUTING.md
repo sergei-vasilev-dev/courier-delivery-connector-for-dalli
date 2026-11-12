@@ -15,7 +15,7 @@ Docker is the only prerequisite. Composer is used for **development** tools only
 
 ## Rules of the road
 
-* Follow the WordPress Coding Standards (enforced by `phpcs.xml.dist`) and keep PHP 7.4 compatibility (no 8.x-only syntax: no `match`, enums, readonly, constructor promotion, union types).
+* Follow the WordPress Coding Standards (enforced by `phpcs.xml.dist`) and keep PHP 8.1 compatibility.
 * Every user-facing string is English with the `dalli-delivery-for-woocommerce` text domain, translator comments for placeholders, no sentence concatenation.
   Regenerate the template with `bin/make-pot.sh` and update `languages/*-ru_RU.po` (compile `.mo` with `msgfmt`).
 * Escape late, sanitise early. State-changing endpoints need a nonce **and** a capability check. Never log or print the token.
@@ -27,7 +27,7 @@ Docker is the only prerequisite. Composer is used for **development** tools only
 
 * Small commits in [Conventional Commits](https://www.conventionalcommits.org/) style (`feat:`, `fix:`, `docs:`, `test:`, `chore:`, `refactor:`), written in English.
 * Update `CHANGELOG.md` (Keep a Changelog) for user-visible changes.
-* Fill in the pull request template; CI must be green (phpcs, phpstan, phpunit on PHP 7.4/8.1/8.3/8.5, Plugin Check).
+* Fill in the pull request template; CI must be green (phpcs, phpstan, phpunit on PHP 8.1/8.3/8.5, Plugin Check).
 
 ## Releasing (maintainers)
 

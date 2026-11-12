@@ -3,7 +3,7 @@ Contributors: yurich0dev
 Tags: woocommerce, shipping, delivery, courier, pickup points
 Requires at least: 6.4
 Tested up to: 7.1
-Requires PHP: 7.4
+Requires PHP: 8.1
 Requires Plugins: woocommerce
 Stable tag: 1.0.0
 WC requires at least: 8.5
@@ -34,7 +34,7 @@ Unofficial WooCommerce integration with the Dalli courier service: live shipping
 
 = Requirements =
 
-* WooCommerce 8.5 or newer, WordPress 6.4 or newer, PHP 7.4 or newer.
+* WooCommerce 8.5 or newer, WordPress 6.4 or newer, PHP 8.1 or newer.
 * A Dalli contract and API token (issued in the Dalli personal account, section "Account"). A shared Dalli test platform exists for trying the integration.
 * The store currency should be RUB and the delivery country Russia.
 

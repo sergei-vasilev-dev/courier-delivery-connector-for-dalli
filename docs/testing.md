@@ -3,8 +3,8 @@
 All commands run through Docker; no local PHP is needed.
 
 ```bash
-bin/qa.sh            # phpcbf, phpcs (WordPress + WooCommerce + PHPCompatibilityWP 7.4-), phpstan level 6, phpunit
-bin/qa.sh 7.4        # the same under another PHP version (7.4, 8.1, 8.3, 8.5 ...)
+bin/qa.sh            # phpcbf, phpcs (WordPress + WooCommerce + PHPCompatibilityWP 8.1-), phpstan level 6, phpunit
+bin/qa.sh 8.1        # the same under another PHP version (8.1, 8.3, 8.5 ...)
 ```
 
 ## Unit tests (`tests/Unit`)

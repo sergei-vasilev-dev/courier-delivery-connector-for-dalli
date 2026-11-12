@@ -12,7 +12,7 @@ automatic order creation, status tracking and labels. Русская верси�
 
 | | |
 | --- | --- |
-| Requires | WordPress 6.4+, WooCommerce 8.5+, PHP 7.4+ (tested with PHP 7.4 - 8.5, WordPress 7.1, WooCommerce 11.3) |
+| Requires | WordPress 6.4+, WooCommerce 8.5+, PHP 8.1+ (tested with PHP 8.1 - 8.5, WordPress 7.1, WooCommerce 11.3) |
 | Compatibility | HPOS (custom order tables), Cart & Checkout blocks, classic shortcode checkout |
 | License | GPL-2.0-or-later |
 | Status | 1.0.0 release candidate; behaviour against the live Dalli API still needs verification with a real token (see [Limitations](#limitations-and-what-is-not-verified)) |
