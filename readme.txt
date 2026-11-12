@@ -1,5 +1,5 @@
 === Delivery Integration for Dalli ===
-Contributors: sergeivasilevdev
+Contributors: yurich0dev
 Tags: woocommerce, shipping, delivery, courier, pickup points
 Requires at least: 6.4
 Tested up to: 7.1
