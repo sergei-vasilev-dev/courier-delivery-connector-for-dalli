@@ -38,7 +38,7 @@ services:
     volumes:
       - ../tests/mock-server:/mock:ro
     ports:
-      - "127.0.0.1:8100:8100"
+      - "127.0.0.1:${MOCK_PORT:-8100}:8100"
 
   wordpress:
     image: ${WP_IMAGE:-wordpress:php8.5-apache}

@@ -19,6 +19,9 @@ if ! wp core is-installed 2>/dev/null; then
 	wp core install --url="http://localhost:${WP_PORT}" --title="Dalli smoke" --admin_user=admin --admin_password=admin --admin_email=admin@example.test --skip-email
 fi
 
+# Old PHP-specific images ship an old WordPress: update to the newest release the PHP version supports.
+wp core update >/dev/null 2>&1 || true
+wp core update-db >/dev/null 2>&1 || true
 wp plugin install woocommerce --activate
 wp plugin activate dalli-delivery-for-woocommerce
 wp language core install ru_RU >/dev/null 2>&1 || true
