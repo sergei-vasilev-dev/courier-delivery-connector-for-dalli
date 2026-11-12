@@ -3,9 +3,9 @@
 All notable changes to this project are documented in this file. The format is based on
 [Keep a Changelog](https://keepachangelog.com/en/1.1.0/) and the project adheres to [Semantic Versioning](https://semver.org/).
 
-## [1.0.0] - Unreleased
+## [1.0.0] - 2026-11-12
 
-First release (release candidate `v1.0.0-rc.1`).
+First release.
 
 ### Added
 - Dalli delivery shipping method for shipping zones with live rates (price and period) for Dalli, CDEK, Yandex Delivery, 5Post and Magnit; courier and
@@ -23,9 +23,15 @@ First release (release candidate `v1.0.0-rc.1`).
 
 ## [Unreleased]
 
+## [1.0.1] - 2026-11-12
+
+### Changed
+- Minimum PHP version is now 8.1 (PHP 7.4 is end-of-life); development dependencies refreshed (PHPUnit 10, WooCommerce sniffs 2, stubs 11); CI actions updated.
+
 ### Added
 - WordPress.org submission kit: screenshots, icon and banners (`.wordpress-org/`, SVG sources in `docs/assets-src/`), submission guide with trademark/rename notes (`docs/wordpress-org-submission.md`), disabled-by-default deploy workflow, demo-data seed for screenshots.
 - `readme.txt`: links to Dalli's user agreement and privacy policy in "External services", source code FAQ, screenshot captions matched to the files.
 
-[Unreleased]: https://github.com/sergei-vasilev-dev/dalli-delivery-for-woocommerce/compare/v1.0.0...HEAD
+[Unreleased]: https://github.com/sergei-vasilev-dev/dalli-delivery-for-woocommerce/compare/v1.0.1...HEAD
+[1.0.1]: https://github.com/sergei-vasilev-dev/dalli-delivery-for-woocommerce/releases/tag/v1.0.1
 [1.0.0]: https://github.com/sergei-vasilev-dev/dalli-delivery-for-woocommerce/releases/tag/v1.0.0

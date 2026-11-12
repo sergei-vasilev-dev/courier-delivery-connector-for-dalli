@@ -5,7 +5,7 @@ Requires at least: 6.4
 Tested up to: 7.1
 Requires PHP: 8.1
 Requires Plugins: woocommerce
-Stable tag: 1.0.0
+Stable tag: 1.0.1
 WC requires at least: 8.5
 WC tested up to: 11.3
 License: GPLv2 or later
@@ -121,10 +121,16 @@ Copy `templates/order-delivery.php` (and `templates/emails/delivery.php`) to `yo
 
 == Changelog ==
 
+= 1.0.1 =
+* Requires PHP 8.1 (PHP 7.4 is end-of-life). Updated readme: external services links, FAQ, screenshots, icon and banners.
+
 = 1.0.0 =
 * First release: live rates, pickup points for classic and block checkout, delivery intervals, order creation, status synchronisation, admin tools, customer delivery details, Russian translation.
 
 == Upgrade Notice ==
+
+= 1.0.1 =
+Requires PHP 8.1 or newer.
 
 = 1.0.0 =
 First release.
