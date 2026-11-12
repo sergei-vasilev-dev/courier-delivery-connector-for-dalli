@@ -166,6 +166,7 @@ class ShippingMethod extends \WC_Shipping_Method {
 
 		$address = $this->destination_address( $package );
 		if ( '' === $address ) {
+			$plugin->logger()->debug( 'No rates: the destination has no city yet.' );
 			return;
 		}
 
@@ -186,6 +187,7 @@ class ShippingMethod extends \WC_Shipping_Method {
 			$partner_types[ $partner ] = $types;
 		}
 
+		$plugin->logger()->debug( sprintf( 'Calculating rates for "%s" (instance %d).', $address, $this->instance_id ) );
 		$rates = $plugin->rate_calculator()->calculate( $spec, $address, $declared, $partner_types, (string) $settings->get( 'sender_code' ) );
 
 		$rules = array(

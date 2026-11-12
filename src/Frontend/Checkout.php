@@ -10,6 +10,7 @@ namespace DalliDelivery\Frontend;
 use DalliDelivery\Domain\Catalog;
 use DalliDelivery\Orders\AmountPlanner;
 use DalliDelivery\Orders\OrderData;
+use DalliDelivery\Plugin;
 use DalliDelivery\Settings;
 use DalliDelivery\Shipping\ChosenRate;
 use DalliDelivery\Shipping\ShippingMethod;
@@ -122,9 +123,9 @@ class Checkout {
 			return;
 		}
 
-		wp_enqueue_style( 'dalli-delivery-checkout', DALLI_DELIVERY_URL . 'assets/css/checkout.css', array(), DALLI_DELIVERY_VERSION );
-		wp_enqueue_script( 'dalli-delivery-widget', DALLI_DELIVERY_URL . 'assets/js/dalli-widget.js', array(), DALLI_DELIVERY_VERSION, true );
-		wp_enqueue_script( 'dalli-delivery-classic', DALLI_DELIVERY_URL . 'assets/js/checkout-classic.js', array( 'jquery', 'dalli-delivery-widget' ), DALLI_DELIVERY_VERSION, true );
+		wp_enqueue_style( 'dalli-delivery-checkout', DALLI_DELIVERY_URL . 'assets/css/checkout.css', array(), Plugin::asset_version( 'assets/css/checkout.css' ) );
+		wp_enqueue_script( 'dalli-delivery-widget', DALLI_DELIVERY_URL . 'assets/js/dalli-widget.js', array(), Plugin::asset_version( 'assets/js/dalli-widget.js' ), true );
+		wp_enqueue_script( 'dalli-delivery-classic', DALLI_DELIVERY_URL . 'assets/js/checkout-classic.js', array( 'jquery', 'dalli-delivery-widget' ), Plugin::asset_version( 'assets/js/checkout-classic.js' ), true );
 		wp_add_inline_script( 'dalli-delivery-widget', 'window.dalliDeliveryCheckout = ' . wp_json_encode( self::script_data() ) . ';', 'before' );
 	}
 

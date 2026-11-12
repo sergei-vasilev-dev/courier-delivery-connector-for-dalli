@@ -10,6 +10,7 @@ namespace DalliDelivery\Admin;
 use DalliDelivery\Api\ApiException;
 use DalliDelivery\Api\DalliApi;
 use DalliDelivery\Domain\Catalog;
+use DalliDelivery\Plugin;
 use DalliDelivery\Settings;
 
 defined( 'ABSPATH' ) || exit;
@@ -643,7 +644,7 @@ class SettingsPage {
 		if ( ! $this->is_our_screen() ) {
 			return;
 		}
-		wp_enqueue_script( 'dalli-delivery-admin-settings', DALLI_DELIVERY_URL . 'assets/js/admin-settings.js', array(), DALLI_DELIVERY_VERSION, true );
+		wp_enqueue_script( 'dalli-delivery-admin-settings', DALLI_DELIVERY_URL . 'assets/js/admin-settings.js', array(), Plugin::asset_version( 'assets/js/admin-settings.js' ), true );
 		wp_localize_script(
 			'dalli-delivery-admin-settings',
 			'dalliDeliveryAdmin',

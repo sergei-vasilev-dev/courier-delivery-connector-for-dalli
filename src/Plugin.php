@@ -76,6 +76,23 @@ final class Plugin {
 	}
 
 	/**
+	 * Version string for an asset: the file modification time while WP_DEBUG is on (no stale caches
+	 * during development), the plugin version otherwise.
+	 *
+	 * @param string $relative Path relative to the plugin directory.
+	 * @return string
+	 */
+	public static function asset_version( string $relative ): string {
+		if ( defined( 'WP_DEBUG' ) && WP_DEBUG ) {
+			$mtime = filemtime( DALLI_DELIVERY_PATH . $relative );
+			if ( false !== $mtime ) {
+				return (string) $mtime;
+			}
+		}
+		return DALLI_DELIVERY_VERSION;
+	}
+
+	/**
 	 * Declare HPOS and Cart & Checkout Blocks compatibility.
 	 *
 	 * @return void

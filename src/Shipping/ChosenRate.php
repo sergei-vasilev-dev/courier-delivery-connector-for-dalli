@@ -45,6 +45,10 @@ final class ChosenRate {
 		if ( ! is_array( $chosen ) ) {
 			return null;
 		}
+		// Plain AJAX requests do not calculate shipping; rates come from the session cache, so this is cheap.
+		if ( ! WC()->shipping()->get_packages() && WC()->cart instanceof \WC_Cart && ! WC()->cart->is_empty() ) {
+			WC()->cart->calculate_shipping();
+		}
 		foreach ( WC()->shipping()->get_packages() as $index => $package ) {
 			$rate_id = $chosen[ $index ] ?? '';
 			if ( '' === $rate_id || ! isset( $package['rates'][ $rate_id ] ) ) {

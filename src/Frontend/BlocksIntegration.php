@@ -9,6 +9,8 @@ namespace DalliDelivery\Frontend;
 
 use Automattic\WooCommerce\Blocks\Integrations\IntegrationInterface;
 
+use DalliDelivery\Plugin;
+
 defined( 'ABSPATH' ) || exit;
 
 /**
@@ -32,10 +34,8 @@ class BlocksIntegration implements IntegrationInterface {
 	 * @return void
 	 */
 	public function initialize() {
-		$version = DALLI_DELIVERY_VERSION;
-
-		wp_register_style( 'dalli-delivery-checkout', DALLI_DELIVERY_URL . 'assets/css/checkout.css', array(), $version );
-		wp_register_script( 'dalli-delivery-widget', DALLI_DELIVERY_URL . 'assets/js/dalli-widget.js', array(), $version, true );
+		wp_register_style( 'dalli-delivery-checkout', DALLI_DELIVERY_URL . 'assets/css/checkout.css', array(), Plugin::asset_version( 'assets/css/checkout.css' ) );
+		wp_register_script( 'dalli-delivery-widget', DALLI_DELIVERY_URL . 'assets/js/dalli-widget.js', array(), Plugin::asset_version( 'assets/js/dalli-widget.js' ), true );
 		wp_add_inline_script( 'dalli-delivery-widget', 'window.dalliDeliveryCheckout = ' . wp_json_encode( Checkout::script_data() ) . ';', 'before' );
 		wp_register_script(
 			'dalli-delivery-blocks',
@@ -48,7 +48,7 @@ class BlocksIntegration implements IntegrationInterface {
 				'wp-element',
 				'wp-plugins',
 			),
-			$version,
+			Plugin::asset_version( 'assets/js/checkout-blocks.js' ),
 			true
 		);
 	}
