@@ -1,0 +1,147 @@
+/* Delivery Integration for Dalli - checkout widget */
+.dalli-widget {
+	margin: 0.5em 0 1em;
+	font-size: 0.95em;
+}
+
+.dalli-widget__pvz {
+	padding: 0.75em 1em;
+	border: 1px solid currentcolor;
+	border-color: rgba(128, 128, 128, 0.4);
+	border-radius: 4px;
+}
+
+.dalli-widget__hint {
+	opacity: 0.8;
+}
+
+.dalli-widget__actions {
+	margin-top: 0.5em;
+}
+
+.dalli-widget__intervals {
+	display: grid;
+	grid-template-columns: max-content 1fr;
+	gap: 0.4em 0.75em;
+	align-items: center;
+	margin-top: 0.75em;
+}
+
+.dalli-widget__select {
+	max-width: 100%;
+}
+
+.dalli-widget__status {
+	margin-top: 0.4em;
+	color: #b32d2e;
+}
+
+.dalli-widget__status:empty {
+	display: none;
+}
+
+.dalli-dialog {
+	width: min(42rem, calc(100vw - 2rem));
+	max-height: calc(100vh - 2rem);
+	padding: 1rem 1.25rem;
+	border: 0;
+	border-radius: 8px;
+	box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+	overflow: hidden;
+	flex-direction: column;
+	color: #1e1e1e;
+	background: #fff;
+}
+
+.dalli-dialog[open] {
+	display: flex;
+}
+
+.dalli-dialog::backdrop {
+	background: rgba(0, 0, 0, 0.5);
+}
+
+.dalli-dialog__header {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: 1rem;
+}
+
+.dalli-dialog__title {
+	margin: 0;
+	font-size: 1.25rem;
+}
+
+.dalli-dialog__close {
+	padding: 0 0.5rem;
+	font-size: 1.75rem;
+	line-height: 1;
+	color: inherit;
+	background: transparent;
+	border: 0;
+	cursor: pointer;
+}
+
+.dalli-dialog__search {
+	width: 100%;
+	margin: 0.75rem 0 0.25rem;
+	box-sizing: border-box;
+}
+
+.dalli-dialog__count {
+	margin: 0.25rem 0 0.5rem;
+	font-size: 0.85rem;
+	opacity: 0.75;
+}
+
+.dalli-dialog__list {
+	flex: 1 1 auto;
+	margin: 0;
+	padding: 0;
+	overflow-y: auto;
+	list-style: none;
+}
+
+.dalli-dialog__list li {
+	margin: 0 0 0.4rem;
+	padding: 0;
+}
+
+.dalli-dialog__item {
+	display: block;
+	width: 100%;
+	padding: 0.6rem 0.8rem;
+	text-align: left;
+	color: inherit;
+	background: #fff;
+	border: 1px solid #c3c4c7;
+	border-radius: 4px;
+	cursor: pointer;
+}
+
+.dalli-dialog__item:hover,
+.dalli-dialog__item:focus-visible {
+	border-color: #2271b1;
+	outline: 2px solid #2271b1;
+	outline-offset: 0;
+}
+
+.dalli-dialog__item.is-selected {
+	background: #f0f6fc;
+	border-color: #2271b1;
+}
+
+.dalli-dialog__item span {
+	display: block;
+}
+
+.dalli-dialog__item-name {
+	font-weight: 600;
+}
+
+.dalli-dialog__item-meta,
+.dalli-dialog__item-desc {
+	font-size: 0.85rem;
+	opacity: 0.8;
+}
