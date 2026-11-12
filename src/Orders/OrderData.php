@@ -10,6 +10,7 @@ namespace DalliDelivery\Orders;
 use DalliDelivery\Domain\Catalog;
 use DalliDelivery\Shipping\ChosenRate;
 use DalliDelivery\Shipping\ShippingMethod;
+use DalliDelivery\Support\Format;
 
 defined( 'ABSPATH' ) || exit;
 
@@ -179,7 +180,7 @@ final class OrderData {
 		$rows = array();
 
 		$carrier = Catalog::partner_label( (string) $delivery['partner'] );
-		$rows[ __( 'Carrier', 'dalli-delivery-for-woocommerce' ) ] = $carrier . ', ' . strtolower( Catalog::type_label( (string) $delivery['type'] ) );
+		$rows[ __( 'Carrier', 'dalli-delivery-for-woocommerce' ) ] = $carrier . ', ' . Format::lower( Catalog::type_label( (string) $delivery['type'] ) );
 
 		$pvz = self::pvz( $order );
 		if ( $pvz ) {

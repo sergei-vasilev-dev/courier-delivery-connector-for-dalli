@@ -123,4 +123,14 @@ final class Format {
 		}
 		return strtolower( $a ) === strtolower( $b );
 	}
+
+	/**
+	 * Lower-case a string (UTF-8 aware when mbstring is available).
+	 *
+	 * @param string $text Text.
+	 * @return string
+	 */
+	public static function lower( string $text ): string {
+		return function_exists( 'mb_strtolower' ) ? mb_strtolower( $text, 'UTF-8' ) : strtolower( $text );
+	}
 }

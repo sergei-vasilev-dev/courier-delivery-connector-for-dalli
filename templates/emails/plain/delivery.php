@@ -13,8 +13,8 @@
 defined( 'ABSPATH' ) || exit;
 
 echo "\n" . esc_html( strtoupper( __( 'Delivery', 'dalli-delivery-for-woocommerce' ) ) ) . "\n\n";
-foreach ( $rows as $label => $value ) {
-	echo esc_html( $label . ': ' . $value ) . "\n";
+foreach ( $rows as $dalli_delivery_label => $dalli_delivery_value ) {
+	echo esc_html( $dalli_delivery_label . ': ' . $dalli_delivery_value ) . "\n";
 }
 if ( ! empty( $tracking_url ) ) {
 	echo esc_html( __( 'Track the delivery', 'dalli-delivery-for-woocommerce' ) . ': ' . esc_url_raw( $tracking_url ) ) . "\n";

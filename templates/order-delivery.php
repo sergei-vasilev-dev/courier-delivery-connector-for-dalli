@@ -17,10 +17,10 @@ defined( 'ABSPATH' ) || exit;
 	<h2 class="woocommerce-column__title"><?php esc_html_e( 'Delivery', 'dalli-delivery-for-woocommerce' ); ?></h2>
 	<table class="woocommerce-table shop_table dalli-delivery-details">
 		<tbody>
-			<?php foreach ( $rows as $label => $value ) : ?>
+			<?php foreach ( $rows as $dalli_delivery_label => $dalli_delivery_value ) : ?>
 				<tr>
-					<th scope="row"><?php echo esc_html( $label ); ?></th>
-					<td><?php echo esc_html( $value ); ?></td>
+					<th scope="row"><?php echo esc_html( $dalli_delivery_label ); ?></th>
+					<td><?php echo esc_html( $dalli_delivery_value ); ?></td>
 				</tr>
 			<?php endforeach; ?>
 			<?php if ( ! empty( $tracking_url ) ) : ?>
@@ -34,8 +34,8 @@ defined( 'ABSPATH' ) || exit;
 	<?php if ( ! empty( $history ) ) : ?>
 		<h3><?php esc_html_e( 'Delivery history', 'dalli-delivery-for-woocommerce' ); ?></h3>
 		<ol class="dalli-delivery-history">
-			<?php foreach ( $history as $entry ) : ?>
-				<li><?php echo esc_html( trim( $entry['time'] . ' — ' . $entry['label'], ' —' ) ); ?></li>
+			<?php foreach ( $history as $dalli_delivery_entry ) : ?>
+				<li><?php echo esc_html( trim( $dalli_delivery_entry['time'] . ' — ' . $dalli_delivery_entry['label'], ' —' ) ); ?></li>
 			<?php endforeach; ?>
 		</ol>
 	<?php endif; ?>
