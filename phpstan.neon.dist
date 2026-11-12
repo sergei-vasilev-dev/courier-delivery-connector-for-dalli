@@ -1,0 +1,15 @@
+parameters:
+    level: 6
+    paths:
+        - src
+        - dalli-delivery-for-woocommerce.php
+    scanFiles:
+        - vendor/php-stubs/woocommerce-stubs/woocommerce-stubs.php
+        - vendor/php-stubs/woocommerce-stubs/woocommerce-packages-stubs.php
+    bootstrapFiles:
+        - tests/phpstan-bootstrap.php
+    treatPhpDocTypesAsCertain: false
+    ignoreErrors:
+        # WC_Shipping_Method::process_admin_options() returns bool; WooCommerce itself hooks it this way.
+        - message: '#Action callback returns bool but should not return anything#'
+          path: src/Shipping/ShippingMethod.php

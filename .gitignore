@@ -1,0 +1,13 @@
+/vendor/
+/node_modules/
+/build/
+/dist/
+*.zip
+.phpunit.result.cache
+.phpcs-cache
+.DS_Store
+.idea/
+.vscode/
+*.log
+/docker/data/
+/tests/results/
