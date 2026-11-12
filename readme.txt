@@ -49,7 +49,7 @@ This plugin sends data from your server to the Dalli API. Nothing is loaded from
     * When an order is created in Dalli: the recipient's name, phone number, e-mail address and delivery address (or the pickup point code), the items with prices, the payment type and amounts, the courier note, the order number.
     * When statuses, stickers, acts or cancellations are requested: order numbers and barcodes.
 * **Why:** to calculate delivery cost, deliver the parcel and track it. Data is sent only when you configure the plugin with your own Dalli token.
-* Dalli's terms of service and privacy policy apply to the data you send to Dalli; see the Dalli website. As the merchant you are responsible for informing your customers.
+* **Dalli legal documents:** [User agreement](https://dalli-service.com/clients/dokumenty/polzovatelskoye-soglasheniye/) and [Privacy policy](https://dalli-service.com/clients/dokumenty/politika-konfidenczialnosti/) (Russian; all documents: [dalli-service.com/clients/dokumenty/](https://dalli-service.com/clients/dokumenty/)). They apply to the data you send to Dalli. As the merchant you are responsible for informing your customers and for having a legal basis to pass their data to the carrier.
 
 == Installation ==
 
@@ -87,6 +87,10 @@ By default when the order becomes "Processing". You can also choose "Completed" 
 
 Dalli only returns stickers and acts for orders sent to it **today**.
 
+= Where is the source code? =
+
+On GitHub: https://github.com/sergei-vasilev-dev/dalli-delivery-for-woocommerce . The plugin has no build step: the files in the plugin are the source.
+
 = Is Russian Post supported? =
 
 Not in version 1.0. Dalli's Russian Post delivery uses a separate API method.
@@ -105,14 +109,14 @@ Copy `templates/order-delivery.php` (and `templates/emails/delivery.php`) to `yo
 
 == Screenshots ==
 
-1. Dalli settings page (connection, parcel defaults, payment methods, order creation, tracking).
+1. Dalli settings page: connection and parcel defaults (payment methods, order creation and tracking follow below).
 2. Dalli delivery method in a shipping zone with carriers and price rules.
 3. Rates at the classic checkout.
-4. Pickup point picker (classic checkout).
-5. Cart & Checkout block with pickup point and delivery time selectors.
+4. Pickup point picker with a search term (classic checkout).
+5. Cart & Checkout block with shipping options and the chosen pickup point (courier rates also offer a delivery date and time).
 6. Order meta box with tracking number, status history and actions.
 7. Orders list with the Dalli column and bulk actions.
-8. Thank-you page and My Account with delivery details.
+8. Thank-you page with delivery details (the same block is shown in My Account and e-mails).
 9. Dalli tools page (transfer act, orders needing attention, diagnostics).
 
 == Changelog ==

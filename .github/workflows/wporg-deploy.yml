@@ -1,0 +1,39 @@
+name: Deploy to WordPress.org
+
+# Disabled until the plugin is approved on WordPress.org and the repository has the secrets SVN_USERNAME / SVN_PASSWORD
+# and the repository variable WPORG_DEPLOY=true. See docs/wordpress-org-submission.md.
+on:
+  push:
+    tags: ["v[0-9]+.[0-9]+.[0-9]+"]
+  workflow_dispatch:
+    inputs:
+      assets_only:
+        description: "Only update .wordpress-org assets (screenshots, icon, banner)"
+        type: boolean
+        default: false
+
+permissions:
+  contents: read
+
+jobs:
+  deploy:
+    if: ${{ vars.WPORG_DEPLOY == 'true' }}
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Plugin (trunk and tag)
+        if: ${{ !inputs.assets_only }}
+        uses: 10up/action-wordpress-plugin-deploy@stable
+        env:
+          SVN_USERNAME: ${{ secrets.SVN_USERNAME }}
+          SVN_PASSWORD: ${{ secrets.SVN_PASSWORD }}
+          SLUG: dalli-delivery-for-woocommerce
+          ASSETS_DIR: .wordpress-org
+      - name: Assets only
+        if: ${{ inputs.assets_only }}
+        uses: 10up/action-wordpress-plugin-asset-update@stable
+        env:
+          SVN_USERNAME: ${{ secrets.SVN_USERNAME }}
+          SVN_PASSWORD: ${{ secrets.SVN_PASSWORD }}
+          SLUG: dalli-delivery-for-woocommerce
+          ASSETS_DIR: .wordpress-org

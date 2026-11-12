@@ -21,4 +21,11 @@ First release (release candidate `v1.0.0-rc.1`).
 - English and complete Russian translations.
 - PHPUnit tests (97), PHPCS (WordPress, WooCommerce, PHPCompatibility 7.4-), PHPStan level 6, Docker smoke test with a mock Dalli API, CI and release workflows.
 
+## [Unreleased]
+
+### Added
+- WordPress.org submission kit: screenshots, icon and banners (`.wordpress-org/`, SVG sources in `docs/assets-src/`), submission guide with trademark/rename notes (`docs/wordpress-org-submission.md`), disabled-by-default deploy workflow, demo-data seed for screenshots.
+- `readme.txt`: links to Dalli's user agreement and privacy policy in "External services", source code FAQ, screenshot captions matched to the files.
+
+[Unreleased]: https://github.com/sergei-vasilev-dev/dalli-delivery-for-woocommerce/compare/v1.0.0...HEAD
 [1.0.0]: https://github.com/sergei-vasilev-dev/dalli-delivery-for-woocommerce/releases/tag/v1.0.0
