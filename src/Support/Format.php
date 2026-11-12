@@ -70,13 +70,13 @@ final class Format {
 		if ( ctype_digit( $period ) ) {
 			$days = (int) $period;
 			if ( 0 === $days ) {
-				return __( 'same day', 'dalli-delivery-for-woocommerce' );
+				return __( 'same day', 'courier-delivery-connector-for-dalli' );
 			}
 			/* translators: %d: number of days */
-			return sprintf( _n( '%d day', '%d days', $days, 'dalli-delivery-for-woocommerce' ), $days );
+			return sprintf( _n( '%d day', '%d days', $days, 'courier-delivery-connector-for-dalli' ), $days );
 		}
 		/* translators: %s: delivery period such as "1-2" */
-		return sprintf( __( '%s days', 'dalli-delivery-for-woocommerce' ), $period );
+		return sprintf( __( '%s days', 'courier-delivery-connector-for-dalli' ), $period );
 	}
 
 	/**

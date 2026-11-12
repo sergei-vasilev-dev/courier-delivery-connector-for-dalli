@@ -31,8 +31,8 @@ class ShippingMethod extends \WC_Shipping_Method {
 		parent::__construct( $instance_id );
 		$this->id                 = self::ID;
 		$this->instance_id        = absint( $instance_id );
-		$this->method_title       = __( 'Dalli delivery', 'dalli-delivery-for-woocommerce' );
-		$this->method_description = __( 'Live delivery rates and pickup points from the Dalli courier service and its partners. Connection settings are under WooCommerce → Settings → Shipping → Dalli.', 'dalli-delivery-for-woocommerce' );
+		$this->method_title       = __( 'Dalli delivery', 'courier-delivery-connector-for-dalli' );
+		$this->method_description = __( 'Live delivery rates and pickup points from the Dalli courier service and its partners. Connection settings are under WooCommerce → Settings → Shipping → Dalli.', 'courier-delivery-connector-for-dalli' );
 		$this->supports           = array(
 			'shipping-zones',
 			'instance-settings',
@@ -65,73 +65,73 @@ class ShippingMethod extends \WC_Shipping_Method {
 		$partners = Catalog::partners();
 		return array(
 			'title'          => array(
-				'title'       => __( 'Method title', 'dalli-delivery-for-woocommerce' ),
+				'title'       => __( 'Method title', 'courier-delivery-connector-for-dalli' ),
 				'type'        => 'text',
-				'description' => __( 'Shown in the admin only; customers see the carrier and delivery type of each rate.', 'dalli-delivery-for-woocommerce' ),
-				'default'     => __( 'Dalli delivery', 'dalli-delivery-for-woocommerce' ),
+				'description' => __( 'Shown in the admin only; customers see the carrier and delivery type of each rate.', 'courier-delivery-connector-for-dalli' ),
+				'default'     => __( 'Dalli delivery', 'courier-delivery-connector-for-dalli' ),
 				'desc_tip'    => true,
 			),
 			'tax_status'     => array(
-				'title'   => __( 'Tax status', 'dalli-delivery-for-woocommerce' ),
+				'title'   => __( 'Tax status', 'courier-delivery-connector-for-dalli' ),
 				'type'    => 'select',
 				'class'   => 'wc-enhanced-select',
 				'default' => 'taxable',
 				'options' => array(
-					'taxable' => __( 'Taxable', 'dalli-delivery-for-woocommerce' ),
-					'none'    => _x( 'None', 'Tax status', 'dalli-delivery-for-woocommerce' ),
+					'taxable' => __( 'Taxable', 'courier-delivery-connector-for-dalli' ),
+					'none'    => _x( 'None', 'Tax status', 'courier-delivery-connector-for-dalli' ),
 				),
 			),
 			'partners'       => array(
-				'title'    => __( 'Carriers', 'dalli-delivery-for-woocommerce' ),
+				'title'    => __( 'Carriers', 'courier-delivery-connector-for-dalli' ),
 				'type'     => 'multiselect',
 				'class'    => 'wc-enhanced-select',
 				'default'  => array_keys( $partners ),
 				'options'  => $partners,
-				'desc_tip' => __( 'Only the selected carriers are priced. Each one adds a request to the Dalli API (cached).', 'dalli-delivery-for-woocommerce' ),
+				'desc_tip' => __( 'Only the selected carriers are priced. Each one adds a request to the Dalli API (cached).', 'courier-delivery-connector-for-dalli' ),
 			),
 			'types'          => array(
-				'title'   => __( 'Delivery types', 'dalli-delivery-for-woocommerce' ),
+				'title'   => __( 'Delivery types', 'courier-delivery-connector-for-dalli' ),
 				'type'    => 'multiselect',
 				'class'   => 'wc-enhanced-select',
 				'default' => array( Catalog::TYPE_COURIER, Catalog::TYPE_PVZ ),
 				'options' => Catalog::types(),
 			),
 			'markup_percent' => array(
-				'title'       => __( 'Markup, %', 'dalli-delivery-for-woocommerce' ),
+				'title'       => __( 'Markup, %', 'courier-delivery-connector-for-dalli' ),
 				'type'        => 'text',
 				'default'     => '0',
-				'description' => __( 'Percentage added to the carrier price.', 'dalli-delivery-for-woocommerce' ),
+				'description' => __( 'Percentage added to the carrier price.', 'courier-delivery-connector-for-dalli' ),
 				'desc_tip'    => true,
 				'class'       => 'wc_input_decimal',
 			),
 			'markup_fixed'   => array(
-				'title'       => __( 'Fixed markup', 'dalli-delivery-for-woocommerce' ),
+				'title'       => __( 'Fixed markup', 'courier-delivery-connector-for-dalli' ),
 				'type'        => 'text',
 				'default'     => '0',
-				'description' => __( 'Amount added to the carrier price (may be negative to give a discount).', 'dalli-delivery-for-woocommerce' ),
+				'description' => __( 'Amount added to the carrier price (may be negative to give a discount).', 'courier-delivery-connector-for-dalli' ),
 				'desc_tip'    => true,
 				'class'       => 'wc_input_decimal',
 			),
 			'free_over'      => array(
-				'title'       => __( 'Free shipping over', 'dalli-delivery-for-woocommerce' ),
+				'title'       => __( 'Free shipping over', 'courier-delivery-connector-for-dalli' ),
 				'type'        => 'text',
 				'default'     => '',
-				'description' => __( 'Delivery is free when the cart total reaches this amount. Leave empty to disable.', 'dalli-delivery-for-woocommerce' ),
+				'description' => __( 'Delivery is free when the cart total reaches this amount. Leave empty to disable.', 'courier-delivery-connector-for-dalli' ),
 				'desc_tip'    => true,
 				'class'       => 'wc_input_decimal',
 			),
 			'fixed_price'    => array(
-				'title'       => __( 'Fixed price', 'dalli-delivery-for-woocommerce' ),
+				'title'       => __( 'Fixed price', 'courier-delivery-connector-for-dalli' ),
 				'type'        => 'text',
 				'default'     => '',
-				'description' => __( 'Charge this price for every rate instead of the carrier price. Leave empty to disable.', 'dalli-delivery-for-woocommerce' ),
+				'description' => __( 'Charge this price for every rate instead of the carrier price. Leave empty to disable.', 'courier-delivery-connector-for-dalli' ),
 				'desc_tip'    => true,
 				'class'       => 'wc_input_decimal',
 			),
 			'show_period'    => array(
-				'title'   => __( 'Delivery period', 'dalli-delivery-for-woocommerce' ),
+				'title'   => __( 'Delivery period', 'courier-delivery-connector-for-dalli' ),
 				'type'    => 'checkbox',
-				'label'   => __( 'Show the estimated delivery period next to the rate name', 'dalli-delivery-for-woocommerce' ),
+				'label'   => __( 'Show the estimated delivery period next to the rate name', 'courier-delivery-connector-for-dalli' ),
 				'default' => 'yes',
 			),
 		);
@@ -246,10 +246,10 @@ class ShippingMethod extends \WC_Shipping_Method {
 		$name = Catalog::partner_label( $rate->partner );
 		if ( Catalog::TYPE_PVZ === $rate->type ) {
 			/* translators: %s: carrier name, e.g. CDEK */
-			$label = sprintf( __( '%s pickup point', 'dalli-delivery-for-woocommerce' ), $name );
+			$label = sprintf( __( '%s pickup point', 'courier-delivery-connector-for-dalli' ), $name );
 		} else {
 			/* translators: %s: carrier name, e.g. CDEK */
-			$label = sprintf( __( '%s courier', 'dalli-delivery-for-woocommerce' ), $name );
+			$label = sprintf( __( '%s courier', 'courier-delivery-connector-for-dalli' ), $name );
 		}
 
 		$variant = Catalog::service_variant_label( $rate->service );

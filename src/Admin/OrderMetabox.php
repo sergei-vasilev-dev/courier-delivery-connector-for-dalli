@@ -52,7 +52,7 @@ class OrderMetabox {
 		if ( ! $order || ! OrderData::is_dalli_order( $order ) ) {
 			return;
 		}
-		add_meta_box( 'dalli-delivery-order', __( 'Dalli delivery', 'dalli-delivery-for-woocommerce' ), array( $this, 'render_meta_box' ), $screen, 'side', 'high' );
+		add_meta_box( 'dalli-delivery-order', __( 'Dalli delivery', 'courier-delivery-connector-for-dalli' ), array( $this, 'render_meta_box' ), $screen, 'side', 'high' );
 	}
 
 	/**
@@ -91,13 +91,13 @@ class OrderMetabox {
 		}
 		$time = (string) $order->get_meta( OrderData::META_STATUS_TIME );
 		if ( '' !== $time ) {
-			printf( '<tr><th scope="row">%1$s</th><td>%2$s</td></tr>', esc_html__( 'Status updated', 'dalli-delivery-for-woocommerce' ), esc_html( $time ) );
+			printf( '<tr><th scope="row">%1$s</th><td>%2$s</td></tr>', esc_html__( 'Status updated', 'courier-delivery-connector-for-dalli' ), esc_html( $time ) );
 		}
 		$courier = $order->get_meta( OrderData::META_COURIER );
 		if ( is_array( $courier ) && ! empty( $courier['name'] ) ) {
 			printf(
 				'<tr><th scope="row">%1$s</th><td>%2$s</td></tr>',
-				esc_html__( 'Courier', 'dalli-delivery-for-woocommerce' ),
+				esc_html__( 'Courier', 'courier-delivery-connector-for-dalli' ),
 				esc_html( trim( $courier['name'] . ' ' . ( $courier['phone'] ?? '' ) ) )
 			);
 		}
@@ -105,12 +105,12 @@ class OrderMetabox {
 
 		$error = (string) $order->get_meta( OrderData::META_ERROR );
 		if ( '' !== $error && ! OrderData::is_sent( $order ) ) {
-			printf( '<p style="color:#b32d2e;"><strong>%1$s</strong> %2$s</p>', esc_html__( 'Last error:', 'dalli-delivery-for-woocommerce' ), esc_html( $error ) );
+			printf( '<p style="color:#b32d2e;"><strong>%1$s</strong> %2$s</p>', esc_html__( 'Last error:', 'courier-delivery-connector-for-dalli' ), esc_html( $error ) );
 		}
 
 		$history = OrderData::history( $order );
 		if ( $history ) {
-			echo '<details style="margin:.75em 0;"><summary>' . esc_html__( 'Status history', 'dalli-delivery-for-woocommerce' ) . '</summary><ol style="margin:.5em 0 0 1.25em;">';
+			echo '<details style="margin:.75em 0;"><summary>' . esc_html__( 'Status history', 'courier-delivery-connector-for-dalli' ) . '</summary><ol style="margin:.5em 0 0 1.25em;">';
 			foreach ( $history as $entry ) {
 				printf(
 					'<li>%1$s — %2$s</li>',
@@ -123,22 +123,22 @@ class OrderMetabox {
 
 		echo '<p style="display:flex;flex-wrap:wrap;gap:6px;margin-top:1em;">';
 		if ( ! OrderData::is_sent( $order ) ) {
-			printf( '<a class="button button-primary" href="%1$s">%2$s</a>', esc_url( OrderActions::action_url( $order, 'send' ) ), esc_html__( 'Send to Dalli', 'dalli-delivery-for-woocommerce' ) );
+			printf( '<a class="button button-primary" href="%1$s">%2$s</a>', esc_url( OrderActions::action_url( $order, 'send' ) ), esc_html__( 'Send to Dalli', 'courier-delivery-connector-for-dalli' ) );
 		} else {
-			printf( '<a class="button" href="%1$s">%2$s</a>', esc_url( OrderActions::action_url( $order, 'refresh' ) ), esc_html__( 'Refresh status', 'dalli-delivery-for-woocommerce' ) );
-			printf( '<a class="button" href="%1$s">%2$s</a>', esc_url( OrderActions::action_url( $order, 'sticker' ) ), esc_html__( 'Download sticker', 'dalli-delivery-for-woocommerce' ) );
+			printf( '<a class="button" href="%1$s">%2$s</a>', esc_url( OrderActions::action_url( $order, 'refresh' ) ), esc_html__( 'Refresh status', 'courier-delivery-connector-for-dalli' ) );
+			printf( '<a class="button" href="%1$s">%2$s</a>', esc_url( OrderActions::action_url( $order, 'sticker' ) ), esc_html__( 'Download sticker', 'courier-delivery-connector-for-dalli' ) );
 			if ( OrderData::can_cancel( $order ) ) {
 				printf(
 					'<a class="button" href="%1$s" onclick="return confirm(%3$s);">%2$s</a>',
 					esc_url( OrderActions::action_url( $order, 'cancel' ) ),
-					esc_html__( 'Cancel in Dalli', 'dalli-delivery-for-woocommerce' ),
-					esc_attr( (string) wp_json_encode( __( 'Cancel this delivery in Dalli?', 'dalli-delivery-for-woocommerce' ) ) )
+					esc_html__( 'Cancel in Dalli', 'courier-delivery-connector-for-dalli' ),
+					esc_attr( (string) wp_json_encode( __( 'Cancel this delivery in Dalli?', 'courier-delivery-connector-for-dalli' ) ) )
 				);
 			}
 		}
 		echo '</p>';
 		if ( OrderData::is_sent( $order ) ) {
-			echo '<p class="description">' . esc_html__( 'Dalli only returns stickers for orders sent today.', 'dalli-delivery-for-woocommerce' ) . '</p>';
+			echo '<p class="description">' . esc_html__( 'Dalli only returns stickers for orders sent today.', 'courier-delivery-connector-for-dalli' ) . '</p>';
 		}
 	}
 
@@ -153,11 +153,11 @@ class OrderMetabox {
 		foreach ( $columns as $key => $label ) {
 			$new[ $key ] = $label;
 			if ( 'order_status' === $key ) {
-				$new['dalli_delivery'] = __( 'Dalli', 'dalli-delivery-for-woocommerce' );
+				$new['dalli_delivery'] = __( 'Dalli', 'courier-delivery-connector-for-dalli' );
 			}
 		}
 		if ( ! isset( $new['dalli_delivery'] ) ) {
-			$new['dalli_delivery'] = __( 'Dalli', 'dalli-delivery-for-woocommerce' );
+			$new['dalli_delivery'] = __( 'Dalli', 'courier-delivery-connector-for-dalli' );
 		}
 		return $new;
 	}
@@ -206,7 +206,7 @@ class OrderMetabox {
 		}
 		$barcode = OrderData::barcode( $order );
 		if ( '' === $barcode ) {
-			echo '<span style="opacity:.7;">' . esc_html__( 'Not sent', 'dalli-delivery-for-woocommerce' ) . '</span>';
+			echo '<span style="opacity:.7;">' . esc_html__( 'Not sent', 'courier-delivery-connector-for-dalli' ) . '</span>';
 			return;
 		}
 		$status = OrderData::status( $order );

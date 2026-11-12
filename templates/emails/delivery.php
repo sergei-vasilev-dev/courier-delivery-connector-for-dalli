@@ -12,12 +12,12 @@
 
 defined( 'ABSPATH' ) || exit;
 ?>
-<h2><?php esc_html_e( 'Delivery', 'dalli-delivery-for-woocommerce' ); ?></h2>
+<h2><?php esc_html_e( 'Delivery', 'courier-delivery-connector-for-dalli' ); ?></h2>
 <ul>
 	<?php foreach ( $rows as $dalli_delivery_label => $dalli_delivery_value ) : ?>
 		<li><strong><?php echo esc_html( $dalli_delivery_label ); ?>:</strong> <?php echo esc_html( $dalli_delivery_value ); ?></li>
 	<?php endforeach; ?>
 	<?php if ( ! empty( $tracking_url ) ) : ?>
-		<li><a href="<?php echo esc_url( $tracking_url ); ?>"><?php esc_html_e( 'Track the delivery', 'dalli-delivery-for-woocommerce' ); ?></a></li>
+		<li><a href="<?php echo esc_url( $tracking_url ); ?>"><?php esc_html_e( 'Track the delivery', 'courier-delivery-connector-for-dalli' ); ?></a></li>
 	<?php endif; ?>
 </ul>

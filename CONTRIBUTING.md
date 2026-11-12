@@ -5,8 +5,8 @@ Thanks for helping! This is an unofficial plugin; please keep it that way (no Da
 ## Getting started
 
 ```bash
-git clone https://github.com/sergei-vasilev-dev/dalli-delivery-for-woocommerce.git
-cd dalli-delivery-for-woocommerce
+git clone https://github.com/sergei-vasilev-dev/courier-delivery-connector-for-dalli.git
+cd courier-delivery-connector-for-dalli
 bin/qa.sh                 # installs dev tools via Docker if needed, runs phpcs + phpstan + phpunit
 bash docker/setup.sh      # optional: throwaway WordPress + WooCommerce + mock Dalli API on http://localhost:8099
 ```
@@ -16,7 +16,7 @@ Docker is the only prerequisite. Composer is used for **development** tools only
 ## Rules of the road
 
 * Follow the WordPress Coding Standards (enforced by `phpcs.xml.dist`) and keep PHP 8.1 compatibility.
-* Every user-facing string is English with the `dalli-delivery-for-woocommerce` text domain, translator comments for placeholders, no sentence concatenation.
+* Every user-facing string is English with the `courier-delivery-connector-for-dalli` text domain, translator comments for placeholders, no sentence concatenation.
   Regenerate the template with `bin/make-pot.sh` and update `languages/*-ru_RU.po` (compile `.mo` with `msgfmt`).
 * Escape late, sanitise early. State-changing endpoints need a nonce **and** a capability check. Never log or print the token.
 * Use WooCommerce CRUD APIs (`$order->update_meta_data()`, ...), never direct post meta, so HPOS keeps working.
@@ -31,6 +31,6 @@ Docker is the only prerequisite. Composer is used for **development** tools only
 
 ## Releasing (maintainers)
 
-1. Bump the version in `dalli-delivery-for-woocommerce.php` (header and constant), `readme.txt` (stable tag) and `CHANGELOG.md`.
+1. Bump the version in `courier-delivery-connector-for-dalli.php` (header and constant), `readme.txt` (stable tag) and `CHANGELOG.md`.
 2. `bin/make-pot.sh`, update translations, `bin/qa.sh`, `bin/build-zip.sh`, run Plugin Check on the zip.
 3. Tag `vX.Y.Z`; the release workflow builds the zip and attaches it to the GitHub release.

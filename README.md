@@ -1,6 +1,6 @@
-# Delivery Integration for Dalli
+# Courier Delivery Connector for Dalli
 
-[![CI](https://github.com/sergei-vasilev-dev/dalli-delivery-for-woocommerce/actions/workflows/ci.yml/badge.svg)](https://github.com/sergei-vasilev-dev/dalli-delivery-for-woocommerce/actions/workflows/ci.yml)
+[![CI](https://github.com/sergei-vasilev-dev/courier-delivery-connector-for-dalli/actions/workflows/ci.yml/badge.svg)](https://github.com/sergei-vasilev-dev/courier-delivery-connector-for-dalli/actions/workflows/ci.yml)
 [![License: GPL v2+](https://img.shields.io/badge/License-GPL%20v2%2B-blue.svg)](LICENSE)
 
 WooCommerce integration with the Russian courier service [Dalli](https://dalli-service.com/): live shipping rates, partner pickup points,
@@ -35,7 +35,7 @@ automatic order creation, status tracking and labels. Русская верси�
 
 ## Installation
 
-1. Download the zip from [Releases](https://github.com/sergei-vasilev-dev/dalli-delivery-for-woocommerce/releases) (or `bin/build-zip.sh`), upload it in
+1. Download the zip from [Releases](https://github.com/sergei-vasilev-dev/courier-delivery-connector-for-dalli/releases) (or `bin/build-zip.sh`), upload it in
    *Plugins → Add New → Upload Plugin* and activate. WooCommerce must be active.
 2. *WooCommerce → Settings → Shipping → **Dalli***: choose the branch (Moscow / St. Petersburg), paste the token, press **Test connection**.
 3. *WooCommerce → Settings → Shipping → (zone)*: add **Dalli delivery**, pick carriers/types, optional price rules.
@@ -92,7 +92,7 @@ bash docker/setup.sh   # throwaway WordPress + WooCommerce + mock Dalli API (see
 
 ## Support, contributing, security
 
-Questions and bugs: [GitHub issues](https://github.com/sergei-vasilev-dev/dalli-delivery-for-woocommerce/issues). Please read
+Questions and bugs: [GitHub issues](https://github.com/sergei-vasilev-dev/courier-delivery-connector-for-dalli/issues). Please read
 [CONTRIBUTING.md](CONTRIBUTING.md) and [CODE_OF_CONDUCT.md](CODE_OF_CONDUCT.md). Report vulnerabilities privately, see [SECURITY.md](SECURITY.md). Contact: yurich.dev@gmail.com.
 
 ## License

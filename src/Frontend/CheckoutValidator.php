@@ -29,7 +29,7 @@ class CheckoutValidator {
 		$prepaid = ( AmountPlanner::PAY_PREPAID === $paytype );
 
 		if ( ! $prepaid && ! empty( $rate['only_prepaid'] ) ) {
-			return __( 'This delivery option is available for prepaid orders only. Please choose online payment or another delivery option.', 'dalli-delivery-for-woocommerce' );
+			return __( 'This delivery option is available for prepaid orders only. Please choose online payment or another delivery option.', 'courier-delivery-connector-for-dalli' );
 		}
 
 		if ( Catalog::TYPE_PVZ !== ( $rate['type'] ?? '' ) ) {
@@ -39,17 +39,17 @@ class CheckoutValidator {
 		if ( ! $pvz || empty( $pvz['code'] ) ) {
 			return sprintf(
 				/* translators: %s: carrier name */
-				__( 'Please choose a %s pickup point.', 'dalli-delivery-for-woocommerce' ),
+				__( 'Please choose a %s pickup point.', 'courier-delivery-connector-for-dalli' ),
 				Catalog::partner_label( (string) ( $rate['partner'] ?? '' ) )
 			);
 		}
 
 		if ( ! $prepaid ) {
 			if ( ! empty( $pvz['only_prepaid'] ) ) {
-				return __( 'The chosen pickup point accepts prepaid orders only. Please choose online payment or another pickup point.', 'dalli-delivery-for-woocommerce' );
+				return __( 'The chosen pickup point accepts prepaid orders only. Please choose online payment or another pickup point.', 'courier-delivery-connector-for-dalli' );
 			}
 			if ( AmountPlanner::PAY_CASH === $paytype && isset( $pvz['cash'] ) && empty( $pvz['cash'] ) && ! empty( $pvz['acquiring'] ) ) {
-				return __( 'The chosen pickup point does not accept cash. Please choose another payment method or pickup point.', 'dalli-delivery-for-woocommerce' );
+				return __( 'The chosen pickup point does not accept cash. Please choose another payment method or pickup point.', 'courier-delivery-connector-for-dalli' );
 			}
 		}
 		return '';

@@ -180,21 +180,21 @@ final class OrderData {
 		$rows = array();
 
 		$carrier = Catalog::partner_label( (string) $delivery['partner'] );
-		$rows[ __( 'Carrier', 'dalli-delivery-for-woocommerce' ) ] = $carrier . ', ' . Format::lower( Catalog::type_label( (string) $delivery['type'] ) );
+		$rows[ __( 'Carrier', 'courier-delivery-connector-for-dalli' ) ] = $carrier . ', ' . Format::lower( Catalog::type_label( (string) $delivery['type'] ) );
 
 		$pvz = self::pvz( $order );
 		if ( $pvz ) {
-			$rows[ __( 'Pickup point', 'dalli-delivery-for-woocommerce' ) ] = trim( $pvz['name'] . ( '' !== (string) $pvz['address'] ? ' — ' . $pvz['address'] : '' ) );
+			$rows[ __( 'Pickup point', 'courier-delivery-connector-for-dalli' ) ] = trim( $pvz['name'] . ( '' !== (string) $pvz['address'] ? ' — ' . $pvz['address'] : '' ) );
 			if ( ! empty( $pvz['schedule'] ) ) {
-				$rows[ __( 'Opening hours', 'dalli-delivery-for-woocommerce' ) ] = (string) $pvz['schedule'];
+				$rows[ __( 'Opening hours', 'courier-delivery-connector-for-dalli' ) ] = (string) $pvz['schedule'];
 			}
 		}
 
 		$interval = self::interval( $order );
 		if ( $interval ) {
-			$rows[ __( 'Delivery interval', 'dalli-delivery-for-woocommerce' ) ] = sprintf(
+			$rows[ __( 'Delivery interval', 'courier-delivery-connector-for-dalli' ) ] = sprintf(
 				/* translators: 1: date, 2: start time, 3: end time */
-				__( '%1$s, %2$s–%3$s', 'dalli-delivery-for-woocommerce' ),
+				__( '%1$s, %2$s–%3$s', 'courier-delivery-connector-for-dalli' ),
 				wp_date( get_option( 'date_format' ), (int) strtotime( $interval['date'] . ' 12:00:00' ) ),
 				$interval['min'],
 				$interval['max']
@@ -203,10 +203,10 @@ final class OrderData {
 
 		$barcode = self::barcode( $order );
 		if ( '' !== $barcode ) {
-			$rows[ __( 'Tracking number', 'dalli-delivery-for-woocommerce' ) ] = $barcode;
+			$rows[ __( 'Tracking number', 'courier-delivery-connector-for-dalli' ) ] = $barcode;
 			$status = self::status( $order );
 			if ( '' !== $status ) {
-				$rows[ __( 'Delivery status', 'dalli-delivery-for-woocommerce' ) ] = Catalog::status_label( $status );
+				$rows[ __( 'Delivery status', 'courier-delivery-connector-for-dalli' ) ] = Catalog::status_label( $status );
 			}
 		}
 		return $rows;

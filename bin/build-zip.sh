@@ -1,11 +1,11 @@
 #!/usr/bin/env bash
-# Build a clean release zip (WordPress.org style): dist/dalli-delivery-for-woocommerce-<version>.zip
-# containing a single top-level folder `dalli-delivery-for-woocommerce/`. Files listed in .distignore are left out;
+# Build a clean release zip (WordPress.org style): dist/courier-delivery-connector-for-dalli-<version>.zip
+# containing a single top-level folder `courier-delivery-connector-for-dalli/`. Files listed in .distignore are left out;
 # the runtime needs no Composer dependencies, so `vendor/` is never shipped.
 set -euo pipefail
 
 cd "$(dirname "$0")/.."
-SLUG="dalli-delivery-for-woocommerce"
+SLUG="courier-delivery-connector-for-dalli"
 VERSION="$(sed -n 's/^ \* Version:[[:space:]]*//p' "$SLUG.php" | head -1 | tr -d '[:space:]')"
 CONST_VERSION="$(sed -n "s/^define( 'DALLI_DELIVERY_VERSION', '\(.*\)' );/\1/p" "$SLUG.php")"
 README_VERSION="$(sed -n 's/^Stable tag:[[:space:]]*//p' readme.txt | tr -d '[:space:]')"

@@ -88,14 +88,14 @@ class AjaxController {
 	 */
 	private function guard(): array {
 		if ( ! check_ajax_referer( self::NONCE, 'nonce', false ) ) {
-			wp_send_json_error( array( 'message' => __( 'Your session has expired. Please reload the page.', 'dalli-delivery-for-woocommerce' ) ), 403 );
+			wp_send_json_error( array( 'message' => __( 'Your session has expired. Please reload the page.', 'courier-delivery-connector-for-dalli' ) ), 403 );
 		}
 		if ( ! WC()->cart || WC()->cart->is_empty() ) {
-			wp_send_json_error( array( 'message' => __( 'Your cart is empty.', 'dalli-delivery-for-woocommerce' ) ), 400 );
+			wp_send_json_error( array( 'message' => __( 'Your cart is empty.', 'courier-delivery-connector-for-dalli' ) ), 400 );
 		}
 		$rate = ChosenRate::current();
 		if ( ! $rate ) {
-			wp_send_json_error( array( 'message' => __( 'Dalli delivery is not selected.', 'dalli-delivery-for-woocommerce' ) ), 400 );
+			wp_send_json_error( array( 'message' => __( 'Dalli delivery is not selected.', 'courier-delivery-connector-for-dalli' ) ), 400 );
 		}
 		return $rate;
 	}
@@ -163,18 +163,18 @@ class AjaxController {
 	public function handle_points(): void {
 		$rate = $this->guard();
 		if ( Catalog::TYPE_PVZ !== $rate['type'] ) {
-			wp_send_json_error( array( 'message' => __( 'The selected delivery method does not use pickup points.', 'dalli-delivery-for-woocommerce' ) ), 400 );
+			wp_send_json_error( array( 'message' => __( 'The selected delivery method does not use pickup points.', 'courier-delivery-connector-for-dalli' ) ), 400 );
 		}
 
 		$address = $this->customer_address();
 		$town    = (string) ( $address['city'] ?? '' );
 		if ( '' === $town ) {
-			wp_send_json_error( array( 'message' => __( 'Enter your city first.', 'dalli-delivery-for-woocommerce' ) ), 400 );
+			wp_send_json_error( array( 'message' => __( 'Enter your city first.', 'courier-delivery-connector-for-dalli' ) ), 400 );
 		}
 
 		$points = $this->pvz->for_town( (string) $rate['partner'], $town, $this->region_name( $address ) );
 		if ( '' !== $this->pvz->error() ) {
-			wp_send_json_error( array( 'message' => __( 'Pickup points are temporarily unavailable. Please try again later.', 'dalli-delivery-for-woocommerce' ) ), 502 );
+			wp_send_json_error( array( 'message' => __( 'Pickup points are temporarily unavailable. Please try again later.', 'courier-delivery-connector-for-dalli' ) ), 502 );
 		}
 
 		$weight_limit = $this->cart_weight();
@@ -207,7 +207,7 @@ class AjaxController {
 	public function handle_select_point(): void {
 		$rate = $this->guard();
 		if ( Catalog::TYPE_PVZ !== $rate['type'] ) {
-			wp_send_json_error( array( 'message' => __( 'The selected delivery method does not use pickup points.', 'dalli-delivery-for-woocommerce' ) ), 400 );
+			wp_send_json_error( array( 'message' => __( 'The selected delivery method does not use pickup points.', 'courier-delivery-connector-for-dalli' ) ), 400 );
 		}
 
 		// phpcs:ignore WordPress.Security.NonceVerification.Missing -- verified in guard().
@@ -216,7 +216,7 @@ class AjaxController {
 		$point   = '' !== $code ? $this->pvz->find( (string) $rate['partner'], (string) ( $address['city'] ?? '' ), $this->region_name( $address ), $code ) : null;
 
 		if ( ! $point instanceof PickupPoint ) {
-			wp_send_json_error( array( 'message' => __( 'This pickup point is not available. Please choose another one.', 'dalli-delivery-for-woocommerce' ) ), 404 );
+			wp_send_json_error( array( 'message' => __( 'This pickup point is not available. Please choose another one.', 'courier-delivery-connector-for-dalli' ) ), 404 );
 		}
 
 		$data          = $point->to_array();
@@ -233,12 +233,12 @@ class AjaxController {
 	public function handle_intervals(): void {
 		$rate = $this->guard();
 		if ( ! Catalog::supports_intervals( (int) $rate['service'] ) || ! $this->settings->is_enabled( 'choose_interval' ) ) {
-			wp_send_json_error( array( 'message' => __( 'Delivery intervals are not available for this method.', 'dalli-delivery-for-woocommerce' ) ), 400 );
+			wp_send_json_error( array( 'message' => __( 'Delivery intervals are not available for this method.', 'courier-delivery-connector-for-dalli' ) ), 400 );
 		}
 
 		$dates = $this->interval_options( $rate );
 		if ( null === $dates ) {
-			wp_send_json_error( array( 'message' => __( 'Delivery intervals are temporarily unavailable.', 'dalli-delivery-for-woocommerce' ) ), 502 );
+			wp_send_json_error( array( 'message' => __( 'Delivery intervals are temporarily unavailable.', 'courier-delivery-connector-for-dalli' ) ), 502 );
 		}
 		$interval = $this->selection->interval();
 		wp_send_json_success(
@@ -257,7 +257,7 @@ class AjaxController {
 	public function handle_select_interval(): void {
 		$rate = $this->guard();
 		if ( ! Catalog::supports_intervals( (int) $rate['service'] ) ) {
-			wp_send_json_error( array( 'message' => __( 'Delivery intervals are not available for this method.', 'dalli-delivery-for-woocommerce' ) ), 400 );
+			wp_send_json_error( array( 'message' => __( 'Delivery intervals are not available for this method.', 'courier-delivery-connector-for-dalli' ) ), 400 );
 		}
 
 		// phpcs:disable WordPress.Security.NonceVerification.Missing -- verified in guard().
@@ -284,7 +284,7 @@ class AjaxController {
 			}
 		}
 		if ( ! $valid ) {
-			wp_send_json_error( array( 'message' => __( 'This delivery interval is not available. Please choose another one.', 'dalli-delivery-for-woocommerce' ) ), 400 );
+			wp_send_json_error( array( 'message' => __( 'This delivery interval is not available. Please choose another one.', 'courier-delivery-connector-for-dalli' ) ), 400 );
 		}
 
 		$this->selection->set_interval( $date, $min, $max );

@@ -297,7 +297,7 @@ class StatusSync {
 			$order->add_order_note(
 				sprintf(
 					/* translators: 1: Dalli status label, 2: Dalli status code */
-					__( 'Dalli delivery status: %1$s (%2$s)', 'dalli-delivery-for-woocommerce' ),
+					__( 'Dalli delivery status: %1$s (%2$s)', 'courier-delivery-connector-for-dalli' ),
 					Catalog::status_label( $new ),
 					$new
 				)
@@ -320,7 +320,7 @@ class StatusSync {
 				$target,
 				sprintf(
 					/* translators: %s: Dalli status code */
-					__( 'Status changed by the Dalli delivery status %s.', 'dalli-delivery-for-woocommerce' ),
+					__( 'Status changed by the Dalli delivery status %s.', 'courier-delivery-connector-for-dalli' ),
 					$new
 				)
 			);

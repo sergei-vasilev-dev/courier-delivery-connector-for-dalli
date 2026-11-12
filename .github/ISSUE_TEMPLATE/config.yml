@@ -1,5 +1,5 @@
 blank_issues_enabled: false
 contact_links:
   - name: Report a security vulnerability
-    url: https://github.com/sergei-vasilev-dev/dalli-delivery-for-woocommerce/security/advisories/new
+    url: https://github.com/sergei-vasilev-dev/courier-delivery-connector-for-dalli/security/advisories/new
     about: Please report vulnerabilities privately.

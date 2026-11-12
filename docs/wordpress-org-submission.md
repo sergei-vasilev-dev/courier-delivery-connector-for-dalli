@@ -13,7 +13,7 @@ Step-by-step guide for the author. Nothing here has been sent to WordPress.org y
 | Screenshots `.wordpress-org/screenshot-1..9.png` (1280 px wide, English UI, mock API only, no tokens, no Dalli logos) | done |
 | Icon `icon-128x128.png`, `icon-256x256.png`, banner `banner-772x250.png`, `banner-1544x500.png` (neutral artwork; sources in `docs/assets-src/*.svg`) | done |
 | `.wordpress-org/` is excluded from the release zip (`.distignore`, `.gitattributes`) | done |
-| Zip: `bin/build-zip.sh` -> `dist/dalli-delivery-for-woocommerce-1.0.0.zip` | done |
+| Zip: `bin/build-zip.sh` -> `dist/courier-delivery-connector-for-dalli-1.0.2.zip` | done |
 | QA: phpcs, phpstan, phpunit, Plugin Check on the zip | passing (see `CHANGELOG.md` / the report of the preparation run) |
 | Deploy workflow `.github/workflows/wporg-deploy.yml` (switched off until approval) | done |
 
@@ -27,25 +27,25 @@ Step-by-step guide for the author. Nothing here has been sent to WordPress.org y
 
    ```bash
    bin/build-zip.sh
-   docker compose -f docker/docker-compose.yml --profile tools run --rm -T wpcli sh -c 'wp plugin install plugin-check --activate && wp plugin check dalli-delivery-for-woocommerce'
+   docker compose -f docker/docker-compose.yml --profile tools run --rm -T wpcli sh -c 'wp plugin install plugin-check --activate && wp plugin check courier-delivery-connector-for-dalli'
    ```
 
-   The zip must contain one top-level folder `dalli-delivery-for-woocommerce/` and no `.wordpress-org`, `docs`, `tests`, `vendor`, `bin`, `docker`, `.github`.
+   The zip must contain one top-level folder `courier-delivery-connector-for-dalli/` and no `.wordpress-org`, `docs`, `tests`, `vendor`, `bin`, `docker`, `.github`.
 
 ## 3. Where to upload
 
 1. Log in at <https://wordpress.org/> and open <https://wordpress.org/plugins/developers/add/>.
-2. Upload `dist/dalli-delivery-for-woocommerce-1.0.0.zip`.
+2. Upload `dist/courier-delivery-connector-for-dalli-1.0.2.zip`.
 3. Fill the form (text below). The **plugin name** and **slug** are derived from the main file header and the zip folder; the slug is **permanent** after approval (the name can be changed, the slug cannot).
 4. Press **Submit**. You get an e-mail confirmation; the plugin goes to the review queue. Review time varies (days to a few weeks); check spam for replies from `plugins@wordpress.org`. Reply **in the same e-mail thread**, never by opening a new submission.
 
 ### Text for the form fields
 
-* **Plugin name:** Delivery Integration for Dalli
+* **Plugin name:** Courier Delivery Connector for Dalli
 * **Description / what it does (if asked):**
   > WooCommerce shipping integration with the Russian courier service Dalli (and its partners CDEK, Yandex Delivery, 5Post, Magnit) through the carrier's public API: live rates at the cart and checkout, a searchable pickup point picker for the classic and block checkout, automatic or manual order creation, tracking synchronisation with Action Scheduler, admin tools. Unofficial, GPL-2.0-or-later, no tracking, no third-party code loaded in the browser; data is sent to the carrier's API only after the merchant enters their own API token. Details are in the "External services" section of the readme.
 * **Contact e-mail for documents / support:** yurich.dev@gmail.com
-* **Source code:** https://github.com/sergei-vasilev-dev/dalli-delivery-for-woocommerce (plain PHP/JS/CSS, no build step, no minified files).
+* **Source code:** https://github.com/sergei-vasilev-dev/courier-delivery-connector-for-dalli (plain PHP/JS/CSS, no build step, no minified files).
 * **Test instructions for reviewers** (put in the reply if asked; the plugin needs a Dalli token that I cannot give you):
   > The plugin works against the carrier's API with a personal token, which cannot be shared. Without a token, activation, the settings page (WooCommerce > Settings > Shipping > Dalli) and the shipping method in a zone can still be checked; API calls fail gracefully with an admin notice and no PHP errors. For a full flow the repository ships a mock API: `bash docker/setup.sh` starts WordPress + WooCommerce + the plugin + a mock Dalli server (see `docs/testing.md`).
 
@@ -53,7 +53,7 @@ Step-by-step guide for the author. Nothing here has been sent to WordPress.org y
 
 1. **Automatic pre-checks** run at upload (header, readme, Plugin Check subset). Fix and re-upload if it refuses.
 2. A human reviewer e-mails the findings ("Your plugin has been rejected/not approved *yet*" is normal and means "fix and reply"). Fix **everything** in the list, upload a corrected zip through the **link in the e-mail / the "Add your plugin" page of the same submission**, and reply with a short list of what changed. Do not argue; ask if something is unclear.
-3. After approval you receive SVN access to `https://plugins.svn.wordpress.org/dalli-delivery-for-woocommerce/` and the plugin page appears (screenshots and icon only after the assets are committed).
+3. After approval you receive SVN access to `https://plugins.svn.wordpress.org/courier-delivery-connector-for-dalli/` and the plugin page appears (screenshots and icon only after the assets are committed).
 4. Passwords: use an SVN password generated in your WordPress.org profile (not the login password).
 
 ### Findings that come up most often (and where this plugin stands)
@@ -76,14 +76,14 @@ Step-by-step guide for the author. Nothing here has been sent to WordPress.org y
 
 WordPress.org guideline 17 ("Plugins must respect trademarks, copyrights, and project names") says that a plugin may **not** use another company's trademark or project name **at the start of the slug or the display name** unless the submitter is the legal owner or has permission; the allowed form is the "for X" form, e.g. "Something for X". Reviewers also reject plugins that look **official**. Facts about this plugin:
 
-* Display name "Delivery Integration for Dalli": the trademark comes **after** "for", which is the permitted form. Lower risk, but not zero.
-* Slug `dalli-delivery-for-woocommerce`: it **starts with** "dalli". The reviewers usually derive the slug from the name; a slug that begins with a third-party mark is the typical reason for the e-mail "please rename or prove you represent the owner". **Expect this to be raised.** I cannot know whether Dalli has registered "Dalli" as a trademark in Russia (check the Rospatent/FIPS database at <https://www1.fips.ru/> and ask Dalli), and whether a reviewer will accept the descriptive use.
+* Display name "Courier Delivery Connector for Dalli": the trademark comes **after** "for", which is the permitted form. Lower risk, but not zero.
+* Slug `courier-delivery-connector-for-dalli`: it **starts with** "dalli". The reviewers usually derive the slug from the name; a slug that begins with a third-party mark is the typical reason for the e-mail "please rename or prove you represent the owner". **Expect this to be raised.** I cannot know whether Dalli has registered "Dalli" as a trademark in Russia (check the Rospatent/FIPS database at <https://www1.fips.ru/> and ask Dalli), and whether a reviewer will accept the descriptive use.
 * The readme already says "unofficial, not affiliated, no Dalli logos". Keep that and never use Dalli logos/screenshots from their site.
-* What you can do (in order of safety): (a) ask Dalli for a **short written permission** (an e-mail from a company address is usually accepted: "We allow Sergey Vasilev to publish the plugin 'Delivery Integration for Dalli' on WordPress.org") and attach it to the reply; (b) accept a rename (below); (c) submit as-is and see what the reviewer says (cost: one round of e-mails, the slug is not locked until approval).
+* What you can do (in order of safety): (a) ask Dalli for a **short written permission** (an e-mail from a company address is usually accepted: "We allow Sergey Vasilev to publish the plugin 'Courier Delivery Connector for Dalli' on WordPress.org") and attach it to the reply; (b) accept a rename (below); (c) submit as-is and see what the reviewer says (cost: one round of e-mails, the slug is not locked until approval).
 
 ### Answer to the reviewers if they ask about the trademark
 
-> The plugin is an independent, unofficial integration that connects WooCommerce to the public API of the courier service Dalli. "Dalli" appears only to describe what the plugin connects to ("for Dalli", nominative use); the readme states that the plugin is not affiliated with or endorsed by Dalli, and it contains no Dalli logos or other artwork. I am not the trademark owner. If you consider the slug `dalli-delivery-for-woocommerce` a problem, I can either provide written permission from the owner or change the display name and slug to one of the following: `courier-delivery-connector-for-dalli`, `delivery-connector-for-dalli`, `woo-courier-rates-and-pickup-points`. Please tell me which you prefer.
+> The plugin is an independent, unofficial integration that connects WooCommerce to the public API of the courier service Dalli. "Dalli" appears only to describe what the plugin connects to ("for Dalli", nominative use); the readme states that the plugin is not affiliated with or endorsed by Dalli, and it contains no Dalli logos or other artwork. I am not the trademark owner. If you consider the slug `courier-delivery-connector-for-dalli` a problem, I can either provide written permission from the owner or change the display name and slug to one of the following: `courier-delivery-connector-for-dalli`, `delivery-connector-for-dalli`, `woo-courier-rates-and-pickup-points`. Please tell me which you prefer.
 
 (Replace the last sentence with a firm choice once you have decided; reviewers prefer a quick, specific answer.)
 
@@ -97,11 +97,11 @@ WordPress.org guideline 17 ("Plugins must respect trademarks, copyrights, and pr
 
 Avoid: names/slugs starting with `dalli-`, anything with "official", and Dalli's logo or colours.
 
-### What to change when renaming (do **not** do this before the reviewers ask; this repository has not been renamed)
+### What was changed when the plugin was renamed (done in 1.0.2; kept as a checklist for a future rename)
 
-Let `OLD=dalli-delivery-for-woocommerce` and `NEW=<new slug>`. The code prefix `dalli_delivery_` (options, hooks, handles) and the PHP namespace `DalliDelivery` describe the carrier and are **not** the slug; keep them (changing them would break existing installs; there are none yet, so it is allowed but unnecessary).
+Let `OLD=courier-delivery-connector-for-dalli` and `NEW=<new slug>`. The code prefix `dalli_delivery_` (options, hooks, handles) and the PHP namespace `DalliDelivery` describe the carrier and are **not** the slug; keep them (changing them would break existing installs; there are none yet, so it is allowed but unnecessary).
 
-1. **Main file:** rename `OLD.php` -> `NEW.php`; update `Plugin Name:` (display name), `Text Domain: NEW`, `Plugin URI` if it contains the slug; every `require`/`plugin_basename`/`__FILE__` reference to the old file name (grep for `dalli-delivery-for-woocommerce`).
+1. **Main file:** rename `OLD.php` -> `NEW.php`; update `Plugin Name:` (display name), `Text Domain: NEW`, `Plugin URI` if it contains the slug; every `require`/`plugin_basename`/`__FILE__` reference to the old file name (grep for `courier-delivery-connector-for-dalli`).
 2. **Text domain:** every `__( ..., 'OLD' )`, `_e`, `esc_html__`, `_n`, `_x` etc. -> `'NEW'` (a sed over `src/`, `templates/`, main file; PHPCS `WordPress.WP.I18n` checks the domain, see `phpcs.xml.dist` `text_domain` property and the `i18n` lint config).
 3. **Translations:** rename `languages/OLD.pot` and `OLD-ru_RU.po/.mo` to `NEW...`; regenerate with `bin/make-pot.sh` (update the domain inside it) and recompile the `.mo`; the `Domain:` header inside the `.po` must match.
 4. **`readme.txt`:** `=== Name ===` title, short description, links to the plugin page, any slug in FAQ text, the template override path (`yourtheme/woocommerce/dalli-delivery/` can stay).
@@ -118,7 +118,7 @@ Let `OLD=dalli-delivery-for-woocommerce` and `NEW=<new slug>`. The code prefix `
 You will receive an e-mail with the SVN URL `https://plugins.svn.wordpress.org/<slug>/`. SVN layout: `trunk/` (current code), `tags/<version>/` (releases), `assets/` (screenshots, icon, banner; **not** inside the plugin zip), `branches/`.
 
 ```bash
-svn checkout https://plugins.svn.wordpress.org/dalli-delivery-for-woocommerce svn-dalli --username yurich0dev
+svn checkout https://plugins.svn.wordpress.org/courier-delivery-connector-for-dalli svn-dalli --username yurich0dev
 cd svn-dalli
 
 # 1. Plugin files into trunk (the same content as the release zip, i.e. without files from .distignore)

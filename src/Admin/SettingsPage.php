@@ -71,7 +71,7 @@ class SettingsPage {
 	 * @return array<string,string>
 	 */
 	public function add_section( $sections ) {
-		$sections[ self::SECTION ] = __( 'Dalli', 'dalli-delivery-for-woocommerce' );
+		$sections[ self::SECTION ] = __( 'Dalli', 'courier-delivery-connector-for-dalli' );
 		return $sections;
 	}
 
@@ -138,66 +138,66 @@ class SettingsPage {
 		$fields = array();
 
 		$fields[] = array(
-			'title' => __( 'Dalli connection', 'dalli-delivery-for-woocommerce' ),
+			'title' => __( 'Dalli connection', 'courier-delivery-connector-for-dalli' ),
 			'type'  => 'title',
-			'desc'  => __( 'Unofficial integration. Not affiliated with or endorsed by Dalli. Get your token in the Dalli personal account (Account section).', 'dalli-delivery-for-woocommerce' ),
+			'desc'  => __( 'Unofficial integration. Not affiliated with or endorsed by Dalli. Get your token in the Dalli personal account (Account section).', 'courier-delivery-connector-for-dalli' ),
 			'id'    => 'dalli_delivery_connection',
 		);
 		$fields[] = $this->field(
 			'branch',
 			array(
-				'title'    => __( 'Branch', 'dalli-delivery-for-woocommerce' ),
+				'title'    => __( 'Branch', 'courier-delivery-connector-for-dalli' ),
 				'type'     => 'select',
 				'class'    => 'wc-enhanced-select',
 				'options'  => array(
-					Settings::BRANCH_MSK => __( 'Moscow (api.dalli-service.com)', 'dalli-delivery-for-woocommerce' ),
-					Settings::BRANCH_SPB => __( 'St. Petersburg (spbapi.dalli-service.com)', 'dalli-delivery-for-woocommerce' ),
+					Settings::BRANCH_MSK => __( 'Moscow (api.dalli-service.com)', 'courier-delivery-connector-for-dalli' ),
+					Settings::BRANCH_SPB => __( 'St. Petersburg (spbapi.dalli-service.com)', 'courier-delivery-connector-for-dalli' ),
 				),
-				'desc'     => __( 'The branch you have the contract with.', 'dalli-delivery-for-woocommerce' ),
+				'desc'     => __( 'The branch you have the contract with.', 'courier-delivery-connector-for-dalli' ),
 				'desc_tip' => true,
 			)
 		);
 		$fields[] = $this->field(
 			'mode',
 			array(
-				'title'   => __( 'Mode', 'dalli-delivery-for-woocommerce' ),
+				'title'   => __( 'Mode', 'courier-delivery-connector-for-dalli' ),
 				'type'    => 'select',
 				'class'   => 'wc-enhanced-select',
 				'options' => array(
-					Settings::MODE_LIVE => __( 'Live', 'dalli-delivery-for-woocommerce' ),
-					Settings::MODE_TEST => __( 'Test platform (shared, never use real customer data)', 'dalli-delivery-for-woocommerce' ),
+					Settings::MODE_LIVE => __( 'Live', 'courier-delivery-connector-for-dalli' ),
+					Settings::MODE_TEST => __( 'Test platform (shared, never use real customer data)', 'courier-delivery-connector-for-dalli' ),
 				),
 			)
 		);
 		$fields[] = $this->field(
 			'token',
 			array(
-				'title' => __( 'API token', 'dalli-delivery-for-woocommerce' ),
+				'title' => __( 'API token', 'courier-delivery-connector-for-dalli' ),
 				'type'  => 'dalli_secret',
-				'desc'  => __( 'You can also define DALLI_TOKEN in wp-config.php.', 'dalli-delivery-for-woocommerce' ),
+				'desc'  => __( 'You can also define DALLI_TOKEN in wp-config.php.', 'courier-delivery-connector-for-dalli' ),
 				'const' => 'DALLI_TOKEN',
 			)
 		);
 		$fields[] = $this->field(
 			'test_token',
 			array(
-				'title' => __( 'Test API token', 'dalli-delivery-for-woocommerce' ),
+				'title' => __( 'Test API token', 'courier-delivery-connector-for-dalli' ),
 				'type'  => 'dalli_secret',
-				'desc'  => __( 'Token of the shared Dalli test platform. You can also define DALLI_TEST_TOKEN in wp-config.php.', 'dalli-delivery-for-woocommerce' ),
+				'desc'  => __( 'Token of the shared Dalli test platform. You can also define DALLI_TEST_TOKEN in wp-config.php.', 'courier-delivery-connector-for-dalli' ),
 				'const' => 'DALLI_TEST_TOKEN',
 			)
 		);
 		$fields[] = $this->field(
 			'sender_code',
 			array(
-				'title'    => __( 'Sender code', 'dalli-delivery-for-woocommerce' ),
+				'title'    => __( 'Sender code', 'courier-delivery-connector-for-dalli' ),
 				'type'     => 'text',
-				'desc'     => __( 'Pickup address code from your Dalli manager. Required for rates from regional branches; leave empty otherwise.', 'dalli-delivery-for-woocommerce' ),
+				'desc'     => __( 'Pickup address code from your Dalli manager. Required for rates from regional branches; leave empty otherwise.', 'courier-delivery-connector-for-dalli' ),
 				'desc_tip' => true,
 			)
 		);
 		$fields[] = array(
-			'title' => __( 'Connection test', 'dalli-delivery-for-woocommerce' ),
+			'title' => __( 'Connection test', 'courier-delivery-connector-for-dalli' ),
 			'type'  => 'dalli_test_connection',
 			'id'    => 'dalli_delivery_test_connection',
 		);
@@ -207,20 +207,20 @@ class SettingsPage {
 		);
 
 		$fields[] = array(
-			'title' => __( 'Parcel defaults', 'dalli-delivery-for-woocommerce' ),
+			'title' => __( 'Parcel defaults', 'courier-delivery-connector-for-dalli' ),
 			'type'  => 'title',
-			'desc'  => __( 'Used when a product has no weight or dimensions. Product weight and dimensions use the native WooCommerce fields.', 'dalli-delivery-for-woocommerce' ),
+			'desc'  => __( 'Used when a product has no weight or dimensions. Product weight and dimensions use the native WooCommerce fields.', 'courier-delivery-connector-for-dalli' ),
 			'id'    => 'dalli_delivery_parcel',
 		);
 		foreach ( array(
-			'default_weight' => __( 'Default product weight, kg', 'dalli-delivery-for-woocommerce' ),
-			'default_length' => __( 'Default product length, cm', 'dalli-delivery-for-woocommerce' ),
-			'default_width'  => __( 'Default product width, cm', 'dalli-delivery-for-woocommerce' ),
-			'default_height' => __( 'Default product height, cm', 'dalli-delivery-for-woocommerce' ),
-			'box_weight'     => __( 'Packaging weight, kg', 'dalli-delivery-for-woocommerce' ),
-			'box_length'     => __( 'Packaging box length, cm', 'dalli-delivery-for-woocommerce' ),
-			'box_width'      => __( 'Packaging box width, cm', 'dalli-delivery-for-woocommerce' ),
-			'box_height'     => __( 'Packaging box height, cm', 'dalli-delivery-for-woocommerce' ),
+			'default_weight' => __( 'Default product weight, kg', 'courier-delivery-connector-for-dalli' ),
+			'default_length' => __( 'Default product length, cm', 'courier-delivery-connector-for-dalli' ),
+			'default_width'  => __( 'Default product width, cm', 'courier-delivery-connector-for-dalli' ),
+			'default_height' => __( 'Default product height, cm', 'courier-delivery-connector-for-dalli' ),
+			'box_weight'     => __( 'Packaging weight, kg', 'courier-delivery-connector-for-dalli' ),
+			'box_length'     => __( 'Packaging box length, cm', 'courier-delivery-connector-for-dalli' ),
+			'box_width'      => __( 'Packaging box width, cm', 'courier-delivery-connector-for-dalli' ),
+			'box_height'     => __( 'Packaging box height, cm', 'courier-delivery-connector-for-dalli' ),
 		) as $key => $title ) {
 			$fields[] = $this->field(
 				$key,
@@ -241,27 +241,27 @@ class SettingsPage {
 		);
 
 		$fields[] = array(
-			'title' => __( 'Prices and declared value', 'dalli-delivery-for-woocommerce' ),
+			'title' => __( 'Prices and declared value', 'courier-delivery-connector-for-dalli' ),
 			'type'  => 'title',
-			'desc'  => __( 'Markup, free shipping and fixed price are configured per shipping zone, in the "Dalli delivery" method settings.', 'dalli-delivery-for-woocommerce' ),
+			'desc'  => __( 'Markup, free shipping and fixed price are configured per shipping zone, in the "Dalli delivery" method settings.', 'courier-delivery-connector-for-dalli' ),
 			'id'    => 'dalli_delivery_pricing',
 		);
 		$fields[] = $this->field(
 			'declared_value',
 			array(
-				'title'   => __( 'Declared value', 'dalli-delivery-for-woocommerce' ),
+				'title'   => __( 'Declared value', 'courier-delivery-connector-for-dalli' ),
 				'type'    => 'select',
 				'class'   => 'wc-enhanced-select',
 				'options' => array(
-					'items'   => __( 'Full value of the items', 'dalli-delivery-for-woocommerce' ),
-					'percent' => __( 'A percentage of the items value', 'dalli-delivery-for-woocommerce' ),
+					'items'   => __( 'Full value of the items', 'courier-delivery-connector-for-dalli' ),
+					'percent' => __( 'A percentage of the items value', 'courier-delivery-connector-for-dalli' ),
 				),
 			)
 		);
 		$fields[] = $this->field(
 			'declared_percent',
 			array(
-				'title'             => __( 'Declared value, %', 'dalli-delivery-for-woocommerce' ),
+				'title'             => __( 'Declared value, %', 'courier-delivery-connector-for-dalli' ),
 				'type'              => 'number',
 				'custom_attributes' => array(
 					'min'  => '0',
@@ -274,28 +274,28 @@ class SettingsPage {
 		$fields[] = $this->field(
 			'rounding_step',
 			array(
-				'title'   => __( 'Round delivery price to', 'dalli-delivery-for-woocommerce' ),
+				'title'   => __( 'Round delivery price to', 'courier-delivery-connector-for-dalli' ),
 				'type'    => 'select',
 				'class'   => 'wc-enhanced-select',
 				'options' => array(
-					'0'   => __( 'Kopecks (no rounding)', 'dalli-delivery-for-woocommerce' ),
-					'1'   => __( '1 rouble', 'dalli-delivery-for-woocommerce' ),
-					'5'   => __( '5 roubles', 'dalli-delivery-for-woocommerce' ),
-					'10'  => __( '10 roubles', 'dalli-delivery-for-woocommerce' ),
-					'50'  => __( '50 roubles', 'dalli-delivery-for-woocommerce' ),
-					'100' => __( '100 roubles', 'dalli-delivery-for-woocommerce' ),
+					'0'   => __( 'Kopecks (no rounding)', 'courier-delivery-connector-for-dalli' ),
+					'1'   => __( '1 rouble', 'courier-delivery-connector-for-dalli' ),
+					'5'   => __( '5 roubles', 'courier-delivery-connector-for-dalli' ),
+					'10'  => __( '10 roubles', 'courier-delivery-connector-for-dalli' ),
+					'50'  => __( '50 roubles', 'courier-delivery-connector-for-dalli' ),
+					'100' => __( '100 roubles', 'courier-delivery-connector-for-dalli' ),
 				),
 			)
 		);
 		$fields[] = $this->field(
 			'rounding_direction',
 			array(
-				'title'   => __( 'Rounding direction', 'dalli-delivery-for-woocommerce' ),
+				'title'   => __( 'Rounding direction', 'courier-delivery-connector-for-dalli' ),
 				'type'    => 'select',
 				'class'   => 'wc-enhanced-select',
 				'options' => array(
-					'nearest' => __( 'To the nearest value', 'dalli-delivery-for-woocommerce' ),
-					'up'      => __( 'Up', 'dalli-delivery-for-woocommerce' ),
+					'nearest' => __( 'To the nearest value', 'courier-delivery-connector-for-dalli' ),
+					'up'      => __( 'Up', 'courier-delivery-connector-for-dalli' ),
 				),
 			)
 		);
@@ -305,15 +305,15 @@ class SettingsPage {
 		);
 
 		$fields[] = array(
-			'title' => __( 'Payment methods', 'dalli-delivery-for-woocommerce' ),
+			'title' => __( 'Payment methods', 'courier-delivery-connector-for-dalli' ),
 			'type'  => 'title',
-			'desc'  => __( 'Tell Dalli how the customer pays. Any gateway that is not listed below is treated as prepaid (the courier collects nothing).', 'dalli-delivery-for-woocommerce' ),
+			'desc'  => __( 'Tell Dalli how the customer pays. Any gateway that is not listed below is treated as prepaid (the courier collects nothing).', 'courier-delivery-connector-for-dalli' ),
 			'id'    => 'dalli_delivery_payment',
 		);
 		$fields[] = $this->field(
 			'cod_gateways',
 			array(
-				'title'   => __( 'Cash on receipt', 'dalli-delivery-for-woocommerce' ),
+				'title'   => __( 'Cash on receipt', 'courier-delivery-connector-for-dalli' ),
 				'type'    => 'multiselect',
 				'class'   => 'wc-enhanced-select',
 				'options' => $gateways,
@@ -322,11 +322,11 @@ class SettingsPage {
 		$fields[] = $this->field(
 			'card_gateways',
 			array(
-				'title'    => __( 'Card on receipt', 'dalli-delivery-for-woocommerce' ),
+				'title'    => __( 'Card on receipt', 'courier-delivery-connector-for-dalli' ),
 				'type'     => 'multiselect',
 				'class'    => 'wc-enhanced-select',
 				'options'  => $gateways,
-				'desc'     => __( 'Only Dalli couriers accept cards; for partners the order is sent as cash on receipt.', 'dalli-delivery-for-woocommerce' ),
+				'desc'     => __( 'Only Dalli couriers accept cards; for partners the order is sent as cash on receipt.', 'courier-delivery-connector-for-dalli' ),
 				'desc_tip' => true,
 			)
 		);
@@ -336,36 +336,36 @@ class SettingsPage {
 		);
 
 		$fields[] = array(
-			'title' => __( 'Orders', 'dalli-delivery-for-woocommerce' ),
+			'title' => __( 'Orders', 'courier-delivery-connector-for-dalli' ),
 			'type'  => 'title',
 			'id'    => 'dalli_delivery_orders',
 		);
 		$fields[] = $this->field(
 			'order_trigger',
 			array(
-				'title'   => __( 'Create the order in Dalli', 'dalli-delivery-for-woocommerce' ),
+				'title'   => __( 'Create the order in Dalli', 'courier-delivery-connector-for-dalli' ),
 				'type'    => 'select',
 				'class'   => 'wc-enhanced-select',
 				'options' => array(
-					'processing' => __( 'When the order becomes "Processing" (paid)', 'dalli-delivery-for-woocommerce' ),
-					'completed'  => __( 'When the order becomes "Completed"', 'dalli-delivery-for-woocommerce' ),
-					'manual'     => __( 'Manually, with a button on the order screen', 'dalli-delivery-for-woocommerce' ),
+					'processing' => __( 'When the order becomes "Processing" (paid)', 'courier-delivery-connector-for-dalli' ),
+					'completed'  => __( 'When the order becomes "Completed"', 'courier-delivery-connector-for-dalli' ),
+					'manual'     => __( 'Manually, with a button on the order screen', 'courier-delivery-connector-for-dalli' ),
 				),
 			)
 		);
 		$fields[] = $this->field(
 			'order_prefix',
 			array(
-				'title'    => __( 'Order number prefix', 'dalli-delivery-for-woocommerce' ),
+				'title'    => __( 'Order number prefix', 'courier-delivery-connector-for-dalli' ),
 				'type'     => 'text',
-				'desc'     => __( 'Added to the WooCommerce order number. Order numbers must be unique across your Dalli account; use a prefix when several shops share it.', 'dalli-delivery-for-woocommerce' ),
+				'desc'     => __( 'Added to the WooCommerce order number. Order numbers must be unique across your Dalli account; use a prefix when several shops share it.', 'courier-delivery-connector-for-dalli' ),
 				'desc_tip' => true,
 			)
 		);
 		$fields[] = $this->field(
 			'item_vat',
 			array(
-				'title'   => __( 'VAT rate of items', 'dalli-delivery-for-woocommerce' ),
+				'title'   => __( 'VAT rate of items', 'courier-delivery-connector-for-dalli' ),
 				'type'    => 'select',
 				'class'   => 'wc-enhanced-select',
 				'options' => array(
@@ -374,27 +374,27 @@ class SettingsPage {
 					'10' => '10%',
 					'7'  => '7%',
 					'5'  => '5%',
-					'0'  => __( 'No VAT', 'dalli-delivery-for-woocommerce' ),
+					'0'  => __( 'No VAT', 'courier-delivery-connector-for-dalli' ),
 				),
 			)
 		);
 		$fields[] = $this->field(
 			'accept_partially',
 			array(
-				'title'   => __( 'Partial redemption', 'dalli-delivery-for-woocommerce' ),
+				'title'   => __( 'Partial redemption', 'courier-delivery-connector-for-dalli' ),
 				'type'    => 'select',
 				'class'   => 'wc-enhanced-select',
 				'options' => array(
-					''    => __( 'Use the account default', 'dalli-delivery-for-woocommerce' ),
-					'YES' => __( 'Allowed', 'dalli-delivery-for-woocommerce' ),
-					'NO'  => __( 'Not allowed', 'dalli-delivery-for-woocommerce' ),
+					''    => __( 'Use the account default', 'courier-delivery-connector-for-dalli' ),
+					'YES' => __( 'Allowed', 'courier-delivery-connector-for-dalli' ),
+					'NO'  => __( 'Not allowed', 'courier-delivery-connector-for-dalli' ),
 				),
 			)
 		);
 		$fields[] = $this->field(
 			'default_time_min',
 			array(
-				'title' => __( 'Default delivery time from', 'dalli-delivery-for-woocommerce' ),
+				'title' => __( 'Default delivery time from', 'courier-delivery-connector-for-dalli' ),
 				'type'  => 'time',
 				'css'   => 'width:100px;',
 			)
@@ -402,7 +402,7 @@ class SettingsPage {
 		$fields[] = $this->field(
 			'default_time_max',
 			array(
-				'title' => __( 'Default delivery time to', 'dalli-delivery-for-woocommerce' ),
+				'title' => __( 'Default delivery time to', 'courier-delivery-connector-for-dalli' ),
 				'type'  => 'time',
 				'css'   => 'width:100px;',
 			)
@@ -410,25 +410,25 @@ class SettingsPage {
 		$fields[] = $this->field(
 			'choose_interval',
 			array(
-				'title' => __( 'Delivery interval', 'dalli-delivery-for-woocommerce' ),
+				'title' => __( 'Delivery interval', 'courier-delivery-connector-for-dalli' ),
 				'type'  => 'checkbox',
-				'desc'  => __( 'Let customers choose the delivery date and time for Dalli courier delivery', 'dalli-delivery-for-woocommerce' ),
+				'desc'  => __( 'Let customers choose the delivery date and time for Dalli courier delivery', 'courier-delivery-connector-for-dalli' ),
 			)
 		);
 		$fields[] = $this->field(
 			'sticker_format',
 			array(
-				'title'   => __( 'Sticker (label) format', 'dalli-delivery-for-woocommerce' ),
+				'title'   => __( 'Sticker (label) format', 'courier-delivery-connector-for-dalli' ),
 				'type'    => 'select',
 				'class'   => 'wc-enhanced-select',
 				'options' => array(
-					'1' => __( 'Zebra', 'dalli-delivery-for-woocommerce' ),
-					'2' => __( 'A4 with frame', 'dalli-delivery-for-woocommerce' ),
-					'3' => __( 'A4 without frame', 'dalli-delivery-for-woocommerce' ),
-					'4' => __( 'A6', 'dalli-delivery-for-woocommerce' ),
-					'5' => __( '100 x 50 mm', 'dalli-delivery-for-woocommerce' ),
-					'6' => __( '105 x 148 mm', 'dalli-delivery-for-woocommerce' ),
-					'7' => __( '75 x 120 mm', 'dalli-delivery-for-woocommerce' ),
+					'1' => __( 'Zebra', 'courier-delivery-connector-for-dalli' ),
+					'2' => __( 'A4 with frame', 'courier-delivery-connector-for-dalli' ),
+					'3' => __( 'A4 without frame', 'courier-delivery-connector-for-dalli' ),
+					'4' => __( 'A6', 'courier-delivery-connector-for-dalli' ),
+					'5' => __( '100 x 50 mm', 'courier-delivery-connector-for-dalli' ),
+					'6' => __( '105 x 148 mm', 'courier-delivery-connector-for-dalli' ),
+					'7' => __( '75 x 120 mm', 'courier-delivery-connector-for-dalli' ),
 				),
 			)
 		);
@@ -438,53 +438,53 @@ class SettingsPage {
 		);
 
 		$fields[] = array(
-			'title' => __( 'Tracking', 'dalli-delivery-for-woocommerce' ),
+			'title' => __( 'Tracking', 'courier-delivery-connector-for-dalli' ),
 			'type'  => 'title',
 			'id'    => 'dalli_delivery_tracking',
 		);
 		$fields[] = $this->field(
 			'sync_enabled',
 			array(
-				'title' => __( 'Status synchronisation', 'dalli-delivery-for-woocommerce' ),
+				'title' => __( 'Status synchronisation', 'courier-delivery-connector-for-dalli' ),
 				'type'  => 'checkbox',
-				'desc'  => __( 'Refresh delivery statuses in the background', 'dalli-delivery-for-woocommerce' ),
+				'desc'  => __( 'Refresh delivery statuses in the background', 'courier-delivery-connector-for-dalli' ),
 			)
 		);
 		$fields[] = $this->field(
 			'sync_interval',
 			array(
-				'title'   => __( 'Synchronisation interval', 'dalli-delivery-for-woocommerce' ),
+				'title'   => __( 'Synchronisation interval', 'courier-delivery-connector-for-dalli' ),
 				'type'    => 'select',
 				'class'   => 'wc-enhanced-select',
 				'options' => array(
-					'5'  => __( 'Every 5 minutes', 'dalli-delivery-for-woocommerce' ),
-					'15' => __( 'Every 15 minutes', 'dalli-delivery-for-woocommerce' ),
-					'30' => __( 'Every 30 minutes', 'dalli-delivery-for-woocommerce' ),
-					'60' => __( 'Every hour', 'dalli-delivery-for-woocommerce' ),
+					'5'  => __( 'Every 5 minutes', 'courier-delivery-connector-for-dalli' ),
+					'15' => __( 'Every 15 minutes', 'courier-delivery-connector-for-dalli' ),
+					'30' => __( 'Every 30 minutes', 'courier-delivery-connector-for-dalli' ),
+					'60' => __( 'Every hour', 'courier-delivery-connector-for-dalli' ),
 				),
 			)
 		);
 		$fields[] = $this->field(
 			'sync_mode',
 			array(
-				'title'    => __( 'Synchronisation method', 'dalli-delivery-for-woocommerce' ),
+				'title'    => __( 'Synchronisation method', 'courier-delivery-connector-for-dalli' ),
 				'type'     => 'select',
 				'class'    => 'wc-enhanced-select',
 				'options'  => array(
-					'per_order' => __( 'Query every open order (safe default)', 'dalli-delivery-for-woocommerce' ),
-					'changes'   => __( 'Account-wide "changed statuses" feed (fewer requests)', 'dalli-delivery-for-woocommerce' ),
+					'per_order' => __( 'Query every open order (safe default)', 'courier-delivery-connector-for-dalli' ),
+					'changes'   => __( 'Account-wide "changed statuses" feed (fewer requests)', 'courier-delivery-connector-for-dalli' ),
 				),
-				'desc'     => __( 'The changes feed is shared by everything that uses your Dalli account: if another system reads it, each of you will miss updates. Use it only when this shop is the sole consumer.', 'dalli-delivery-for-woocommerce' ),
+				'desc'     => __( 'The changes feed is shared by everything that uses your Dalli account: if another system reads it, each of you will miss updates. Use it only when this shop is the sole consumer.', 'courier-delivery-connector-for-dalli' ),
 				'desc_tip' => true,
 			)
 		);
 		$fields[] = $this->field(
 			'tracking_url',
 			array(
-				'title'       => __( 'Tracking link', 'dalli-delivery-for-woocommerce' ),
+				'title'       => __( 'Tracking link', 'courier-delivery-connector-for-dalli' ),
 				'type'        => 'text',
 				'placeholder' => 'https://example.com/track/{barcode}',
-				'desc'        => __( 'Optional public tracking page. Use {barcode} where the tracking number goes. Shown to customers when set.', 'dalli-delivery-for-woocommerce' ),
+				'desc'        => __( 'Optional public tracking page. Use {barcode} where the tracking number goes. Shown to customers when set.', 'courier-delivery-connector-for-dalli' ),
 				'desc_tip'    => true,
 			)
 		);
@@ -494,9 +494,9 @@ class SettingsPage {
 		);
 
 		$fields[] = array(
-			'title' => __( 'Order status mapping', 'dalli-delivery-for-woocommerce' ),
+			'title' => __( 'Order status mapping', 'courier-delivery-connector-for-dalli' ),
 			'type'  => 'title',
-			'desc'  => __( 'Optionally change the WooCommerce order status when the delivery status changes. Leave "Do not change" to keep control of order statuses. Moving to "Completed" sends the customer e-mail.', 'dalli-delivery-for-woocommerce' ),
+			'desc'  => __( 'Optionally change the WooCommerce order status when the delivery status changes. Leave "Do not change" to keep control of order statuses. Moving to "Completed" sends the customer e-mail.', 'courier-delivery-connector-for-dalli' ),
 			'id'    => 'dalli_delivery_status_map_section',
 		);
 		foreach ( Catalog::statuses() as $code => $label ) {
@@ -506,7 +506,7 @@ class SettingsPage {
 				'type'    => 'select',
 				'class'   => 'wc-enhanced-select',
 				'default' => '',
-				'options' => array( '' => __( 'Do not change', 'dalli-delivery-for-woocommerce' ) ) + $order_statuses,
+				'options' => array( '' => __( 'Do not change', 'courier-delivery-connector-for-dalli' ) ) + $order_statuses,
 			);
 		}
 		$fields[] = array(
@@ -515,18 +515,18 @@ class SettingsPage {
 		);
 
 		$fields[] = array(
-			'title' => __( 'Logging', 'dalli-delivery-for-woocommerce' ),
+			'title' => __( 'Logging', 'courier-delivery-connector-for-dalli' ),
 			'type'  => 'title',
 			'id'    => 'dalli_delivery_logging',
 		);
 		$fields[] = $this->field(
 			'debug',
 			array(
-				'title' => __( 'Debug log', 'dalli-delivery-for-woocommerce' ),
+				'title' => __( 'Debug log', 'courier-delivery-connector-for-dalli' ),
 				'type'  => 'checkbox',
 				'desc'  => sprintf(
 					/* translators: %s: log source name */
-					__( 'Log API requests and responses (source %s, see WooCommerce → Status → Logs). Logs contain customer data; the token is always redacted.', 'dalli-delivery-for-woocommerce' ),
+					__( 'Log API requests and responses (source %s, see WooCommerce → Status → Logs). Logs contain customer data; the token is always redacted.', 'courier-delivery-connector-for-dalli' ),
 					'dalli-delivery'
 				),
 			)
@@ -564,7 +564,7 @@ class SettingsPage {
 					<p class="description">
 						<?php
 						/* translators: %s: PHP constant name */
-						echo esc_html( sprintf( __( 'Defined by the %s constant in wp-config.php.', 'dalli-delivery-for-woocommerce' ), $const ) );
+						echo esc_html( sprintf( __( 'Defined by the %s constant in wp-config.php.', 'courier-delivery-connector-for-dalli' ), $const ) );
 						?>
 					</p>
 				<?php else : ?>
@@ -576,18 +576,18 @@ class SettingsPage {
 						autocomplete="new-password"
 						spellcheck="false"
 						value=""
-						placeholder="<?php echo esc_attr( '' !== $placeholder ? $placeholder : __( 'Not set', 'dalli-delivery-for-woocommerce' ) ); ?>"
+						placeholder="<?php echo esc_attr( '' !== $placeholder ? $placeholder : __( 'Not set', 'courier-delivery-connector-for-dalli' ) ); ?>"
 					/>
 					<?php if ( '' !== $stored ) : ?>
 						<label>
 							<input type="checkbox" name="<?php echo esc_attr( $id . '_clear' ); ?>" value="1" />
-							<?php esc_html_e( 'Remove the saved token', 'dalli-delivery-for-woocommerce' ); ?>
+							<?php esc_html_e( 'Remove the saved token', 'courier-delivery-connector-for-dalli' ); ?>
 						</label>
 					<?php endif; ?>
 					<p class="description">
 						<?php echo esc_html( (string) ( $value['desc'] ?? '' ) ); ?>
 						<?php if ( '' !== $stored ) : ?>
-							<?php esc_html_e( 'Leave empty to keep the saved token.', 'dalli-delivery-for-woocommerce' ); ?>
+							<?php esc_html_e( 'Leave empty to keep the saved token.', 'courier-delivery-connector-for-dalli' ); ?>
 						<?php endif; ?>
 					</p>
 				<?php endif; ?>
@@ -623,11 +623,11 @@ class SettingsPage {
 	public function render_test_connection(): void {
 		?>
 		<tr valign="top">
-			<th scope="row" class="titledesc"><?php esc_html_e( 'Connection test', 'dalli-delivery-for-woocommerce' ); ?></th>
+			<th scope="row" class="titledesc"><?php esc_html_e( 'Connection test', 'courier-delivery-connector-for-dalli' ); ?></th>
 			<td class="forminp">
-				<button type="button" class="button" id="dalli-delivery-test-connection"><?php esc_html_e( 'Test connection', 'dalli-delivery-for-woocommerce' ); ?></button>
+				<button type="button" class="button" id="dalli-delivery-test-connection"><?php esc_html_e( 'Test connection', 'courier-delivery-connector-for-dalli' ); ?></button>
 				<span id="dalli-delivery-test-result" role="status" aria-live="polite" style="margin-left:10px;"></span>
-				<p class="description"><?php esc_html_e( 'Calls the harmless "services" method with the saved settings. Save your changes first.', 'dalli-delivery-for-woocommerce' ); ?></p>
+				<p class="description"><?php esc_html_e( 'Calls the harmless "services" method with the saved settings. Save your changes first.', 'courier-delivery-connector-for-dalli' ); ?></p>
 			</td>
 		</tr>
 		<?php
@@ -651,8 +651,8 @@ class SettingsPage {
 			array(
 				'ajaxUrl' => admin_url( 'admin-ajax.php' ),
 				'nonce'   => wp_create_nonce( 'dalli_delivery_admin' ),
-				'working' => __( 'Checking…', 'dalli-delivery-for-woocommerce' ),
-				'failed'  => __( 'The request failed.', 'dalli-delivery-for-woocommerce' ),
+				'working' => __( 'Checking…', 'courier-delivery-connector-for-dalli' ),
+				'failed'  => __( 'The request failed.', 'courier-delivery-connector-for-dalli' ),
 			)
 		);
 	}
@@ -681,10 +681,10 @@ class SettingsPage {
 			return;
 		}
 		if ( $this->settings->is_test_mode() ) {
-			echo '<div class="notice notice-warning"><p>' . esc_html__( 'Dalli test mode is on. The test platform is shared by all users: never send real customer data to it.', 'dalli-delivery-for-woocommerce' ) . '</p></div>';
+			echo '<div class="notice notice-warning"><p>' . esc_html__( 'Dalli test mode is on. The test platform is shared by all users: never send real customer data to it.', 'courier-delivery-connector-for-dalli' ) . '</p></div>';
 		}
 		if ( ! $this->settings->has_token() ) {
-			echo '<div class="notice notice-info"><p>' . esc_html__( 'Enter your Dalli API token to enable delivery rates.', 'dalli-delivery-for-woocommerce' ) . '</p></div>';
+			echo '<div class="notice notice-info"><p>' . esc_html__( 'Enter your Dalli API token to enable delivery rates.', 'courier-delivery-connector-for-dalli' ) . '</p></div>';
 		}
 	}
 
@@ -696,7 +696,7 @@ class SettingsPage {
 	public function ajax_test_connection(): void {
 		check_ajax_referer( 'dalli_delivery_admin', 'nonce' );
 		if ( ! current_user_can( 'manage_woocommerce' ) ) {
-			wp_send_json_error( array( 'message' => __( 'You are not allowed to do this.', 'dalli-delivery-for-woocommerce' ) ), 403 );
+			wp_send_json_error( array( 'message' => __( 'You are not allowed to do this.', 'courier-delivery-connector-for-dalli' ) ), 403 );
 		}
 		try {
 			$services = $this->api->services();
@@ -707,7 +707,7 @@ class SettingsPage {
 			array(
 				'message' => sprintf(
 					/* translators: %d: number of delivery types available in the contract */
-					_n( 'Connected. %d delivery type is available in your contract.', 'Connected. %d delivery types are available in your contract.', count( $services ), 'dalli-delivery-for-woocommerce' ),
+					_n( 'Connected. %d delivery type is available in your contract.', 'Connected. %d delivery types are available in your contract.', count( $services ), 'courier-delivery-connector-for-dalli' ),
 					count( $services )
 				),
 			)

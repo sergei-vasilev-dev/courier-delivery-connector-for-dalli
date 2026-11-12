@@ -1,4 +1,4 @@
-# Delivery Integration for Dalli (интеграция доставки Dalli для WooCommerce)
+# Courier Delivery Connector for Dalli (интеграция доставки Dalli для WooCommerce)
 
 Интеграция WooCommerce с курьерской службой [Dalli](https://dalli-service.com/): расчёт доставки в реальном времени, пункты выдачи партнёров,
 автоматическое создание заказов, отслеживание статусов и наклейки. English version: [README.md](README.md).
@@ -21,7 +21,7 @@
 
 ## Установка и настройка
 
-1. Загрузите zip из [Releases](https://github.com/sergei-vasilev-dev/dalli-delivery-for-woocommerce/releases) и активируйте плагин (WooCommerce должен быть активен).
+1. Загрузите zip из [Releases](https://github.com/sergei-vasilev-dev/courier-delivery-connector-for-dalli/releases) и активируйте плагин (WooCommerce должен быть активен).
 2. *WooCommerce → Настройки → Доставка → Dalli*: выберите филиал, вставьте токен (выдаётся в личном кабинете Dalli, раздел «Учётная запись»), нажмите «Проверить соединение».
    Токен можно задать константой `DALLI_TOKEN` в `wp-config.php`.
 3. В нужной зоне доставки добавьте способ **Доставка Dalli**, выберите перевозчиков и типы доставки.

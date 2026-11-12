@@ -1,11 +1,11 @@
-=== Delivery Integration for Dalli ===
+=== Courier Delivery Connector for Dalli ===
 Contributors: yurich0dev
 Tags: woocommerce, shipping, delivery, courier, pickup points
 Requires at least: 6.4
 Tested up to: 7.1
 Requires PHP: 8.1
 Requires Plugins: woocommerce
-Stable tag: 1.0.1
+Stable tag: 1.0.2
 WC requires at least: 8.5
 WC tested up to: 11.3
 License: GPLv2 or later
@@ -15,7 +15,7 @@ Unofficial WooCommerce integration with the Dalli courier service: live shipping
 
 == Description ==
 
-**Delivery Integration for Dalli** connects WooCommerce with the Russian courier service [Dalli](https://dalli-service.com/) through its public API.
+**Courier Delivery Connector for Dalli** connects WooCommerce with the Russian courier service [Dalli](https://dalli-service.com/) through its public API.
 
 > This is an unofficial, third-party plugin. It is **not affiliated with or endorsed by Dalli**. "Dalli" is a trademark of its owner and is used only to describe what the plugin connects to. The plugin does not contain any Dalli logos or images. You need your own Dalli contract and API token.
 
@@ -89,7 +89,7 @@ Dalli only returns stickers and acts for orders sent to it **today**.
 
 = Where is the source code? =
 
-On GitHub: https://github.com/sergei-vasilev-dev/dalli-delivery-for-woocommerce . The plugin has no build step: the files in the plugin are the source.
+On GitHub: https://github.com/sergei-vasilev-dev/courier-delivery-connector-for-dalli . The plugin has no build step: the files in the plugin are the source.
 
 = Is Russian Post supported? =
 
@@ -121,6 +121,9 @@ Copy `templates/order-delivery.php` (and `templates/emails/delivery.php`) to `yo
 
 == Changelog ==
 
+= 1.0.2 =
+* Renamed to "Courier Delivery Connector for Dalli" (slug `courier-delivery-connector-for-dalli`).
+
 = 1.0.1 =
 * Requires PHP 8.1 (PHP 7.4 is end-of-life). Updated readme: external services links, FAQ, screenshots, icon and banners.
 
@@ -128,6 +131,9 @@ Copy `templates/order-delivery.php` (and `templates/emails/delivery.php`) to `yo
 * First release: live rates, pickup points for classic and block checkout, delivery intervals, order creation, status synchronisation, admin tools, customer delivery details, Russian translation.
 
 == Upgrade Notice ==
+
+= 1.0.2 =
+The plugin was renamed; deactivate the old "Delivery Integration for Dalli" folder and activate this one (settings are kept).
 
 = 1.0.1 =
 Requires PHP 8.1 or newer.

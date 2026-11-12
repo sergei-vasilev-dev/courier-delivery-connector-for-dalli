@@ -27,7 +27,7 @@ jobs:
         env:
           SVN_USERNAME: ${{ secrets.SVN_USERNAME }}
           SVN_PASSWORD: ${{ secrets.SVN_PASSWORD }}
-          SLUG: dalli-delivery-for-woocommerce
+          SLUG: courier-delivery-connector-for-dalli
           ASSETS_DIR: .wordpress-org
       - name: Assets only
         if: ${{ inputs.assets_only }}
@@ -35,5 +35,5 @@ jobs:
         env:
           SVN_USERNAME: ${{ secrets.SVN_USERNAME }}
           SVN_PASSWORD: ${{ secrets.SVN_PASSWORD }}
-          SLUG: dalli-delivery-for-woocommerce
+          SLUG: courier-delivery-connector-for-dalli
           ASSETS_DIR: .wordpress-org

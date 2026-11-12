@@ -23,6 +23,11 @@ First release.
 
 ## [Unreleased]
 
+## [1.0.2] - 2026-11-12
+
+### Changed
+- Renamed to "Courier Delivery Connector for Dalli" (slug and text domain `courier-delivery-connector-for-dalli`, repository renamed) so the name does not start with a third-party mark. Options, hooks and the shipping method id are unchanged, so existing settings keep working.
+
 ## [1.0.1] - 2026-11-12
 
 ### Changed
@@ -32,6 +37,7 @@ First release.
 - WordPress.org submission kit: screenshots, icon and banners (`.wordpress-org/`, SVG sources in `docs/assets-src/`), submission guide with trademark/rename notes (`docs/wordpress-org-submission.md`), disabled-by-default deploy workflow, demo-data seed for screenshots.
 - `readme.txt`: links to Dalli's user agreement and privacy policy in "External services", source code FAQ, screenshot captions matched to the files.
 
-[Unreleased]: https://github.com/sergei-vasilev-dev/dalli-delivery-for-woocommerce/compare/v1.0.1...HEAD
-[1.0.1]: https://github.com/sergei-vasilev-dev/dalli-delivery-for-woocommerce/releases/tag/v1.0.1
-[1.0.0]: https://github.com/sergei-vasilev-dev/dalli-delivery-for-woocommerce/releases/tag/v1.0.0
+[Unreleased]: https://github.com/sergei-vasilev-dev/courier-delivery-connector-for-dalli/compare/v1.0.2...HEAD
+[1.0.2]: https://github.com/sergei-vasilev-dev/courier-delivery-connector-for-dalli/releases/tag/v1.0.2
+[1.0.1]: https://github.com/sergei-vasilev-dev/courier-delivery-connector-for-dalli/releases/tag/v1.0.1
+[1.0.0]: https://github.com/sergei-vasilev-dev/courier-delivery-connector-for-dalli/releases/tag/v1.0.0

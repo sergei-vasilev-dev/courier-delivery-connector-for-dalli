@@ -7,7 +7,7 @@ Security fixes are provided for the latest minor release.
 ## Reporting a vulnerability
 
 **Please do not open a public issue.** Report privately with GitHub's
-[private vulnerability reporting](https://github.com/sergei-vasilev-dev/dalli-delivery-for-woocommerce/security/advisories/new)
+[private vulnerability reporting](https://github.com/sergei-vasilev-dev/courier-delivery-connector-for-dalli/security/advisories/new)
 (repository *Security* tab → *Report a vulnerability*), or by e-mail: yurich.dev@gmail.com.
 
 Include: affected version, WordPress/WooCommerce/PHP versions, steps to reproduce and the impact. **Never include a real Dalli token or real customer data.**

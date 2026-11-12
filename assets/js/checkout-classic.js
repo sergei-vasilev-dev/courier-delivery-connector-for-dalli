@@ -1,5 +1,5 @@
 /**
- * Delivery Integration for Dalli - classic checkout bootstrap.
+ * Courier Delivery Connector for Dalli - classic checkout bootstrap.
  */
 ( function ( $, window ) {
 	'use strict';

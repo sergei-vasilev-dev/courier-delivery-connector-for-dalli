@@ -63,8 +63,8 @@ class ToolsPage {
 	public function add_menu(): void {
 		add_submenu_page(
 			'woocommerce',
-			__( 'Dalli tools', 'dalli-delivery-for-woocommerce' ),
-			__( 'Dalli', 'dalli-delivery-for-woocommerce' ),
+			__( 'Dalli tools', 'courier-delivery-connector-for-dalli' ),
+			__( 'Dalli', 'courier-delivery-connector-for-dalli' ),
 			'manage_woocommerce',
 			self::SLUG,
 			array( $this, 'render' )
@@ -78,27 +78,27 @@ class ToolsPage {
 	 */
 	public function render(): void {
 		if ( ! current_user_can( 'manage_woocommerce' ) ) {
-			wp_die( esc_html__( 'You are not allowed to do this.', 'dalli-delivery-for-woocommerce' ), '', array( 'response' => 403 ) );
+			wp_die( esc_html__( 'You are not allowed to do this.', 'courier-delivery-connector-for-dalli' ), '', array( 'response' => 403 ) );
 		}
 		?>
 		<div class="wrap">
-			<h1><?php esc_html_e( 'Dalli delivery tools', 'dalli-delivery-for-woocommerce' ); ?></h1>
+			<h1><?php esc_html_e( 'Dalli delivery tools', 'courier-delivery-connector-for-dalli' ); ?></h1>
 			<p>
-				<a href="<?php echo esc_url( SettingsPage::url() ); ?>"><?php esc_html_e( 'Open settings', 'dalli-delivery-for-woocommerce' ); ?></a>
+				<a href="<?php echo esc_url( SettingsPage::url() ); ?>"><?php esc_html_e( 'Open settings', 'courier-delivery-connector-for-dalli' ); ?></a>
 			</p>
 
-			<h2><?php esc_html_e( 'Transfer act', 'dalli-delivery-for-woocommerce' ); ?></h2>
-			<p><?php esc_html_e( 'Download the acceptance and transfer act (PDF) for all orders sent to Dalli today. Orders sent on other days are ignored by Dalli.', 'dalli-delivery-for-woocommerce' ); ?></p>
+			<h2><?php esc_html_e( 'Transfer act', 'courier-delivery-connector-for-dalli' ); ?></h2>
+			<p><?php esc_html_e( 'Download the acceptance and transfer act (PDF) for all orders sent to Dalli today. Orders sent on other days are ignored by Dalli.', 'courier-delivery-connector-for-dalli' ); ?></p>
 			<p>
 				<a class="button button-primary" href="<?php echo esc_url( wp_nonce_url( admin_url( 'admin-post.php?action=' . OrderActions::ACT_HOOK ), OrderActions::ACT_HOOK ) ); ?>">
-					<?php esc_html_e( 'Download today\'s act', 'dalli-delivery-for-woocommerce' ); ?>
+					<?php esc_html_e( 'Download today\'s act', 'courier-delivery-connector-for-dalli' ); ?>
 				</a>
 			</p>
 
-			<h2><?php esc_html_e( 'Orders that could not be sent', 'dalli-delivery-for-woocommerce' ); ?></h2>
+			<h2><?php esc_html_e( 'Orders that could not be sent', 'courier-delivery-connector-for-dalli' ); ?></h2>
 			<?php $this->render_failed_orders(); ?>
 
-			<h2><?php esc_html_e( 'Diagnostics', 'dalli-delivery-for-woocommerce' ); ?></h2>
+			<h2><?php esc_html_e( 'Diagnostics', 'courier-delivery-connector-for-dalli' ); ?></h2>
 			<table class="widefat striped" style="max-width:720px;">
 				<tbody>
 					<?php foreach ( self::diagnostics( $this->settings ) as $label => $value ) : ?>
@@ -138,10 +138,10 @@ class ToolsPage {
 			)
 		);
 		if ( ! $orders ) {
-			echo '<p>' . esc_html__( 'None. Everything went through.', 'dalli-delivery-for-woocommerce' ) . '</p>';
+			echo '<p>' . esc_html__( 'None. Everything went through.', 'courier-delivery-connector-for-dalli' ) . '</p>';
 			return;
 		}
-		echo '<table class="widefat striped" style="max-width:900px;"><thead><tr><th>' . esc_html__( 'Order', 'dalli-delivery-for-woocommerce' ) . '</th><th>' . esc_html__( 'Error', 'dalli-delivery-for-woocommerce' ) . '</th></tr></thead><tbody>';
+		echo '<table class="widefat striped" style="max-width:900px;"><thead><tr><th>' . esc_html__( 'Order', 'courier-delivery-connector-for-dalli' ) . '</th><th>' . esc_html__( 'Error', 'courier-delivery-connector-for-dalli' ) . '</th></tr></thead><tbody>';
 		foreach ( $orders as $order ) {
 			if ( ! $order instanceof \WC_Order ) {
 				continue;
@@ -163,8 +163,8 @@ class ToolsPage {
 	 * @return array<string,string>
 	 */
 	public static function diagnostics( Settings $settings ): array {
-		$yes = __( 'Yes', 'dalli-delivery-for-woocommerce' );
-		$no  = __( 'No', 'dalli-delivery-for-woocommerce' );
+		$yes = __( 'Yes', 'courier-delivery-connector-for-dalli' );
+		$no  = __( 'No', 'courier-delivery-connector-for-dalli' );
 
 		$next = '';
 		if ( function_exists( 'as_next_scheduled_action' ) ) {
@@ -177,16 +177,16 @@ class ToolsPage {
 		$host = wp_parse_url( $settings->api_url(), PHP_URL_HOST );
 
 		return array(
-			__( 'Plugin version', 'dalli-delivery-for-woocommerce' ) => DALLI_DELIVERY_VERSION,
-			__( 'API endpoint host', 'dalli-delivery-for-woocommerce' ) => is_string( $host ) ? $host : '',
-			__( 'Branch', 'dalli-delivery-for-woocommerce' ) => $settings->branch(),
-			__( 'Mode', 'dalli-delivery-for-woocommerce' ) => (string) $settings->get( 'mode' ),
-			__( 'Token configured', 'dalli-delivery-for-woocommerce' ) => $settings->has_token() ? $yes : $no,
-			__( 'Token from wp-config.php', 'dalli-delivery-for-woocommerce' ) => Settings::token_is_constant( $settings->is_test_mode() ) ? $yes : $no,
-			__( 'Order creation trigger', 'dalli-delivery-for-woocommerce' ) => (string) $settings->get( 'order_trigger' ),
-			__( 'Status sync enabled', 'dalli-delivery-for-woocommerce' ) => $settings->is_enabled( 'sync_enabled' ) ? $yes : $no,
-			__( 'Next status sync', 'dalli-delivery-for-woocommerce' ) => '' !== $next ? $next : __( 'Not scheduled', 'dalli-delivery-for-woocommerce' ),
-			__( 'Debug log', 'dalli-delivery-for-woocommerce' ) => $settings->is_enabled( 'debug' ) ? $yes : $no,
+			__( 'Plugin version', 'courier-delivery-connector-for-dalli' ) => DALLI_DELIVERY_VERSION,
+			__( 'API endpoint host', 'courier-delivery-connector-for-dalli' ) => is_string( $host ) ? $host : '',
+			__( 'Branch', 'courier-delivery-connector-for-dalli' ) => $settings->branch(),
+			__( 'Mode', 'courier-delivery-connector-for-dalli' ) => (string) $settings->get( 'mode' ),
+			__( 'Token configured', 'courier-delivery-connector-for-dalli' ) => $settings->has_token() ? $yes : $no,
+			__( 'Token from wp-config.php', 'courier-delivery-connector-for-dalli' ) => Settings::token_is_constant( $settings->is_test_mode() ) ? $yes : $no,
+			__( 'Order creation trigger', 'courier-delivery-connector-for-dalli' ) => (string) $settings->get( 'order_trigger' ),
+			__( 'Status sync enabled', 'courier-delivery-connector-for-dalli' ) => $settings->is_enabled( 'sync_enabled' ) ? $yes : $no,
+			__( 'Next status sync', 'courier-delivery-connector-for-dalli' ) => '' !== $next ? $next : __( 'Not scheduled', 'courier-delivery-connector-for-dalli' ),
+			__( 'Debug log', 'courier-delivery-connector-for-dalli' ) => $settings->is_enabled( 'debug' ) ? $yes : $no,
 		);
 	}
 }

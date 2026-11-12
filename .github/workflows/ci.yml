@@ -50,7 +50,7 @@ jobs:
         run: bin/build-zip.sh
       - uses: wordpress/plugin-check-action@v1
         with:
-          build-dir: dist/dalli-delivery-for-woocommerce
+          build-dir: dist/courier-delivery-connector-for-dalli
           exclude-directories: ""
           ignore-warnings: true
 
