@@ -37,4 +37,4 @@
 * Почта России, КГТ/маркетплейсы и многоместные заказы в версии 1.0 не поддерживаются.
 * Наклейки и акты Dalli выдаёт только для заказов, отправленных сегодня.
 
-Разработка, тесты и вклад: [CONTRIBUTING.md](CONTRIBUTING.md), [docs/testing.md](docs/testing.md). Уязвимости сообщайте приватно: [SECURITY.md](SECURITY.md). Лицензия: GPL-2.0-or-later.
+Разработка, тесты и вклад: [CONTRIBUTING.md](CONTRIBUTING.md), [docs/testing.md](docs/testing.md). Уязвимости сообщайте приватно: [SECURITY.md](SECURITY.md). Связь: yurich.dev@gmail.com. Лицензия: GPL-2.0-or-later.

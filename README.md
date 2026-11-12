@@ -93,7 +93,7 @@ bash docker/setup.sh   # throwaway WordPress + WooCommerce + mock Dalli API (see
 ## Support, contributing, security
 
 Questions and bugs: [GitHub issues](https://github.com/sergei-vasilev-dev/dalli-delivery-for-woocommerce/issues). Please read
-[CONTRIBUTING.md](CONTRIBUTING.md) and [CODE_OF_CONDUCT.md](CODE_OF_CONDUCT.md). Report vulnerabilities privately, see [SECURITY.md](SECURITY.md).
+[CONTRIBUTING.md](CONTRIBUTING.md) and [CODE_OF_CONDUCT.md](CODE_OF_CONDUCT.md). Report vulnerabilities privately, see [SECURITY.md](SECURITY.md). Contact: yurich.dev@gmail.com.
 
 ## License
 
