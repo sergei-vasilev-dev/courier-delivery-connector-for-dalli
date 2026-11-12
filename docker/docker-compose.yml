@@ -1,0 +1,70 @@
+# Throwaway WordPress + WooCommerce environment for the smoke test.
+#   docker compose -f docker/docker-compose.yml up -d
+#   bash docker/setup.sh
+# WordPress is published on http://localhost:8099 (change with WP_PORT). Nothing here is related to any other project.
+name: dalli-smoke
+
+x-wp-env: &wp-env
+  WORDPRESS_DB_HOST: db
+  WORDPRESS_DB_NAME: wp
+  WORDPRESS_DB_USER: wp
+  WORDPRESS_DB_PASSWORD: wp
+  WORDPRESS_DEBUG: "1"
+  WORDPRESS_CONFIG_EXTRA: |
+    define( 'WP_DEBUG_LOG', true );
+    define( 'WP_DEBUG_DISPLAY', false );
+    define( 'WP_HOME', 'http://localhost:${WP_PORT:-8099}' );
+    define( 'WP_SITEURL', 'http://localhost:${WP_PORT:-8099}' );
+    define( 'DALLI_API_URL', 'http://mock:8100/v1/' );
+    define( 'DALLI_TOKEN', 'FAKE_TOKEN_FOR_MOCK' );
+
+services:
+  db:
+    image: mariadb:11.4
+    environment:
+      MARIADB_DATABASE: wp
+      MARIADB_USER: wp
+      MARIADB_PASSWORD: wp
+      MARIADB_ROOT_PASSWORD: root
+    healthcheck:
+      test: ["CMD", "healthcheck.sh", "--connect", "--innodb_initialized"]
+      interval: 5s
+      timeout: 5s
+      retries: 20
+
+  mock:
+    image: php:8.3-cli
+    command: ["php", "-S", "0.0.0.0:8100", "/mock/router.php"]
+    volumes:
+      - ../tests/mock-server:/mock:ro
+    ports:
+      - "127.0.0.1:8100:8100"
+
+  wordpress:
+    image: ${WP_IMAGE:-wordpress:php8.5-apache}
+    depends_on:
+      db:
+        condition: service_healthy
+      mock:
+        condition: service_started
+    ports:
+      - "127.0.0.1:${WP_PORT:-8099}:80"
+    environment: *wp-env
+    volumes:
+      - wp:/var/www/html
+      - ..:/var/www/html/wp-content/plugins/dalli-delivery-for-woocommerce:ro
+
+  wpcli:
+    image: ${WPCLI_IMAGE:-wordpress:cli-php8.5}
+    profiles: ["tools"]
+    user: "33:33"
+    depends_on:
+      - wordpress
+    environment: *wp-env
+    volumes:
+      - wp:/var/www/html
+      - ..:/var/www/html/wp-content/plugins/dalli-delivery-for-woocommerce:ro
+      - ./smoke:/smoke:ro
+
+volumes:
+  wp:
