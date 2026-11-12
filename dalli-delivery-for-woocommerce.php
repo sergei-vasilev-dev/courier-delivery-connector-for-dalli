@@ -14,7 +14,7 @@
  * Text Domain:          dalli-delivery-for-woocommerce
  * Domain Path:          /languages
  * WC requires at least: 8.5
- * WC tested up to:      10.4
+ * WC tested up to:      11.3
  *
  * @package DalliDelivery
  */
