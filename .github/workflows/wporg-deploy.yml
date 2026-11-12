@@ -20,7 +20,7 @@ jobs:
     if: ${{ vars.WPORG_DEPLOY == 'true' }}
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
       - name: Plugin (trunk and tag)
         if: ${{ !inputs.assets_only }}
         uses: 10up/action-wordpress-plugin-deploy@stable
