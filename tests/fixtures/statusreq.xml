@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<statusreq>
+ <order orderno="2039140001" ordercode="3123920" givencode="A2833052" awb="A2833052">
+ <barcode>A2833052</barcode>
+ <receiver>
+ <person>Иванов И.И.</person>
+ <phone>7 999 999 99 99</phone>
+ </receiver>
+ <service>1</service>
+ <courier>
+ <code>9999</code>
+ <phone>+7 999 999 22 22</phone>
+ <name>Николаев Николай Николаевич</name>
+ </courier>
+ <status store="1" eventstore="Офис в Москве" eventtime="2020-09-03 17:33:00" createtimegmt="2020-09-04 04:13:59" title="Доставлен">COMPLETE</status>
+ <statushistory>
+ <status store="1" eventstore="Офис в Москве" eventtime="2020-09-03 17:33:00" createtimegmt="2020-09-04 04:13:59" title="Доставлен">COMPLETE</status>
+ <status store="1" eventstore="Офис в Москве" eventtime="2020-09-03 08:38:03" createtimegmt="2020-09-03 05:38:03" title="Выдан курьеру на доставку">DELIVERY</status>
+ <status store="1" eventstore="Офис в Москве" eventtime="2020-09-02 15:32:49" createtimegmt="2020-09-02 12:32:49" title="Новый">NEW</status>
+ </statushistory>
+ <delivereddate>2020-09-03</delivereddate>
+ <receipt inn="7736660000" fnSn="9287440300790000" summ="630">https://example.test/receipt</receipt>
+ </order>
+</statusreq>

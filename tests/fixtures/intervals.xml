@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<intervals count="3">
+ <interval type="basic" zone="0" service="1">
+ <time_min>9</time_min>
+ <time_max>13</time_max>
+ </interval>
+ <interval type="client" zone="0" service="1">
+ <time_min>09:30</time_min>
+ <time_max>15:00:00</time_max>
+ </interval>
+ <interval type="basic" zone="0" service="1">
+ <time_min>25</time_min>
+ <time_max>26</time_max>
+ </interval>
+</intervals>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<services count="3">
+ <service>
+ <code>1</code>
+ <name>Обычная МСК и МО</name>
+ </service>
+ <service>
+ <code>4</code>
+ <name>ПВЗ МСК</name>
+ </service>
+ <service>
+ <code>13</code>
+ <name>ПВЗ Яндекс</name>
+ </service>
+</services>

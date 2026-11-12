@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<basketcreate>
+ <order number='ABC-1'>
+ <error error='number' errorCode='4' errorMessage='Указанный номер заказа уже есть в системе' />
+ <error error='interval' errorCode='14' errorMessage='Некорректно указан временной интервал доставки' />
+ </order>
+ <order number='ABC-2'>
+ <success barcode='A1594133' />
+ </order>
+</basketcreate>

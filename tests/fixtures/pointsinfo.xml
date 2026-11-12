@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<pointsInfo count="3">
+ <point code="53f5b1e4-9cf0-437c-b8b3-d082dbb9c2f4">
+ <name>Москва улица Анны Ахматовой, д.11 к1</name>
+ <settlement>Москва и Московская область</settlement>
+ <town>Москва</town>
+ <address>108849, район Внуково, улица Анны Ахматовой, д.11 к1</address>
+ <addressReduce>улица Анны Ахматовой, д.11 к1</addressReduce>
+ <zipcode>108849</zipcode>
+ <description>ПВЗ находится на первом этаже. Ориентир - вывеска.</description>
+ <onlyPrepaid>0</onlyPrepaid>
+ <acquiring>1</acquiring>
+ <cash>0</cash>
+ <EnableFitting>1</EnableFitting>
+ <workShedule>пн-вс: 09.00-21.00</workShedule>
+ <GPS>55.634239196777344,37.33216857910156</GPS>
+ <phone>+74951570020</phone>
+ <partner>BOXBERRY</partner>
+ <service>13</service>
+ <weightLimit>30</weightLimit>
+ <Metro />
+ <postamat>0</postamat>
+ </point>
+ <point code="019843392445746aafd484a48193bb38">
+ <name>Постамат &amp; &quot;Тест&quot;</name>
+ <town>Москва</town>
+ <address></address>
+ <addressReduce>Борисовский проезд, д.15 к1 стр2</addressReduce>
+ <onlyPrepaid>1</onlyPrepaid>
+ <acquiring>1</acquiring>
+ <cash>1</cash>
+ <workShedule>пн-вс: 09.00-21.00</workShedule>
+ <GPS>bad</GPS>
+ <partner>SDEK</partner>
+ <service>9</service>
+ <weightLimit>0</weightLimit>
+ <postamat>1</postamat>
+ </point>
+ <point>
+ <name>No code - ignored</name>
+ </point>
+</pointsInfo>

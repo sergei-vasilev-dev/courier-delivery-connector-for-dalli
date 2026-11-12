@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sendbasket count='2'>
+ <order number='4575e966-dcc1-431f-926a-d1a9f86100f1' barcode='A1594140'>
+ <error error='items' errorCode='26' errorMessage='Наложенный платеж не совпадает со стоимостью товарных позиций + стоимость доставки' />
+ </order>
+ <order number='37c95022-202a-4163-a73b-26e8a9b06f58' barcode='A1594146'>
+ <error error='order' errorCode='0' errorMessage='Успешно' />
+ </order>
+</sendbasket>
