@@ -1,4 +1,4 @@
-# Courier Delivery Connector for Dalli
+# Kurvio Courier Connector for Dalli
 
 [![CI](https://github.com/sergei-vasilev-dev/courier-delivery-connector-for-dalli/actions/workflows/ci.yml/badge.svg)](https://github.com/sergei-vasilev-dev/courier-delivery-connector-for-dalli/actions/workflows/ci.yml)
 [![License: GPL v2+](https://img.shields.io/badge/License-GPL%20v2%2B-blue.svg)](LICENSE)

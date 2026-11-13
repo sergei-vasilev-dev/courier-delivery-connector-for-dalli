@@ -70,13 +70,13 @@ final class Format {
 		if ( ctype_digit( $period ) ) {
 			$days = (int) $period;
 			if ( 0 === $days ) {
-				return __( 'same day', 'courier-delivery-connector-for-dalli' );
+				return __( 'same day', 'kurvio-courier-connector-for-dalli' );
 			}
 			/* translators: %d: number of days */
-			return sprintf( _n( '%d day', '%d days', $days, 'courier-delivery-connector-for-dalli' ), $days );
+			return sprintf( _n( '%d day', '%d days', $days, 'kurvio-courier-connector-for-dalli' ), $days );
 		}
 		/* translators: %s: delivery period such as "1-2" */
-		return sprintf( __( '%s days', 'courier-delivery-connector-for-dalli' ), $period );
+		return sprintf( __( '%s days', 'kurvio-courier-connector-for-dalli' ), $period );
 	}
 
 	/**

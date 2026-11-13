@@ -1,5 +1,5 @@
 {
-	"name": "sergei-vasilev-dev/courier-delivery-connector-for-dalli",
+	"name": "sergei-vasilev-dev/kurvio-courier-connector-for-dalli",
 	"description": "Unofficial WooCommerce integration with the Dalli courier service: live rates, pickup points, order creation, tracking and labels.",
 	"type": "wordpress-plugin",
 	"license": "GPL-2.0-or-later",

@@ -2,7 +2,7 @@ parameters:
     level: 6
     paths:
         - src
-        - courier-delivery-connector-for-dalli.php
+        - kurvio-courier-connector-for-dalli.php
     scanFiles:
         - vendor/php-stubs/woocommerce-stubs/woocommerce-stubs.php
         - vendor/php-stubs/woocommerce-stubs/woocommerce-packages-stubs.php

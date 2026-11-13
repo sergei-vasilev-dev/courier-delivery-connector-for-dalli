@@ -1,5 +1,5 @@
 /**
- * Courier Delivery Connector for Dalli - classic checkout bootstrap.
+ * Kurvio Courier Connector for Dalli - classic checkout bootstrap.
  */
 ( function ( $, window ) {
 	'use strict';

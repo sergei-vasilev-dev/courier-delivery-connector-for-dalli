@@ -49,7 +49,7 @@ Not covered by automation: real Dalli API behaviour, e-mails (the container has 
 ## Plugin Check
 
 ```bash
-docker compose -f docker/docker-compose.yml --profile tools run --rm -T wpcli sh -c 'wp plugin install plugin-check --activate && wp plugin check courier-delivery-connector-for-dalli'
+docker compose -f docker/docker-compose.yml --profile tools run --rm -T wpcli sh -c 'wp plugin install plugin-check --activate && wp plugin check kurvio-courier-connector-for-dalli'
 ```
 
 Findings and fixes are tracked in the repository history (`fix:` commits) and summarised in `CHANGELOG.md`.

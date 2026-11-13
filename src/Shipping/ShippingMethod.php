@@ -31,8 +31,8 @@ class ShippingMethod extends \WC_Shipping_Method {
 		parent::__construct( $instance_id );
 		$this->id                 = self::ID;
 		$this->instance_id        = absint( $instance_id );
-		$this->method_title       = __( 'Dalli delivery', 'courier-delivery-connector-for-dalli' );
-		$this->method_description = __( 'Live delivery rates and pickup points from the Dalli courier service and its partners. Connection settings are under WooCommerce → Settings → Shipping → Dalli.', 'courier-delivery-connector-for-dalli' );
+		$this->method_title       = __( 'Dalli delivery', 'kurvio-courier-connector-for-dalli' );
+		$this->method_description = __( 'Live delivery rates and pickup points from the Dalli courier service and its partners. Connection settings are under WooCommerce → Settings → Shipping → Dalli.', 'kurvio-courier-connector-for-dalli' );
 		$this->supports           = array(
 			'shipping-zones',
 			'instance-settings',
@@ -65,73 +65,73 @@ class ShippingMethod extends \WC_Shipping_Method {
 		$partners = Catalog::partners();
 		return array(
 			'title'          => array(
-				'title'       => __( 'Method title', 'courier-delivery-connector-for-dalli' ),
+				'title'       => __( 'Method title', 'kurvio-courier-connector-for-dalli' ),
 				'type'        => 'text',
-				'description' => __( 'Shown in the admin only; customers see the carrier and delivery type of each rate.', 'courier-delivery-connector-for-dalli' ),
-				'default'     => __( 'Dalli delivery', 'courier-delivery-connector-for-dalli' ),
+				'description' => __( 'Shown in the admin only; customers see the carrier and delivery type of each rate.', 'kurvio-courier-connector-for-dalli' ),
+				'default'     => __( 'Dalli delivery', 'kurvio-courier-connector-for-dalli' ),
 				'desc_tip'    => true,
 			),
 			'tax_status'     => array(
-				'title'   => __( 'Tax status', 'courier-delivery-connector-for-dalli' ),
+				'title'   => __( 'Tax status', 'kurvio-courier-connector-for-dalli' ),
 				'type'    => 'select',
 				'class'   => 'wc-enhanced-select',
 				'default' => 'taxable',
 				'options' => array(
-					'taxable' => __( 'Taxable', 'courier-delivery-connector-for-dalli' ),
-					'none'    => _x( 'None', 'Tax status', 'courier-delivery-connector-for-dalli' ),
+					'taxable' => __( 'Taxable', 'kurvio-courier-connector-for-dalli' ),
+					'none'    => _x( 'None', 'Tax status', 'kurvio-courier-connector-for-dalli' ),
 				),
 			),
 			'partners'       => array(
-				'title'    => __( 'Carriers', 'courier-delivery-connector-for-dalli' ),
+				'title'    => __( 'Carriers', 'kurvio-courier-connector-for-dalli' ),
 				'type'     => 'multiselect',
 				'class'    => 'wc-enhanced-select',
 				'default'  => array_keys( $partners ),
 				'options'  => $partners,
-				'desc_tip' => __( 'Only the selected carriers are priced. Each one adds a request to the Dalli API (cached).', 'courier-delivery-connector-for-dalli' ),
+				'desc_tip' => __( 'Only the selected carriers are priced. Each one adds a request to the Dalli API (cached).', 'kurvio-courier-connector-for-dalli' ),
 			),
 			'types'          => array(
-				'title'   => __( 'Delivery types', 'courier-delivery-connector-for-dalli' ),
+				'title'   => __( 'Delivery types', 'kurvio-courier-connector-for-dalli' ),
 				'type'    => 'multiselect',
 				'class'   => 'wc-enhanced-select',
 				'default' => array( Catalog::TYPE_COURIER, Catalog::TYPE_PVZ ),
 				'options' => Catalog::types(),
 			),
 			'markup_percent' => array(
-				'title'       => __( 'Markup, %', 'courier-delivery-connector-for-dalli' ),
+				'title'       => __( 'Markup, %', 'kurvio-courier-connector-for-dalli' ),
 				'type'        => 'text',
 				'default'     => '0',
-				'description' => __( 'Percentage added to the carrier price.', 'courier-delivery-connector-for-dalli' ),
+				'description' => __( 'Percentage added to the carrier price.', 'kurvio-courier-connector-for-dalli' ),
 				'desc_tip'    => true,
 				'class'       => 'wc_input_decimal',
 			),
 			'markup_fixed'   => array(
-				'title'       => __( 'Fixed markup', 'courier-delivery-connector-for-dalli' ),
+				'title'       => __( 'Fixed markup', 'kurvio-courier-connector-for-dalli' ),
 				'type'        => 'text',
 				'default'     => '0',
-				'description' => __( 'Amount added to the carrier price (may be negative to give a discount).', 'courier-delivery-connector-for-dalli' ),
+				'description' => __( 'Amount added to the carrier price (may be negative to give a discount).', 'kurvio-courier-connector-for-dalli' ),
 				'desc_tip'    => true,
 				'class'       => 'wc_input_decimal',
 			),
 			'free_over'      => array(
-				'title'       => __( 'Free shipping over', 'courier-delivery-connector-for-dalli' ),
+				'title'       => __( 'Free shipping over', 'kurvio-courier-connector-for-dalli' ),
 				'type'        => 'text',
 				'default'     => '',
-				'description' => __( 'Delivery is free when the cart total reaches this amount. Leave empty to disable.', 'courier-delivery-connector-for-dalli' ),
+				'description' => __( 'Delivery is free when the cart total reaches this amount. Leave empty to disable.', 'kurvio-courier-connector-for-dalli' ),
 				'desc_tip'    => true,
 				'class'       => 'wc_input_decimal',
 			),
 			'fixed_price'    => array(
-				'title'       => __( 'Fixed price', 'courier-delivery-connector-for-dalli' ),
+				'title'       => __( 'Fixed price', 'kurvio-courier-connector-for-dalli' ),
 				'type'        => 'text',
 				'default'     => '',
-				'description' => __( 'Charge this price for every rate instead of the carrier price. Leave empty to disable.', 'courier-delivery-connector-for-dalli' ),
+				'description' => __( 'Charge this price for every rate instead of the carrier price. Leave empty to disable.', 'kurvio-courier-connector-for-dalli' ),
 				'desc_tip'    => true,
 				'class'       => 'wc_input_decimal',
 			),
 			'show_period'    => array(
-				'title'   => __( 'Delivery period', 'courier-delivery-connector-for-dalli' ),
+				'title'   => __( 'Delivery period', 'kurvio-courier-connector-for-dalli' ),
 				'type'    => 'checkbox',
-				'label'   => __( 'Show the estimated delivery period next to the rate name', 'courier-delivery-connector-for-dalli' ),
+				'label'   => __( 'Show the estimated delivery period next to the rate name', 'kurvio-courier-connector-for-dalli' ),
 				'default' => 'yes',
 			),
 		);
@@ -246,10 +246,10 @@ class ShippingMethod extends \WC_Shipping_Method {
 		$name = Catalog::partner_label( $rate->partner );
 		if ( Catalog::TYPE_PVZ === $rate->type ) {
 			/* translators: %s: carrier name, e.g. CDEK */
-			$label = sprintf( __( '%s pickup point', 'courier-delivery-connector-for-dalli' ), $name );
+			$label = sprintf( __( '%s pickup point', 'kurvio-courier-connector-for-dalli' ), $name );
 		} else {
 			/* translators: %s: carrier name, e.g. CDEK */
-			$label = sprintf( __( '%s courier', 'courier-delivery-connector-for-dalli' ), $name );
+			$label = sprintf( __( '%s courier', 'kurvio-courier-connector-for-dalli' ), $name );
 		}
 
 		$variant = Catalog::service_variant_label( $rate->service );

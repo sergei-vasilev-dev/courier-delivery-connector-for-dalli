@@ -33,10 +33,10 @@ class XmlParser {
 			$xml = substr( $xml, 3 );
 		}
 		if ( '' === $xml ) {
-			throw ApiException::malformed( esc_html__( 'Empty response from the Dalli API.', 'courier-delivery-connector-for-dalli' ) );
+			throw ApiException::malformed( esc_html__( 'Empty response from the Dalli API.', 'kurvio-courier-connector-for-dalli' ) );
 		}
 		if ( false !== stripos( $xml, '<!DOCTYPE' ) || false !== stripos( $xml, '<!ENTITY' ) ) {
-			throw ApiException::malformed( esc_html__( 'Unexpected DOCTYPE in the Dalli API response.', 'courier-delivery-connector-for-dalli' ) );
+			throw ApiException::malformed( esc_html__( 'Unexpected DOCTYPE in the Dalli API response.', 'kurvio-courier-connector-for-dalli' ) );
 		}
 
 		$previous = libxml_use_internal_errors( true );
@@ -47,12 +47,12 @@ class XmlParser {
 		libxml_use_internal_errors( $previous );
 
 		if ( ! $loaded ) {
-			throw ApiException::malformed( esc_html__( 'Malformed XML in the Dalli API response.', 'courier-delivery-connector-for-dalli' ) );
+			throw ApiException::malformed( esc_html__( 'Malformed XML in the Dalli API response.', 'kurvio-courier-connector-for-dalli' ) );
 		}
 
 		$element = simplexml_import_dom( $doc );
 		if ( ! $element instanceof \SimpleXMLElement ) {
-			throw ApiException::malformed( esc_html__( 'Malformed XML in the Dalli API response.', 'courier-delivery-connector-for-dalli' ) );
+			throw ApiException::malformed( esc_html__( 'Malformed XML in the Dalli API response.', 'kurvio-courier-connector-for-dalli' ) );
 		}
 		return $element;
 	}
@@ -270,7 +270,7 @@ class XmlParser {
 		$root = $this->parse( $xml );
 		$this->assert_ok( $root );
 		if ( ! isset( $root->response ) ) {
-			throw ApiException::malformed( esc_html__( 'Unexpected cancelOrder response.', 'courier-delivery-connector-for-dalli' ) );
+			throw ApiException::malformed( esc_html__( 'Unexpected cancelOrder response.', 'kurvio-courier-connector-for-dalli' ) );
 		}
 		$response = $root->response;
 		$code     = trim( (string) $response['error'] );
@@ -415,11 +415,11 @@ class XmlParser {
 		$this->assert_ok( $root );
 		$encoded = preg_replace( '/\s+/', '', (string) $root->base64 );
 		if ( null === $encoded || '' === $encoded ) {
-			throw ApiException::malformed( esc_html__( 'The response does not contain a file.', 'courier-delivery-connector-for-dalli' ) );
+			throw ApiException::malformed( esc_html__( 'The response does not contain a file.', 'kurvio-courier-connector-for-dalli' ) );
 		}
 		$binary = base64_decode( $encoded, true ); // phpcs:ignore WordPress.PHP.DiscouragedPHPFunctions.obfuscation_base64_decode -- decodes the PDF returned by the API, not code.
 		if ( false === $binary || '' === $binary ) {
-			throw ApiException::malformed( esc_html__( 'The file in the response is not valid base64.', 'courier-delivery-connector-for-dalli' ) );
+			throw ApiException::malformed( esc_html__( 'The file in the response is not valid base64.', 'kurvio-courier-connector-for-dalli' ) );
 		}
 		return $binary;
 	}

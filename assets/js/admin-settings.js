@@ -1,5 +1,5 @@
 /**
- * Courier Delivery Connector for Dalli - settings page helpers (connection test).
+ * Kurvio Courier Connector for Dalli - settings page helpers (connection test).
  */
 ( function ( window, document ) {
 	'use strict';

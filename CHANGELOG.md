@@ -3,6 +3,12 @@
 All notable changes to this project are documented in this file. The format is based on
 [Keep a Changelog](https://keepachangelog.com/en/1.1.0/) and the project adheres to [Semantic Versioning](https://semver.org/).
 
+## [1.0.3] - 2026-11-13
+
+### Changed
+- Renamed to Kurvio Courier Connector for Dalli (slug `kurvio-courier-connector-for-dalli`) after WordPress.org review.
+- Removed bundled translation files and `load_plugin_textdomain()`; the Russian source moved to `translations/ru_RU.po`.
+
 ## [1.0.0] - 2026-11-12
 
 First release.
@@ -26,7 +32,7 @@ First release.
 ## [1.0.2] - 2026-11-12
 
 ### Changed
-- Renamed to "Courier Delivery Connector for Dalli" (slug and text domain `courier-delivery-connector-for-dalli`, repository renamed) so the name does not start with a third-party mark. Options, hooks and the shipping method id are unchanged, so existing settings keep working.
+- Renamed to "Kurvio Courier Connector for Dalli" (slug and text domain `kurvio-courier-connector-for-dalli`, repository renamed) so the name does not start with a third-party mark. Options, hooks and the shipping method id are unchanged, so existing settings keep working.
 
 ## [1.0.1] - 2026-11-12
 

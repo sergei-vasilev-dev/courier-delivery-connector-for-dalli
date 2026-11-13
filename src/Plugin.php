@@ -110,8 +110,6 @@ final class Plugin {
 	 * @return void
 	 */
 	public function init(): void {
-		load_plugin_textdomain( 'courier-delivery-connector-for-dalli', false, dirname( DALLI_DELIVERY_BASENAME ) . '/languages' );
-
 		if ( ! class_exists( 'WooCommerce' ) ) {
 			add_action( 'admin_notices', array( $this, 'missing_woocommerce_notice' ) );
 			return;
@@ -154,7 +152,7 @@ final class Plugin {
 		if ( ! current_user_can( 'activate_plugins' ) ) {
 			return;
 		}
-		echo '<div class="notice notice-error"><p>' . esc_html__( 'Courier Delivery Connector for Dalli requires WooCommerce to be installed and active.', 'courier-delivery-connector-for-dalli' ) . '</p></div>';
+		echo '<div class="notice notice-error"><p>' . esc_html__( 'Kurvio Courier Connector for Dalli requires WooCommerce to be installed and active.', 'kurvio-courier-connector-for-dalli' ) . '</p></div>';
 	}
 
 	/**
@@ -175,7 +173,7 @@ final class Plugin {
 	 * @return string[]
 	 */
 	public function action_links( $links ) {
-		array_unshift( $links, '<a href="' . esc_url( SettingsPage::url() ) . '">' . esc_html__( 'Settings', 'courier-delivery-connector-for-dalli' ) . '</a>' );
+		array_unshift( $links, '<a href="' . esc_url( SettingsPage::url() ) . '">' . esc_html__( 'Settings', 'kurvio-courier-connector-for-dalli' ) . '</a>' );
 		return $links;
 	}
 

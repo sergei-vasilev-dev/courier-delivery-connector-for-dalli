@@ -1,5 +1,5 @@
 /**
- * Courier Delivery Connector for Dalli - checkout widget.
+ * Kurvio Courier Connector for Dalli - checkout widget.
  *
  * Renders the pickup point chooser (accessible modal with search) and the delivery date/time selects.
  * Shared by the classic checkout and the Checkout block. No dependencies, no third-party requests:

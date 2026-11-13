@@ -1,8 +1,8 @@
 <?xml version="1.0"?>
-<ruleset name="Courier Delivery Connector for Dalli">
+<ruleset name="Kurvio Courier Connector for Dalli">
 	<description>Coding standards: WordPress + WooCommerce + PHPCompatibility.</description>
 
-	<file>./courier-delivery-connector-for-dalli.php</file>
+	<file>./kurvio-courier-connector-for-dalli.php</file>
 	<file>./uninstall.php</file>
 	<file>./src</file>
 	<file>./templates</file>
@@ -30,7 +30,7 @@
 	<rule ref="WordPress.WP.I18n">
 		<properties>
 			<property name="text_domain" type="array">
-				<element value="courier-delivery-connector-for-dalli"/>
+				<element value="kurvio-courier-connector-for-dalli"/>
 			</property>
 		</properties>
 	</rule>

@@ -63,8 +63,8 @@ class ToolsPage {
 	public function add_menu(): void {
 		add_submenu_page(
 			'woocommerce',
-			__( 'Dalli tools', 'courier-delivery-connector-for-dalli' ),
-			__( 'Dalli', 'courier-delivery-connector-for-dalli' ),
+			__( 'Dalli tools', 'kurvio-courier-connector-for-dalli' ),
+			__( 'Dalli', 'kurvio-courier-connector-for-dalli' ),
 			'manage_woocommerce',
 			self::SLUG,
 			array( $this, 'render' )
@@ -78,27 +78,27 @@ class ToolsPage {
 	 */
 	public function render(): void {
 		if ( ! current_user_can( 'manage_woocommerce' ) ) {
-			wp_die( esc_html__( 'You are not allowed to do this.', 'courier-delivery-connector-for-dalli' ), '', array( 'response' => 403 ) );
+			wp_die( esc_html__( 'You are not allowed to do this.', 'kurvio-courier-connector-for-dalli' ), '', array( 'response' => 403 ) );
 		}
 		?>
 		<div class="wrap">
-			<h1><?php esc_html_e( 'Dalli delivery tools', 'courier-delivery-connector-for-dalli' ); ?></h1>
+			<h1><?php esc_html_e( 'Dalli delivery tools', 'kurvio-courier-connector-for-dalli' ); ?></h1>
 			<p>
-				<a href="<?php echo esc_url( SettingsPage::url() ); ?>"><?php esc_html_e( 'Open settings', 'courier-delivery-connector-for-dalli' ); ?></a>
+				<a href="<?php echo esc_url( SettingsPage::url() ); ?>"><?php esc_html_e( 'Open settings', 'kurvio-courier-connector-for-dalli' ); ?></a>
 			</p>
 
-			<h2><?php esc_html_e( 'Transfer act', 'courier-delivery-connector-for-dalli' ); ?></h2>
-			<p><?php esc_html_e( 'Download the acceptance and transfer act (PDF) for all orders sent to Dalli today. Orders sent on other days are ignored by Dalli.', 'courier-delivery-connector-for-dalli' ); ?></p>
+			<h2><?php esc_html_e( 'Transfer act', 'kurvio-courier-connector-for-dalli' ); ?></h2>
+			<p><?php esc_html_e( 'Download the acceptance and transfer act (PDF) for all orders sent to Dalli today. Orders sent on other days are ignored by Dalli.', 'kurvio-courier-connector-for-dalli' ); ?></p>
 			<p>
 				<a class="button button-primary" href="<?php echo esc_url( wp_nonce_url( admin_url( 'admin-post.php?action=' . OrderActions::ACT_HOOK ), OrderActions::ACT_HOOK ) ); ?>">
-					<?php esc_html_e( 'Download today\'s act', 'courier-delivery-connector-for-dalli' ); ?>
+					<?php esc_html_e( 'Download today\'s act', 'kurvio-courier-connector-for-dalli' ); ?>
 				</a>
 			</p>
 
-			<h2><?php esc_html_e( 'Orders that could not be sent', 'courier-delivery-connector-for-dalli' ); ?></h2>
+			<h2><?php esc_html_e( 'Orders that could not be sent', 'kurvio-courier-connector-for-dalli' ); ?></h2>
 			<?php $this->render_failed_orders(); ?>
 
-			<h2><?php esc_html_e( 'Diagnostics', 'courier-delivery-connector-for-dalli' ); ?></h2>
+			<h2><?php esc_html_e( 'Diagnostics', 'kurvio-courier-connector-for-dalli' ); ?></h2>
 			<table class="widefat striped" style="max-width:720px;">
 				<tbody>
 					<?php foreach ( self::diagnostics( $this->settings ) as $label => $value ) : ?>
@@ -138,10 +138,10 @@ class ToolsPage {
 			)
 		);
 		if ( ! $orders ) {
-			echo '<p>' . esc_html__( 'None. Everything went through.', 'courier-delivery-connector-for-dalli' ) . '</p>';
+			echo '<p>' . esc_html__( 'None. Everything went through.', 'kurvio-courier-connector-for-dalli' ) . '</p>';
 			return;
 		}
-		echo '<table class="widefat striped" style="max-width:900px;"><thead><tr><th>' . esc_html__( 'Order', 'courier-delivery-connector-for-dalli' ) . '</th><th>' . esc_html__( 'Error', 'courier-delivery-connector-for-dalli' ) . '</th></tr></thead><tbody>';
+		echo '<table class="widefat striped" style="max-width:900px;"><thead><tr><th>' . esc_html__( 'Order', 'kurvio-courier-connector-for-dalli' ) . '</th><th>' . esc_html__( 'Error', 'kurvio-courier-connector-for-dalli' ) . '</th></tr></thead><tbody>';
 		foreach ( $orders as $order ) {
 			if ( ! $order instanceof \WC_Order ) {
 				continue;
@@ -163,8 +163,8 @@ class ToolsPage {
 	 * @return array<string,string>
 	 */
 	public static function diagnostics( Settings $settings ): array {
-		$yes = __( 'Yes', 'courier-delivery-connector-for-dalli' );
-		$no  = __( 'No', 'courier-delivery-connector-for-dalli' );
+		$yes = __( 'Yes', 'kurvio-courier-connector-for-dalli' );
+		$no  = __( 'No', 'kurvio-courier-connector-for-dalli' );
 
 		$next = '';
 		if ( function_exists( 'as_next_scheduled_action' ) ) {
@@ -177,16 +177,16 @@ class ToolsPage {
 		$host = wp_parse_url( $settings->api_url(), PHP_URL_HOST );
 
 		return array(
-			__( 'Plugin version', 'courier-delivery-connector-for-dalli' ) => DALLI_DELIVERY_VERSION,
-			__( 'API endpoint host', 'courier-delivery-connector-for-dalli' ) => is_string( $host ) ? $host : '',
-			__( 'Branch', 'courier-delivery-connector-for-dalli' ) => $settings->branch(),
-			__( 'Mode', 'courier-delivery-connector-for-dalli' ) => (string) $settings->get( 'mode' ),
-			__( 'Token configured', 'courier-delivery-connector-for-dalli' ) => $settings->has_token() ? $yes : $no,
-			__( 'Token from wp-config.php', 'courier-delivery-connector-for-dalli' ) => Settings::token_is_constant( $settings->is_test_mode() ) ? $yes : $no,
-			__( 'Order creation trigger', 'courier-delivery-connector-for-dalli' ) => (string) $settings->get( 'order_trigger' ),
-			__( 'Status sync enabled', 'courier-delivery-connector-for-dalli' ) => $settings->is_enabled( 'sync_enabled' ) ? $yes : $no,
-			__( 'Next status sync', 'courier-delivery-connector-for-dalli' ) => '' !== $next ? $next : __( 'Not scheduled', 'courier-delivery-connector-for-dalli' ),
-			__( 'Debug log', 'courier-delivery-connector-for-dalli' ) => $settings->is_enabled( 'debug' ) ? $yes : $no,
+			__( 'Plugin version', 'kurvio-courier-connector-for-dalli' ) => DALLI_DELIVERY_VERSION,
+			__( 'API endpoint host', 'kurvio-courier-connector-for-dalli' ) => is_string( $host ) ? $host : '',
+			__( 'Branch', 'kurvio-courier-connector-for-dalli' ) => $settings->branch(),
+			__( 'Mode', 'kurvio-courier-connector-for-dalli' ) => (string) $settings->get( 'mode' ),
+			__( 'Token configured', 'kurvio-courier-connector-for-dalli' ) => $settings->has_token() ? $yes : $no,
+			__( 'Token from wp-config.php', 'kurvio-courier-connector-for-dalli' ) => Settings::token_is_constant( $settings->is_test_mode() ) ? $yes : $no,
+			__( 'Order creation trigger', 'kurvio-courier-connector-for-dalli' ) => (string) $settings->get( 'order_trigger' ),
+			__( 'Status sync enabled', 'kurvio-courier-connector-for-dalli' ) => $settings->is_enabled( 'sync_enabled' ) ? $yes : $no,
+			__( 'Next status sync', 'kurvio-courier-connector-for-dalli' ) => '' !== $next ? $next : __( 'Not scheduled', 'kurvio-courier-connector-for-dalli' ),
+			__( 'Debug log', 'kurvio-courier-connector-for-dalli' ) => $settings->is_enabled( 'debug' ) ? $yes : $no,
 		);
 	}
 }

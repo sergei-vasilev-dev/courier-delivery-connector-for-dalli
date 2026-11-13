@@ -47,7 +47,7 @@ class PayloadFactory {
 	public function build( \WC_Order $order ): OrderPayload {
 		$delivery = OrderData::delivery( $order );
 		if ( ! $delivery ) {
-			throw ApiException::config( esc_html__( 'The order does not use the Dalli shipping method.', 'courier-delivery-connector-for-dalli' ) );
+			throw ApiException::config( esc_html__( 'The order does not use the Dalli shipping method.', 'kurvio-courier-connector-for-dalli' ) );
 		}
 
 		$partner = (string) $delivery['partner'];
@@ -57,7 +57,7 @@ class PayloadFactory {
 			$service = Catalog::fallback_service( $partner, $type, $this->settings->branch() );
 		}
 		if ( $service <= 0 ) {
-			throw ApiException::config( esc_html__( 'The Dalli service code for this order is unknown.', 'courier-delivery-connector-for-dalli' ) );
+			throw ApiException::config( esc_html__( 'The Dalli service code for this order is unknown.', 'kurvio-courier-connector-for-dalli' ) );
 		}
 
 		$payload          = new OrderPayload();
@@ -69,7 +69,7 @@ class PayloadFactory {
 		if ( Catalog::TYPE_PVZ === $type ) {
 			$pvz = OrderData::pvz( $order );
 			if ( ! $pvz ) {
-				throw ApiException::config( esc_html__( 'No pickup point was chosen for this order.', 'courier-delivery-connector-for-dalli' ) );
+				throw ApiException::config( esc_html__( 'No pickup point was chosen for this order.', 'kurvio-courier-connector-for-dalli' ) );
 			}
 			$payload->pvz_code = (string) $pvz['code'];
 			$payload->address  = (string) ( $pvz['address'] ?? '' );
@@ -91,7 +91,7 @@ class PayloadFactory {
 			Catalog::PARTNER_DS === $partner
 		);
 		if ( AmountPlanner::PAY_PREPAID !== $paytype && ! empty( $delivery['only_prepaid'] ) ) {
-			throw ApiException::config( esc_html__( 'This delivery option accepts prepaid orders only, but the order is paid on receipt.', 'courier-delivery-connector-for-dalli' ) );
+			throw ApiException::config( esc_html__( 'This delivery option accepts prepaid orders only, but the order is paid on receipt.', 'kurvio-courier-connector-for-dalli' ) );
 		}
 		$payload->paytype = $paytype;
 
@@ -100,7 +100,7 @@ class PayloadFactory {
 		if ( ! $payload->items ) {
 			$fallback = new \DalliDelivery\Domain\OrderItem();
 			/* translators: %s: order number */
-			$fallback->name     = sprintf( __( 'Order %s', 'courier-delivery-connector-for-dalli' ), $order->get_order_number() );
+			$fallback->name     = sprintf( __( 'Order %s', 'kurvio-courier-connector-for-dalli' ), $order->get_order_number() );
 			$fallback->price    = max( 0.01, round( (float) $order->get_total() - $this->shipping_total( $order ), 2 ) );
 			$fallback->vat_rate = (int) $this->settings->get( 'item_vat' );
 			$payload->items     = array( $fallback );

@@ -51,7 +51,7 @@ class SystemStatus {
 		<table class="wc_status_table widefat" cellspacing="0">
 			<thead>
 				<tr>
-					<th colspan="3" data-export-label="Courier Delivery Connector for Dalli"><h2><?php esc_html_e( 'Courier Delivery Connector for Dalli', 'courier-delivery-connector-for-dalli' ); ?></h2></th>
+					<th colspan="3" data-export-label="Kurvio Courier Connector for Dalli"><h2><?php esc_html_e( 'Kurvio Courier Connector for Dalli', 'kurvio-courier-connector-for-dalli' ); ?></h2></th>
 				</tr>
 			</thead>
 			<tbody>

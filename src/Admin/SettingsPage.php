@@ -71,7 +71,7 @@ class SettingsPage {
 	 * @return array<string,string>
 	 */
 	public function add_section( $sections ) {
-		$sections[ self::SECTION ] = __( 'Dalli', 'courier-delivery-connector-for-dalli' );
+		$sections[ self::SECTION ] = __( 'Dalli', 'kurvio-courier-connector-for-dalli' );
 		return $sections;
 	}
 
@@ -138,66 +138,66 @@ class SettingsPage {
 		$fields = array();
 
 		$fields[] = array(
-			'title' => __( 'Dalli connection', 'courier-delivery-connector-for-dalli' ),
+			'title' => __( 'Dalli connection', 'kurvio-courier-connector-for-dalli' ),
 			'type'  => 'title',
-			'desc'  => __( 'Unofficial integration. Not affiliated with or endorsed by Dalli. Get your token in the Dalli personal account (Account section).', 'courier-delivery-connector-for-dalli' ),
+			'desc'  => __( 'Unofficial integration. Not affiliated with or endorsed by Dalli. Get your token in the Dalli personal account (Account section).', 'kurvio-courier-connector-for-dalli' ),
 			'id'    => 'dalli_delivery_connection',
 		);
 		$fields[] = $this->field(
 			'branch',
 			array(
-				'title'    => __( 'Branch', 'courier-delivery-connector-for-dalli' ),
+				'title'    => __( 'Branch', 'kurvio-courier-connector-for-dalli' ),
 				'type'     => 'select',
 				'class'    => 'wc-enhanced-select',
 				'options'  => array(
-					Settings::BRANCH_MSK => __( 'Moscow (api.dalli-service.com)', 'courier-delivery-connector-for-dalli' ),
-					Settings::BRANCH_SPB => __( 'St. Petersburg (spbapi.dalli-service.com)', 'courier-delivery-connector-for-dalli' ),
+					Settings::BRANCH_MSK => __( 'Moscow (api.dalli-service.com)', 'kurvio-courier-connector-for-dalli' ),
+					Settings::BRANCH_SPB => __( 'St. Petersburg (spbapi.dalli-service.com)', 'kurvio-courier-connector-for-dalli' ),
 				),
-				'desc'     => __( 'The branch you have the contract with.', 'courier-delivery-connector-for-dalli' ),
+				'desc'     => __( 'The branch you have the contract with.', 'kurvio-courier-connector-for-dalli' ),
 				'desc_tip' => true,
 			)
 		);
 		$fields[] = $this->field(
 			'mode',
 			array(
-				'title'   => __( 'Mode', 'courier-delivery-connector-for-dalli' ),
+				'title'   => __( 'Mode', 'kurvio-courier-connector-for-dalli' ),
 				'type'    => 'select',
 				'class'   => 'wc-enhanced-select',
 				'options' => array(
-					Settings::MODE_LIVE => __( 'Live', 'courier-delivery-connector-for-dalli' ),
-					Settings::MODE_TEST => __( 'Test platform (shared, never use real customer data)', 'courier-delivery-connector-for-dalli' ),
+					Settings::MODE_LIVE => __( 'Live', 'kurvio-courier-connector-for-dalli' ),
+					Settings::MODE_TEST => __( 'Test platform (shared, never use real customer data)', 'kurvio-courier-connector-for-dalli' ),
 				),
 			)
 		);
 		$fields[] = $this->field(
 			'token',
 			array(
-				'title' => __( 'API token', 'courier-delivery-connector-for-dalli' ),
+				'title' => __( 'API token', 'kurvio-courier-connector-for-dalli' ),
 				'type'  => 'dalli_secret',
-				'desc'  => __( 'You can also define DALLI_TOKEN in wp-config.php.', 'courier-delivery-connector-for-dalli' ),
+				'desc'  => __( 'You can also define DALLI_TOKEN in wp-config.php.', 'kurvio-courier-connector-for-dalli' ),
 				'const' => 'DALLI_TOKEN',
 			)
 		);
 		$fields[] = $this->field(
 			'test_token',
 			array(
-				'title' => __( 'Test API token', 'courier-delivery-connector-for-dalli' ),
+				'title' => __( 'Test API token', 'kurvio-courier-connector-for-dalli' ),
 				'type'  => 'dalli_secret',
-				'desc'  => __( 'Token of the shared Dalli test platform. You can also define DALLI_TEST_TOKEN in wp-config.php.', 'courier-delivery-connector-for-dalli' ),
+				'desc'  => __( 'Token of the shared Dalli test platform. You can also define DALLI_TEST_TOKEN in wp-config.php.', 'kurvio-courier-connector-for-dalli' ),
 				'const' => 'DALLI_TEST_TOKEN',
 			)
 		);
 		$fields[] = $this->field(
 			'sender_code',
 			array(
-				'title'    => __( 'Sender code', 'courier-delivery-connector-for-dalli' ),
+				'title'    => __( 'Sender code', 'kurvio-courier-connector-for-dalli' ),
 				'type'     => 'text',
-				'desc'     => __( 'Pickup address code from your Dalli manager. Required for rates from regional branches; leave empty otherwise.', 'courier-delivery-connector-for-dalli' ),
+				'desc'     => __( 'Pickup address code from your Dalli manager. Required for rates from regional branches; leave empty otherwise.', 'kurvio-courier-connector-for-dalli' ),
 				'desc_tip' => true,
 			)
 		);
 		$fields[] = array(
-			'title' => __( 'Connection test', 'courier-delivery-connector-for-dalli' ),
+			'title' => __( 'Connection test', 'kurvio-courier-connector-for-dalli' ),
 			'type'  => 'dalli_test_connection',
 			'id'    => 'dalli_delivery_test_connection',
 		);
@@ -207,20 +207,20 @@ class SettingsPage {
 		);
 
 		$fields[] = array(
-			'title' => __( 'Parcel defaults', 'courier-delivery-connector-for-dalli' ),
+			'title' => __( 'Parcel defaults', 'kurvio-courier-connector-for-dalli' ),
 			'type'  => 'title',
-			'desc'  => __( 'Used when a product has no weight or dimensions. Product weight and dimensions use the native WooCommerce fields.', 'courier-delivery-connector-for-dalli' ),
+			'desc'  => __( 'Used when a product has no weight or dimensions. Product weight and dimensions use the native WooCommerce fields.', 'kurvio-courier-connector-for-dalli' ),
 			'id'    => 'dalli_delivery_parcel',
 		);
 		foreach ( array(
-			'default_weight' => __( 'Default product weight, kg', 'courier-delivery-connector-for-dalli' ),
-			'default_length' => __( 'Default product length, cm', 'courier-delivery-connector-for-dalli' ),
-			'default_width'  => __( 'Default product width, cm', 'courier-delivery-connector-for-dalli' ),
-			'default_height' => __( 'Default product height, cm', 'courier-delivery-connector-for-dalli' ),
-			'box_weight'     => __( 'Packaging weight, kg', 'courier-delivery-connector-for-dalli' ),
-			'box_length'     => __( 'Packaging box length, cm', 'courier-delivery-connector-for-dalli' ),
-			'box_width'      => __( 'Packaging box width, cm', 'courier-delivery-connector-for-dalli' ),
-			'box_height'     => __( 'Packaging box height, cm', 'courier-delivery-connector-for-dalli' ),
+			'default_weight' => __( 'Default product weight, kg', 'kurvio-courier-connector-for-dalli' ),
+			'default_length' => __( 'Default product length, cm', 'kurvio-courier-connector-for-dalli' ),
+			'default_width'  => __( 'Default product width, cm', 'kurvio-courier-connector-for-dalli' ),
+			'default_height' => __( 'Default product height, cm', 'kurvio-courier-connector-for-dalli' ),
+			'box_weight'     => __( 'Packaging weight, kg', 'kurvio-courier-connector-for-dalli' ),
+			'box_length'     => __( 'Packaging box length, cm', 'kurvio-courier-connector-for-dalli' ),
+			'box_width'      => __( 'Packaging box width, cm', 'kurvio-courier-connector-for-dalli' ),
+			'box_height'     => __( 'Packaging box height, cm', 'kurvio-courier-connector-for-dalli' ),
 		) as $key => $title ) {
 			$fields[] = $this->field(
 				$key,
@@ -241,27 +241,27 @@ class SettingsPage {
 		);
 
 		$fields[] = array(
-			'title' => __( 'Prices and declared value', 'courier-delivery-connector-for-dalli' ),
+			'title' => __( 'Prices and declared value', 'kurvio-courier-connector-for-dalli' ),
 			'type'  => 'title',
-			'desc'  => __( 'Markup, free shipping and fixed price are configured per shipping zone, in the "Dalli delivery" method settings.', 'courier-delivery-connector-for-dalli' ),
+			'desc'  => __( 'Markup, free shipping and fixed price are configured per shipping zone, in the "Dalli delivery" method settings.', 'kurvio-courier-connector-for-dalli' ),
 			'id'    => 'dalli_delivery_pricing',
 		);
 		$fields[] = $this->field(
 			'declared_value',
 			array(
-				'title'   => __( 'Declared value', 'courier-delivery-connector-for-dalli' ),
+				'title'   => __( 'Declared value', 'kurvio-courier-connector-for-dalli' ),
 				'type'    => 'select',
 				'class'   => 'wc-enhanced-select',
 				'options' => array(
-					'items'   => __( 'Full value of the items', 'courier-delivery-connector-for-dalli' ),
-					'percent' => __( 'A percentage of the items value', 'courier-delivery-connector-for-dalli' ),
+					'items'   => __( 'Full value of the items', 'kurvio-courier-connector-for-dalli' ),
+					'percent' => __( 'A percentage of the items value', 'kurvio-courier-connector-for-dalli' ),
 				),
 			)
 		);
 		$fields[] = $this->field(
 			'declared_percent',
 			array(
-				'title'             => __( 'Declared value, %', 'courier-delivery-connector-for-dalli' ),
+				'title'             => __( 'Declared value, %', 'kurvio-courier-connector-for-dalli' ),
 				'type'              => 'number',
 				'custom_attributes' => array(
 					'min'  => '0',
@@ -274,28 +274,28 @@ class SettingsPage {
 		$fields[] = $this->field(
 			'rounding_step',
 			array(
-				'title'   => __( 'Round delivery price to', 'courier-delivery-connector-for-dalli' ),
+				'title'   => __( 'Round delivery price to', 'kurvio-courier-connector-for-dalli' ),
 				'type'    => 'select',
 				'class'   => 'wc-enhanced-select',
 				'options' => array(
-					'0'   => __( 'Kopecks (no rounding)', 'courier-delivery-connector-for-dalli' ),
-					'1'   => __( '1 rouble', 'courier-delivery-connector-for-dalli' ),
-					'5'   => __( '5 roubles', 'courier-delivery-connector-for-dalli' ),
-					'10'  => __( '10 roubles', 'courier-delivery-connector-for-dalli' ),
-					'50'  => __( '50 roubles', 'courier-delivery-connector-for-dalli' ),
-					'100' => __( '100 roubles', 'courier-delivery-connector-for-dalli' ),
+					'0'   => __( 'Kopecks (no rounding)', 'kurvio-courier-connector-for-dalli' ),
+					'1'   => __( '1 rouble', 'kurvio-courier-connector-for-dalli' ),
+					'5'   => __( '5 roubles', 'kurvio-courier-connector-for-dalli' ),
+					'10'  => __( '10 roubles', 'kurvio-courier-connector-for-dalli' ),
+					'50'  => __( '50 roubles', 'kurvio-courier-connector-for-dalli' ),
+					'100' => __( '100 roubles', 'kurvio-courier-connector-for-dalli' ),
 				),
 			)
 		);
 		$fields[] = $this->field(
 			'rounding_direction',
 			array(
-				'title'   => __( 'Rounding direction', 'courier-delivery-connector-for-dalli' ),
+				'title'   => __( 'Rounding direction', 'kurvio-courier-connector-for-dalli' ),
 				'type'    => 'select',
 				'class'   => 'wc-enhanced-select',
 				'options' => array(
-					'nearest' => __( 'To the nearest value', 'courier-delivery-connector-for-dalli' ),
-					'up'      => __( 'Up', 'courier-delivery-connector-for-dalli' ),
+					'nearest' => __( 'To the nearest value', 'kurvio-courier-connector-for-dalli' ),
+					'up'      => __( 'Up', 'kurvio-courier-connector-for-dalli' ),
 				),
 			)
 		);
@@ -305,15 +305,15 @@ class SettingsPage {
 		);
 
 		$fields[] = array(
-			'title' => __( 'Payment methods', 'courier-delivery-connector-for-dalli' ),
+			'title' => __( 'Payment methods', 'kurvio-courier-connector-for-dalli' ),
 			'type'  => 'title',
-			'desc'  => __( 'Tell Dalli how the customer pays. Any gateway that is not listed below is treated as prepaid (the courier collects nothing).', 'courier-delivery-connector-for-dalli' ),
+			'desc'  => __( 'Tell Dalli how the customer pays. Any gateway that is not listed below is treated as prepaid (the courier collects nothing).', 'kurvio-courier-connector-for-dalli' ),
 			'id'    => 'dalli_delivery_payment',
 		);
 		$fields[] = $this->field(
 			'cod_gateways',
 			array(
-				'title'   => __( 'Cash on receipt', 'courier-delivery-connector-for-dalli' ),
+				'title'   => __( 'Cash on receipt', 'kurvio-courier-connector-for-dalli' ),
 				'type'    => 'multiselect',
 				'class'   => 'wc-enhanced-select',
 				'options' => $gateways,
@@ -322,11 +322,11 @@ class SettingsPage {
 		$fields[] = $this->field(
 			'card_gateways',
 			array(
-				'title'    => __( 'Card on receipt', 'courier-delivery-connector-for-dalli' ),
+				'title'    => __( 'Card on receipt', 'kurvio-courier-connector-for-dalli' ),
 				'type'     => 'multiselect',
 				'class'    => 'wc-enhanced-select',
 				'options'  => $gateways,
-				'desc'     => __( 'Only Dalli couriers accept cards; for partners the order is sent as cash on receipt.', 'courier-delivery-connector-for-dalli' ),
+				'desc'     => __( 'Only Dalli couriers accept cards; for partners the order is sent as cash on receipt.', 'kurvio-courier-connector-for-dalli' ),
 				'desc_tip' => true,
 			)
 		);
@@ -336,36 +336,36 @@ class SettingsPage {
 		);
 
 		$fields[] = array(
-			'title' => __( 'Orders', 'courier-delivery-connector-for-dalli' ),
+			'title' => __( 'Orders', 'kurvio-courier-connector-for-dalli' ),
 			'type'  => 'title',
 			'id'    => 'dalli_delivery_orders',
 		);
 		$fields[] = $this->field(
 			'order_trigger',
 			array(
-				'title'   => __( 'Create the order in Dalli', 'courier-delivery-connector-for-dalli' ),
+				'title'   => __( 'Create the order in Dalli', 'kurvio-courier-connector-for-dalli' ),
 				'type'    => 'select',
 				'class'   => 'wc-enhanced-select',
 				'options' => array(
-					'processing' => __( 'When the order becomes "Processing" (paid)', 'courier-delivery-connector-for-dalli' ),
-					'completed'  => __( 'When the order becomes "Completed"', 'courier-delivery-connector-for-dalli' ),
-					'manual'     => __( 'Manually, with a button on the order screen', 'courier-delivery-connector-for-dalli' ),
+					'processing' => __( 'When the order becomes "Processing" (paid)', 'kurvio-courier-connector-for-dalli' ),
+					'completed'  => __( 'When the order becomes "Completed"', 'kurvio-courier-connector-for-dalli' ),
+					'manual'     => __( 'Manually, with a button on the order screen', 'kurvio-courier-connector-for-dalli' ),
 				),
 			)
 		);
 		$fields[] = $this->field(
 			'order_prefix',
 			array(
-				'title'    => __( 'Order number prefix', 'courier-delivery-connector-for-dalli' ),
+				'title'    => __( 'Order number prefix', 'kurvio-courier-connector-for-dalli' ),
 				'type'     => 'text',
-				'desc'     => __( 'Added to the WooCommerce order number. Order numbers must be unique across your Dalli account; use a prefix when several shops share it.', 'courier-delivery-connector-for-dalli' ),
+				'desc'     => __( 'Added to the WooCommerce order number. Order numbers must be unique across your Dalli account; use a prefix when several shops share it.', 'kurvio-courier-connector-for-dalli' ),
 				'desc_tip' => true,
 			)
 		);
 		$fields[] = $this->field(
 			'item_vat',
 			array(
-				'title'   => __( 'VAT rate of items', 'courier-delivery-connector-for-dalli' ),
+				'title'   => __( 'VAT rate of items', 'kurvio-courier-connector-for-dalli' ),
 				'type'    => 'select',
 				'class'   => 'wc-enhanced-select',
 				'options' => array(
@@ -374,27 +374,27 @@ class SettingsPage {
 					'10' => '10%',
 					'7'  => '7%',
 					'5'  => '5%',
-					'0'  => __( 'No VAT', 'courier-delivery-connector-for-dalli' ),
+					'0'  => __( 'No VAT', 'kurvio-courier-connector-for-dalli' ),
 				),
 			)
 		);
 		$fields[] = $this->field(
 			'accept_partially',
 			array(
-				'title'   => __( 'Partial redemption', 'courier-delivery-connector-for-dalli' ),
+				'title'   => __( 'Partial redemption', 'kurvio-courier-connector-for-dalli' ),
 				'type'    => 'select',
 				'class'   => 'wc-enhanced-select',
 				'options' => array(
-					''    => __( 'Use the account default', 'courier-delivery-connector-for-dalli' ),
-					'YES' => __( 'Allowed', 'courier-delivery-connector-for-dalli' ),
-					'NO'  => __( 'Not allowed', 'courier-delivery-connector-for-dalli' ),
+					''    => __( 'Use the account default', 'kurvio-courier-connector-for-dalli' ),
+					'YES' => __( 'Allowed', 'kurvio-courier-connector-for-dalli' ),
+					'NO'  => __( 'Not allowed', 'kurvio-courier-connector-for-dalli' ),
 				),
 			)
 		);
 		$fields[] = $this->field(
 			'default_time_min',
 			array(
-				'title' => __( 'Default delivery time from', 'courier-delivery-connector-for-dalli' ),
+				'title' => __( 'Default delivery time from', 'kurvio-courier-connector-for-dalli' ),
 				'type'  => 'time',
 				'css'   => 'width:100px;',
 			)
@@ -402,7 +402,7 @@ class SettingsPage {
 		$fields[] = $this->field(
 			'default_time_max',
 			array(
-				'title' => __( 'Default delivery time to', 'courier-delivery-connector-for-dalli' ),
+				'title' => __( 'Default delivery time to', 'kurvio-courier-connector-for-dalli' ),
 				'type'  => 'time',
 				'css'   => 'width:100px;',
 			)
@@ -410,25 +410,25 @@ class SettingsPage {
 		$fields[] = $this->field(
 			'choose_interval',
 			array(
-				'title' => __( 'Delivery interval', 'courier-delivery-connector-for-dalli' ),
+				'title' => __( 'Delivery interval', 'kurvio-courier-connector-for-dalli' ),
 				'type'  => 'checkbox',
-				'desc'  => __( 'Let customers choose the delivery date and time for Dalli courier delivery', 'courier-delivery-connector-for-dalli' ),
+				'desc'  => __( 'Let customers choose the delivery date and time for Dalli courier delivery', 'kurvio-courier-connector-for-dalli' ),
 			)
 		);
 		$fields[] = $this->field(
 			'sticker_format',
 			array(
-				'title'   => __( 'Sticker (label) format', 'courier-delivery-connector-for-dalli' ),
+				'title'   => __( 'Sticker (label) format', 'kurvio-courier-connector-for-dalli' ),
 				'type'    => 'select',
 				'class'   => 'wc-enhanced-select',
 				'options' => array(
-					'1' => __( 'Zebra', 'courier-delivery-connector-for-dalli' ),
-					'2' => __( 'A4 with frame', 'courier-delivery-connector-for-dalli' ),
-					'3' => __( 'A4 without frame', 'courier-delivery-connector-for-dalli' ),
-					'4' => __( 'A6', 'courier-delivery-connector-for-dalli' ),
-					'5' => __( '100 x 50 mm', 'courier-delivery-connector-for-dalli' ),
-					'6' => __( '105 x 148 mm', 'courier-delivery-connector-for-dalli' ),
-					'7' => __( '75 x 120 mm', 'courier-delivery-connector-for-dalli' ),
+					'1' => __( 'Zebra', 'kurvio-courier-connector-for-dalli' ),
+					'2' => __( 'A4 with frame', 'kurvio-courier-connector-for-dalli' ),
+					'3' => __( 'A4 without frame', 'kurvio-courier-connector-for-dalli' ),
+					'4' => __( 'A6', 'kurvio-courier-connector-for-dalli' ),
+					'5' => __( '100 x 50 mm', 'kurvio-courier-connector-for-dalli' ),
+					'6' => __( '105 x 148 mm', 'kurvio-courier-connector-for-dalli' ),
+					'7' => __( '75 x 120 mm', 'kurvio-courier-connector-for-dalli' ),
 				),
 			)
 		);
@@ -438,53 +438,53 @@ class SettingsPage {
 		);
 
 		$fields[] = array(
-			'title' => __( 'Tracking', 'courier-delivery-connector-for-dalli' ),
+			'title' => __( 'Tracking', 'kurvio-courier-connector-for-dalli' ),
 			'type'  => 'title',
 			'id'    => 'dalli_delivery_tracking',
 		);
 		$fields[] = $this->field(
 			'sync_enabled',
 			array(
-				'title' => __( 'Status synchronisation', 'courier-delivery-connector-for-dalli' ),
+				'title' => __( 'Status synchronisation', 'kurvio-courier-connector-for-dalli' ),
 				'type'  => 'checkbox',
-				'desc'  => __( 'Refresh delivery statuses in the background', 'courier-delivery-connector-for-dalli' ),
+				'desc'  => __( 'Refresh delivery statuses in the background', 'kurvio-courier-connector-for-dalli' ),
 			)
 		);
 		$fields[] = $this->field(
 			'sync_interval',
 			array(
-				'title'   => __( 'Synchronisation interval', 'courier-delivery-connector-for-dalli' ),
+				'title'   => __( 'Synchronisation interval', 'kurvio-courier-connector-for-dalli' ),
 				'type'    => 'select',
 				'class'   => 'wc-enhanced-select',
 				'options' => array(
-					'5'  => __( 'Every 5 minutes', 'courier-delivery-connector-for-dalli' ),
-					'15' => __( 'Every 15 minutes', 'courier-delivery-connector-for-dalli' ),
-					'30' => __( 'Every 30 minutes', 'courier-delivery-connector-for-dalli' ),
-					'60' => __( 'Every hour', 'courier-delivery-connector-for-dalli' ),
+					'5'  => __( 'Every 5 minutes', 'kurvio-courier-connector-for-dalli' ),
+					'15' => __( 'Every 15 minutes', 'kurvio-courier-connector-for-dalli' ),
+					'30' => __( 'Every 30 minutes', 'kurvio-courier-connector-for-dalli' ),
+					'60' => __( 'Every hour', 'kurvio-courier-connector-for-dalli' ),
 				),
 			)
 		);
 		$fields[] = $this->field(
 			'sync_mode',
 			array(
-				'title'    => __( 'Synchronisation method', 'courier-delivery-connector-for-dalli' ),
+				'title'    => __( 'Synchronisation method', 'kurvio-courier-connector-for-dalli' ),
 				'type'     => 'select',
 				'class'    => 'wc-enhanced-select',
 				'options'  => array(
-					'per_order' => __( 'Query every open order (safe default)', 'courier-delivery-connector-for-dalli' ),
-					'changes'   => __( 'Account-wide "changed statuses" feed (fewer requests)', 'courier-delivery-connector-for-dalli' ),
+					'per_order' => __( 'Query every open order (safe default)', 'kurvio-courier-connector-for-dalli' ),
+					'changes'   => __( 'Account-wide "changed statuses" feed (fewer requests)', 'kurvio-courier-connector-for-dalli' ),
 				),
-				'desc'     => __( 'The changes feed is shared by everything that uses your Dalli account: if another system reads it, each of you will miss updates. Use it only when this shop is the sole consumer.', 'courier-delivery-connector-for-dalli' ),
+				'desc'     => __( 'The changes feed is shared by everything that uses your Dalli account: if another system reads it, each of you will miss updates. Use it only when this shop is the sole consumer.', 'kurvio-courier-connector-for-dalli' ),
 				'desc_tip' => true,
 			)
 		);
 		$fields[] = $this->field(
 			'tracking_url',
 			array(
-				'title'       => __( 'Tracking link', 'courier-delivery-connector-for-dalli' ),
+				'title'       => __( 'Tracking link', 'kurvio-courier-connector-for-dalli' ),
 				'type'        => 'text',
 				'placeholder' => 'https://example.com/track/{barcode}',
-				'desc'        => __( 'Optional public tracking page. Use {barcode} where the tracking number goes. Shown to customers when set.', 'courier-delivery-connector-for-dalli' ),
+				'desc'        => __( 'Optional public tracking page. Use {barcode} where the tracking number goes. Shown to customers when set.', 'kurvio-courier-connector-for-dalli' ),
 				'desc_tip'    => true,
 			)
 		);
@@ -494,9 +494,9 @@ class SettingsPage {
 		);
 
 		$fields[] = array(
-			'title' => __( 'Order status mapping', 'courier-delivery-connector-for-dalli' ),
+			'title' => __( 'Order status mapping', 'kurvio-courier-connector-for-dalli' ),
 			'type'  => 'title',
-			'desc'  => __( 'Optionally change the WooCommerce order status when the delivery status changes. Leave "Do not change" to keep control of order statuses. Moving to "Completed" sends the customer e-mail.', 'courier-delivery-connector-for-dalli' ),
+			'desc'  => __( 'Optionally change the WooCommerce order status when the delivery status changes. Leave "Do not change" to keep control of order statuses. Moving to "Completed" sends the customer e-mail.', 'kurvio-courier-connector-for-dalli' ),
 			'id'    => 'dalli_delivery_status_map_section',
 		);
 		foreach ( Catalog::statuses() as $code => $label ) {
@@ -506,7 +506,7 @@ class SettingsPage {
 				'type'    => 'select',
 				'class'   => 'wc-enhanced-select',
 				'default' => '',
-				'options' => array( '' => __( 'Do not change', 'courier-delivery-connector-for-dalli' ) ) + $order_statuses,
+				'options' => array( '' => __( 'Do not change', 'kurvio-courier-connector-for-dalli' ) ) + $order_statuses,
 			);
 		}
 		$fields[] = array(
@@ -515,18 +515,18 @@ class SettingsPage {
 		);
 
 		$fields[] = array(
-			'title' => __( 'Logging', 'courier-delivery-connector-for-dalli' ),
+			'title' => __( 'Logging', 'kurvio-courier-connector-for-dalli' ),
 			'type'  => 'title',
 			'id'    => 'dalli_delivery_logging',
 		);
 		$fields[] = $this->field(
 			'debug',
 			array(
-				'title' => __( 'Debug log', 'courier-delivery-connector-for-dalli' ),
+				'title' => __( 'Debug log', 'kurvio-courier-connector-for-dalli' ),
 				'type'  => 'checkbox',
 				'desc'  => sprintf(
 					/* translators: %s: log source name */
-					__( 'Log API requests and responses (source %s, see WooCommerce → Status → Logs). Logs contain customer data; the token is always redacted.', 'courier-delivery-connector-for-dalli' ),
+					__( 'Log API requests and responses (source %s, see WooCommerce → Status → Logs). Logs contain customer data; the token is always redacted.', 'kurvio-courier-connector-for-dalli' ),
 					'dalli-delivery'
 				),
 			)
@@ -564,7 +564,7 @@ class SettingsPage {
 					<p class="description">
 						<?php
 						/* translators: %s: PHP constant name */
-						echo esc_html( sprintf( __( 'Defined by the %s constant in wp-config.php.', 'courier-delivery-connector-for-dalli' ), $const ) );
+						echo esc_html( sprintf( __( 'Defined by the %s constant in wp-config.php.', 'kurvio-courier-connector-for-dalli' ), $const ) );
 						?>
 					</p>
 				<?php else : ?>
@@ -576,18 +576,18 @@ class SettingsPage {
 						autocomplete="new-password"
 						spellcheck="false"
 						value=""
-						placeholder="<?php echo esc_attr( '' !== $placeholder ? $placeholder : __( 'Not set', 'courier-delivery-connector-for-dalli' ) ); ?>"
+						placeholder="<?php echo esc_attr( '' !== $placeholder ? $placeholder : __( 'Not set', 'kurvio-courier-connector-for-dalli' ) ); ?>"
 					/>
 					<?php if ( '' !== $stored ) : ?>
 						<label>
 							<input type="checkbox" name="<?php echo esc_attr( $id . '_clear' ); ?>" value="1" />
-							<?php esc_html_e( 'Remove the saved token', 'courier-delivery-connector-for-dalli' ); ?>
+							<?php esc_html_e( 'Remove the saved token', 'kurvio-courier-connector-for-dalli' ); ?>
 						</label>
 					<?php endif; ?>
 					<p class="description">
 						<?php echo esc_html( (string) ( $value['desc'] ?? '' ) ); ?>
 						<?php if ( '' !== $stored ) : ?>
-							<?php esc_html_e( 'Leave empty to keep the saved token.', 'courier-delivery-connector-for-dalli' ); ?>
+							<?php esc_html_e( 'Leave empty to keep the saved token.', 'kurvio-courier-connector-for-dalli' ); ?>
 						<?php endif; ?>
 					</p>
 				<?php endif; ?>
@@ -623,11 +623,11 @@ class SettingsPage {
 	public function render_test_connection(): void {
 		?>
 		<tr valign="top">
-			<th scope="row" class="titledesc"><?php esc_html_e( 'Connection test', 'courier-delivery-connector-for-dalli' ); ?></th>
+			<th scope="row" class="titledesc"><?php esc_html_e( 'Connection test', 'kurvio-courier-connector-for-dalli' ); ?></th>
 			<td class="forminp">
-				<button type="button" class="button" id="dalli-delivery-test-connection"><?php esc_html_e( 'Test connection', 'courier-delivery-connector-for-dalli' ); ?></button>
+				<button type="button" class="button" id="dalli-delivery-test-connection"><?php esc_html_e( 'Test connection', 'kurvio-courier-connector-for-dalli' ); ?></button>
 				<span id="dalli-delivery-test-result" role="status" aria-live="polite" style="margin-left:10px;"></span>
-				<p class="description"><?php esc_html_e( 'Calls the harmless "services" method with the saved settings. Save your changes first.', 'courier-delivery-connector-for-dalli' ); ?></p>
+				<p class="description"><?php esc_html_e( 'Calls the harmless "services" method with the saved settings. Save your changes first.', 'kurvio-courier-connector-for-dalli' ); ?></p>
 			</td>
 		</tr>
 		<?php
@@ -651,8 +651,8 @@ class SettingsPage {
 			array(
 				'ajaxUrl' => admin_url( 'admin-ajax.php' ),
 				'nonce'   => wp_create_nonce( 'dalli_delivery_admin' ),
-				'working' => __( 'Checking…', 'courier-delivery-connector-for-dalli' ),
-				'failed'  => __( 'The request failed.', 'courier-delivery-connector-for-dalli' ),
+				'working' => __( 'Checking…', 'kurvio-courier-connector-for-dalli' ),
+				'failed'  => __( 'The request failed.', 'kurvio-courier-connector-for-dalli' ),
 			)
 		);
 	}
@@ -681,10 +681,10 @@ class SettingsPage {
 			return;
 		}
 		if ( $this->settings->is_test_mode() ) {
-			echo '<div class="notice notice-warning"><p>' . esc_html__( 'Dalli test mode is on. The test platform is shared by all users: never send real customer data to it.', 'courier-delivery-connector-for-dalli' ) . '</p></div>';
+			echo '<div class="notice notice-warning"><p>' . esc_html__( 'Dalli test mode is on. The test platform is shared by all users: never send real customer data to it.', 'kurvio-courier-connector-for-dalli' ) . '</p></div>';
 		}
 		if ( ! $this->settings->has_token() ) {
-			echo '<div class="notice notice-info"><p>' . esc_html__( 'Enter your Dalli API token to enable delivery rates.', 'courier-delivery-connector-for-dalli' ) . '</p></div>';
+			echo '<div class="notice notice-info"><p>' . esc_html__( 'Enter your Dalli API token to enable delivery rates.', 'kurvio-courier-connector-for-dalli' ) . '</p></div>';
 		}
 	}
 
@@ -696,7 +696,7 @@ class SettingsPage {
 	public function ajax_test_connection(): void {
 		check_ajax_referer( 'dalli_delivery_admin', 'nonce' );
 		if ( ! current_user_can( 'manage_woocommerce' ) ) {
-			wp_send_json_error( array( 'message' => __( 'You are not allowed to do this.', 'courier-delivery-connector-for-dalli' ) ), 403 );
+			wp_send_json_error( array( 'message' => __( 'You are not allowed to do this.', 'kurvio-courier-connector-for-dalli' ) ), 403 );
 		}
 		try {
 			$services = $this->api->services();
@@ -707,7 +707,7 @@ class SettingsPage {
 			array(
 				'message' => sprintf(
 					/* translators: %d: number of delivery types available in the contract */
-					_n( 'Connected. %d delivery type is available in your contract.', 'Connected. %d delivery types are available in your contract.', count( $services ), 'courier-delivery-connector-for-dalli' ),
+					_n( 'Connected. %d delivery type is available in your contract.', 'Connected. %d delivery types are available in your contract.', count( $services ), 'kurvio-courier-connector-for-dalli' ),
 					count( $services )
 				),
 			)

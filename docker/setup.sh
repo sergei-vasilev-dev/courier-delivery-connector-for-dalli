@@ -23,7 +23,7 @@ fi
 wp core update >/dev/null 2>&1 || true
 wp core update-db >/dev/null 2>&1 || true
 wp plugin install woocommerce --activate
-wp plugin activate courier-delivery-connector-for-dalli
+wp plugin activate kurvio-courier-connector-for-dalli
 wp language core install ru_RU >/dev/null 2>&1 || true
 wp rewrite structure '/%postname%/' --hard >/dev/null
 

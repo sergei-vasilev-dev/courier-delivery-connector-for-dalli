@@ -52,7 +52,7 @@ services:
     environment: *wp-env
     volumes:
       - wp:/var/www/html
-      - ..:/var/www/html/wp-content/plugins/courier-delivery-connector-for-dalli:ro
+      - ..:/var/www/html/wp-content/plugins/kurvio-courier-connector-for-dalli:ro
 
   wpcli:
     image: ${WPCLI_IMAGE:-wordpress:cli-php8.5}
@@ -63,7 +63,7 @@ services:
     environment: *wp-env
     volumes:
       - wp:/var/www/html
-      - ..:/var/www/html/wp-content/plugins/courier-delivery-connector-for-dalli:ro
+      - ..:/var/www/html/wp-content/plugins/kurvio-courier-connector-for-dalli:ro
       - ./smoke:/smoke:ro
 
 volumes:

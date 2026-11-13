@@ -2,148 +2,150 @@
 # This file is distributed under the GPL-2.0-or-later.
 msgid ""
 msgstr ""
-"Project-Id-Version: Courier Delivery Connector for Dalli 1.0.0\n"
+"Project-Id-Version: Kurvio Courier Connector for Dalli 1.0.0\n"
 "Report-Msgid-Bugs-To: https://github.com/sergei-vasilev-dev/courier-delivery-connector-for-dalli/issues\n"
 "Last-Translator: Sergey Vasilev\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language-Team: Russian\n"
+"Language: ru_RU\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "POT-Creation-Date: 2026-11-12T20:22:58+00:00\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"PO-Revision-Date: 2026-11-12 20:30+0000\n"
 "X-Generator: WP-CLI 2.12.0\n"
-"X-Domain: courier-delivery-connector-for-dalli\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+"X-Domain: kurvio-courier-connector-for-dalli\n"
 
 #. Plugin Name of the plugin
-#: courier-delivery-connector-for-dalli.php
+#: kurvio-courier-connector-for-dalli.php
 #: src/Admin/SystemStatus.php:54
-msgid "Courier Delivery Connector for Dalli"
-msgstr ""
+msgid "Kurvio Courier Connector for Dalli"
+msgstr "Интеграция доставки Dalli"
 
 #. Plugin URI of the plugin
-#: courier-delivery-connector-for-dalli.php
+#: kurvio-courier-connector-for-dalli.php
 msgid "https://github.com/sergei-vasilev-dev/courier-delivery-connector-for-dalli"
-msgstr ""
+msgstr "https://github.com/sergei-vasilev-dev/courier-delivery-connector-for-dalli"
 
 #. Description of the plugin
-#: courier-delivery-connector-for-dalli.php
+#: kurvio-courier-connector-for-dalli.php
 msgid "Unofficial WooCommerce integration with the Dalli courier service: live shipping rates, pickup points, order creation, tracking and labels. Not affiliated with or endorsed by Dalli."
-msgstr ""
+msgstr "Неофициальная интеграция WooCommerce с курьерской службой Dalli: расчёт доставки в реальном времени, пункты выдачи, создание заказов, отслеживание и наклейки. Не связана с Dalli и не одобрена Dalli."
 
 #. Author of the plugin
-#: courier-delivery-connector-for-dalli.php
+#: kurvio-courier-connector-for-dalli.php
 msgid "Sergey Vasilev"
-msgstr ""
+msgstr "Sergey Vasilev"
 
 #. Author URI of the plugin
-#: courier-delivery-connector-for-dalli.php
+#: kurvio-courier-connector-for-dalli.php
 msgid "https://github.com/sergei-vasilev-dev"
-msgstr ""
+msgstr "https://github.com/sergei-vasilev-dev"
 
 #: src/Admin/OrderActions.php:163
 #: src/Admin/OrderActions.php:218
 #: src/Admin/SettingsPage.php:699
 #: src/Admin/ToolsPage.php:81
 msgid "You are not allowed to do this."
-msgstr ""
+msgstr "У вас нет прав на это действие."
 
 #: src/Admin/OrderActions.php:168
 msgid "Order not found."
-msgstr ""
+msgstr "Заказ не найден."
 
 #. translators: %s: Dalli barcode
 #: src/Admin/OrderActions.php:176
 #: src/Orders/OrderSync.php:196
 #, php-format
 msgid "Order sent to Dalli. Tracking number: %s"
-msgstr ""
+msgstr "Заказ отправлен в Dalli. Номер для отслеживания: %s"
 
 #. translators: %s: error message
 #: src/Admin/OrderActions.php:179
 #, php-format
 msgid "Dalli rejected the order: %s"
-msgstr ""
+msgstr "Dalli отклонила заказ: %s"
 
 #: src/Admin/OrderActions.php:190
 msgid "Delivery status refreshed."
-msgstr ""
+msgstr "Статус доставки обновлён."
 
 #: src/Admin/OrderActions.php:192
 msgid "Could not refresh the delivery status. See the Dalli log for details."
-msgstr ""
+msgstr "Не удалось обновить статус доставки. Подробности смотрите в журнале Dalli."
 
 #: src/Admin/OrderActions.php:199
 #: src/Orders/OrderSync.php:234
 msgid "The order has not been sent to Dalli."
-msgstr ""
+msgstr "Заказ не был отправлен в Dalli."
 
 #. translators: %s: error message
 #: src/Admin/OrderActions.php:244
 #, php-format
 msgid "Could not get the stickers: %s Dalli only returns stickers for orders sent today."
-msgstr ""
+msgstr "Не удалось получить наклейки: %s Dalli выдаёт наклейки только для заказов, отправленных сегодня."
 
 #: src/Admin/OrderActions.php:279
 #: src/Admin/OrderMetabox.php:126
 msgid "Send to Dalli"
-msgstr ""
+msgstr "Отправить в Dalli"
 
 #: src/Admin/OrderActions.php:280
 msgid "Print Dalli stickers"
-msgstr ""
+msgstr "Печать наклеек Dalli"
 
 #. translators: 1: number of orders sent, 2: number of failures
 #: src/Admin/OrderActions.php:314
 #, php-format
 msgid "Dalli: %1$d order(s) sent, %2$d failed. Failures are listed in the order notes."
-msgstr ""
+msgstr "Dalli: отправлено заказов — %1$d, с ошибкой — %2$d. Ошибки указаны в примечаниях к заказам."
 
 #: src/Admin/OrderActions.php:331
 msgid "None of the selected orders has been sent to Dalli."
-msgstr ""
+msgstr "Ни один из выбранных заказов не был отправлен в Dalli."
 
 #: src/Admin/OrderMetabox.php:55
 #: src/Shipping/ShippingMethod.php:34
 #: src/Shipping/ShippingMethod.php:71
 msgid "Dalli delivery"
-msgstr ""
+msgstr "Доставка Dalli"
 
 #: src/Admin/OrderMetabox.php:94
 msgid "Status updated"
-msgstr ""
+msgstr "Статус обновлён"
 
 #: src/Admin/OrderMetabox.php:100
 #: src/Domain/Catalog.php:74
 msgid "Courier"
-msgstr ""
+msgstr "Курьер"
 
 #: src/Admin/OrderMetabox.php:108
 msgid "Last error:"
-msgstr ""
+msgstr "Последняя ошибка:"
 
 #: src/Admin/OrderMetabox.php:113
 msgid "Status history"
-msgstr ""
+msgstr "История статусов"
 
 #: src/Admin/OrderMetabox.php:128
 msgid "Refresh status"
-msgstr ""
+msgstr "Обновить статус"
 
 #: src/Admin/OrderMetabox.php:129
 msgid "Download sticker"
-msgstr ""
+msgstr "Скачать наклейку"
 
 #: src/Admin/OrderMetabox.php:134
 msgid "Cancel in Dalli"
-msgstr ""
+msgstr "Отменить в Dalli"
 
 #: src/Admin/OrderMetabox.php:135
 msgid "Cancel this delivery in Dalli?"
-msgstr ""
+msgstr "Отменить эту доставку в Dalli?"
 
 #: src/Admin/OrderMetabox.php:141
 msgid "Dalli only returns stickers for orders sent today."
-msgstr ""
+msgstr "Dalli выдаёт наклейки только для заказов, отправленных сегодня."
 
 #: src/Admin/OrderMetabox.php:156
 #: src/Admin/OrderMetabox.php:160
@@ -151,1051 +153,1053 @@ msgstr ""
 #: src/Admin/ToolsPage.php:67
 #: src/Domain/Catalog.php:48
 msgid "Dalli"
-msgstr ""
+msgstr "Dalli"
 
 #: src/Admin/OrderMetabox.php:209
 msgid "Not sent"
-msgstr ""
+msgstr "Не отправлен"
 
 #: src/Admin/SettingsPage.php:141
 msgid "Dalli connection"
-msgstr ""
+msgstr "Подключение к Dalli"
 
 #: src/Admin/SettingsPage.php:143
 msgid "Unofficial integration. Not affiliated with or endorsed by Dalli. Get your token in the Dalli personal account (Account section)."
-msgstr ""
+msgstr "Неофициальная интеграция. Не связана с Dalli и не одобрена Dalli. Токен выдаётся в личном кабинете Dalli (раздел «Учётная запись»)."
 
 #: src/Admin/SettingsPage.php:149
 #: src/Admin/ToolsPage.php:182
 msgid "Branch"
-msgstr ""
+msgstr "Филиал"
 
 #: src/Admin/SettingsPage.php:153
 msgid "Moscow (api.dalli-service.com)"
-msgstr ""
+msgstr "Москва (api.dalli-service.com)"
 
 #: src/Admin/SettingsPage.php:154
 msgid "St. Petersburg (spbapi.dalli-service.com)"
-msgstr ""
+msgstr "Санкт-Петербург (spbapi.dalli-service.com)"
 
 #: src/Admin/SettingsPage.php:156
 msgid "The branch you have the contract with."
-msgstr ""
+msgstr "Филиал, с которым заключён договор."
 
 #: src/Admin/SettingsPage.php:163
 #: src/Admin/ToolsPage.php:183
 msgid "Mode"
-msgstr ""
+msgstr "Режим"
 
 #: src/Admin/SettingsPage.php:167
 msgid "Live"
-msgstr ""
+msgstr "Рабочий"
 
 #: src/Admin/SettingsPage.php:168
 msgid "Test platform (shared, never use real customer data)"
-msgstr ""
+msgstr "Тестовая платформа (общая, не отправляйте реальные данные клиентов)"
 
 #: src/Admin/SettingsPage.php:175
 msgid "API token"
-msgstr ""
+msgstr "API-токен"
 
 #: src/Admin/SettingsPage.php:177
 msgid "You can also define DALLI_TOKEN in wp-config.php."
-msgstr ""
+msgstr "Токен также можно задать константой DALLI_TOKEN в wp-config.php."
 
 #: src/Admin/SettingsPage.php:184
 msgid "Test API token"
-msgstr ""
+msgstr "Тестовый API-токен"
 
 #: src/Admin/SettingsPage.php:186
 msgid "Token of the shared Dalli test platform. You can also define DALLI_TEST_TOKEN in wp-config.php."
-msgstr ""
+msgstr "Токен общей тестовой платформы Dalli. Также можно задать константой DALLI_TEST_TOKEN в wp-config.php."
 
 #: src/Admin/SettingsPage.php:193
 msgid "Sender code"
-msgstr ""
+msgstr "Код отправителя"
 
 #: src/Admin/SettingsPage.php:195
 msgid "Pickup address code from your Dalli manager. Required for rates from regional branches; leave empty otherwise."
-msgstr ""
+msgstr "Код адреса забора, который выдаёт ваш менеджер Dalli. Нужен для расчёта из региональных филиалов, иначе оставьте пустым."
 
 #: src/Admin/SettingsPage.php:200
 #: src/Admin/SettingsPage.php:626
 msgid "Connection test"
-msgstr ""
+msgstr "Проверка соединения"
 
 #: src/Admin/SettingsPage.php:210
 msgid "Parcel defaults"
-msgstr ""
+msgstr "Параметры посылки по умолчанию"
 
 #: src/Admin/SettingsPage.php:212
 msgid "Used when a product has no weight or dimensions. Product weight and dimensions use the native WooCommerce fields."
-msgstr ""
+msgstr "Используются, если у товара не указаны вес или габариты. Вес и габариты товара берутся из стандартных полей WooCommerce."
 
 #: src/Admin/SettingsPage.php:216
 msgid "Default product weight, kg"
-msgstr ""
+msgstr "Вес товара по умолчанию, кг"
 
 #: src/Admin/SettingsPage.php:217
 msgid "Default product length, cm"
-msgstr ""
+msgstr "Длина товара по умолчанию, см"
 
 #: src/Admin/SettingsPage.php:218
 msgid "Default product width, cm"
-msgstr ""
+msgstr "Ширина товара по умолчанию, см"
 
 #: src/Admin/SettingsPage.php:219
 msgid "Default product height, cm"
-msgstr ""
+msgstr "Высота товара по умолчанию, см"
 
 #: src/Admin/SettingsPage.php:220
 msgid "Packaging weight, kg"
-msgstr ""
+msgstr "Вес упаковки, кг"
 
 #: src/Admin/SettingsPage.php:221
 msgid "Packaging box length, cm"
-msgstr ""
+msgstr "Длина коробки, см"
 
 #: src/Admin/SettingsPage.php:222
 msgid "Packaging box width, cm"
-msgstr ""
+msgstr "Ширина коробки, см"
 
 #: src/Admin/SettingsPage.php:223
 msgid "Packaging box height, cm"
-msgstr ""
+msgstr "Высота коробки, см"
 
 #: src/Admin/SettingsPage.php:244
 msgid "Prices and declared value"
-msgstr ""
+msgstr "Цены и объявленная ценность"
 
 #: src/Admin/SettingsPage.php:246
 msgid "Markup, free shipping and fixed price are configured per shipping zone, in the \"Dalli delivery\" method settings."
-msgstr ""
+msgstr "Наценка, бесплатная доставка и фиксированная цена настраиваются для каждой зоны доставки в параметрах метода «Доставка Dalli»."
 
 #: src/Admin/SettingsPage.php:252
 msgid "Declared value"
-msgstr ""
+msgstr "Объявленная ценность"
 
 #: src/Admin/SettingsPage.php:256
 msgid "Full value of the items"
-msgstr ""
+msgstr "Полная стоимость товаров"
 
 #: src/Admin/SettingsPage.php:257
 msgid "A percentage of the items value"
-msgstr ""
+msgstr "Процент от стоимости товаров"
 
 #: src/Admin/SettingsPage.php:264
 msgid "Declared value, %"
-msgstr ""
+msgstr "Объявленная ценность, %"
 
 #: src/Admin/SettingsPage.php:277
 msgid "Round delivery price to"
-msgstr ""
+msgstr "Округлять стоимость доставки до"
 
 #: src/Admin/SettingsPage.php:281
 msgid "Kopecks (no rounding)"
-msgstr ""
+msgstr "Копеек (без округления)"
 
 #: src/Admin/SettingsPage.php:282
 msgid "1 rouble"
-msgstr ""
+msgstr "1 рубля"
 
 #: src/Admin/SettingsPage.php:283
 msgid "5 roubles"
-msgstr ""
+msgstr "5 рублей"
 
 #: src/Admin/SettingsPage.php:284
 msgid "10 roubles"
-msgstr ""
+msgstr "10 рублей"
 
 #: src/Admin/SettingsPage.php:285
 msgid "50 roubles"
-msgstr ""
+msgstr "50 рублей"
 
 #: src/Admin/SettingsPage.php:286
 msgid "100 roubles"
-msgstr ""
+msgstr "100 рублей"
 
 #: src/Admin/SettingsPage.php:293
 msgid "Rounding direction"
-msgstr ""
+msgstr "Направление округления"
 
 #: src/Admin/SettingsPage.php:297
 msgid "To the nearest value"
-msgstr ""
+msgstr "К ближайшему значению"
 
 #: src/Admin/SettingsPage.php:298
 msgid "Up"
-msgstr ""
+msgstr "Вверх"
 
 #: src/Admin/SettingsPage.php:308
 msgid "Payment methods"
-msgstr ""
+msgstr "Способы оплаты"
 
 #: src/Admin/SettingsPage.php:310
 msgid "Tell Dalli how the customer pays. Any gateway that is not listed below is treated as prepaid (the courier collects nothing)."
-msgstr ""
+msgstr "Укажите Dalli, как платит покупатель. Любой способ оплаты, не выбранный ниже, считается предоплатой (курьер ничего не берёт)."
 
 #: src/Admin/SettingsPage.php:316
 msgid "Cash on receipt"
-msgstr ""
+msgstr "Наличными при получении"
 
 #: src/Admin/SettingsPage.php:325
 msgid "Card on receipt"
-msgstr ""
+msgstr "Картой при получении"
 
 #: src/Admin/SettingsPage.php:329
 msgid "Only Dalli couriers accept cards; for partners the order is sent as cash on receipt."
-msgstr ""
+msgstr "Карты принимают только курьеры Dalli; для партнёров заказ отправляется как оплата наличными при получении."
 
 #: src/Admin/SettingsPage.php:339
 msgid "Orders"
-msgstr ""
+msgstr "Заказы"
 
 #: src/Admin/SettingsPage.php:346
 msgid "Create the order in Dalli"
-msgstr ""
+msgstr "Создавать заказ в Dalli"
 
 #: src/Admin/SettingsPage.php:350
 msgid "When the order becomes \"Processing\" (paid)"
-msgstr ""
+msgstr "Когда заказ получает статус «В обработке» (оплачен)"
 
 #: src/Admin/SettingsPage.php:351
 msgid "When the order becomes \"Completed\""
-msgstr ""
+msgstr "Когда заказ получает статус «Выполнен»"
 
 #: src/Admin/SettingsPage.php:352
 msgid "Manually, with a button on the order screen"
-msgstr ""
+msgstr "Вручную, кнопкой на странице заказа"
 
 #: src/Admin/SettingsPage.php:359
 msgid "Order number prefix"
-msgstr ""
+msgstr "Префикс номера заказа"
 
 #: src/Admin/SettingsPage.php:361
 msgid "Added to the WooCommerce order number. Order numbers must be unique across your Dalli account; use a prefix when several shops share it."
-msgstr ""
+msgstr "Добавляется к номеру заказа WooCommerce. Номера заказов должны быть уникальными в рамках аккаунта Dalli; используйте префикс, если им пользуются несколько магазинов."
 
 #: src/Admin/SettingsPage.php:368
 msgid "VAT rate of items"
-msgstr ""
+msgstr "Ставка НДС товаров"
 
 #: src/Admin/SettingsPage.php:377
 msgid "No VAT"
-msgstr ""
+msgstr "Без НДС"
 
 #: src/Admin/SettingsPage.php:384
 msgid "Partial redemption"
-msgstr ""
+msgstr "Частичный выкуп"
 
 #: src/Admin/SettingsPage.php:388
 msgid "Use the account default"
-msgstr ""
+msgstr "Как в настройках аккаунта"
 
 #: src/Admin/SettingsPage.php:389
 msgid "Allowed"
-msgstr ""
+msgstr "Разрешён"
 
 #: src/Admin/SettingsPage.php:390
 msgid "Not allowed"
-msgstr ""
+msgstr "Запрещён"
 
 #: src/Admin/SettingsPage.php:397
 msgid "Default delivery time from"
-msgstr ""
+msgstr "Время доставки по умолчанию, с"
 
 #: src/Admin/SettingsPage.php:405
 msgid "Default delivery time to"
-msgstr ""
+msgstr "Время доставки по умолчанию, до"
 
 #: src/Admin/SettingsPage.php:413
 #: src/Orders/OrderData.php:194
 msgid "Delivery interval"
-msgstr ""
+msgstr "Интервал доставки"
 
 #: src/Admin/SettingsPage.php:415
 msgid "Let customers choose the delivery date and time for Dalli courier delivery"
-msgstr ""
+msgstr "Позволить покупателям выбирать дату и время доставки курьером Dalli"
 
 #: src/Admin/SettingsPage.php:421
 msgid "Sticker (label) format"
-msgstr ""
+msgstr "Формат наклейки (ярлыка)"
 
 #: src/Admin/SettingsPage.php:425
 msgid "Zebra"
-msgstr ""
+msgstr "Zebra"
 
 #: src/Admin/SettingsPage.php:426
 msgid "A4 with frame"
-msgstr ""
+msgstr "A4 с рамкой"
 
 #: src/Admin/SettingsPage.php:427
 msgid "A4 without frame"
-msgstr ""
+msgstr "A4 без рамки"
 
 #: src/Admin/SettingsPage.php:428
 msgid "A6"
-msgstr ""
+msgstr "A6"
 
 #: src/Admin/SettingsPage.php:429
 msgid "100 x 50 mm"
-msgstr ""
+msgstr "100 × 50 мм"
 
 #: src/Admin/SettingsPage.php:430
 msgid "105 x 148 mm"
-msgstr ""
+msgstr "105 × 148 мм"
 
 #: src/Admin/SettingsPage.php:431
 msgid "75 x 120 mm"
-msgstr ""
+msgstr "75 × 120 мм"
 
 #: src/Admin/SettingsPage.php:441
 #: templates/order-delivery.php:28
 msgid "Tracking"
-msgstr ""
+msgstr "Отслеживание"
 
 #: src/Admin/SettingsPage.php:448
 msgid "Status synchronisation"
-msgstr ""
+msgstr "Синхронизация статусов"
 
 #: src/Admin/SettingsPage.php:450
 msgid "Refresh delivery statuses in the background"
-msgstr ""
+msgstr "Обновлять статусы доставки в фоновом режиме"
 
 #: src/Admin/SettingsPage.php:456
 msgid "Synchronisation interval"
-msgstr ""
+msgstr "Интервал синхронизации"
 
 #: src/Admin/SettingsPage.php:460
 msgid "Every 5 minutes"
-msgstr ""
+msgstr "Каждые 5 минут"
 
 #: src/Admin/SettingsPage.php:461
 msgid "Every 15 minutes"
-msgstr ""
+msgstr "Каждые 15 минут"
 
 #: src/Admin/SettingsPage.php:462
 msgid "Every 30 minutes"
-msgstr ""
+msgstr "Каждые 30 минут"
 
 #: src/Admin/SettingsPage.php:463
 msgid "Every hour"
-msgstr ""
+msgstr "Каждый час"
 
 #: src/Admin/SettingsPage.php:470
 msgid "Synchronisation method"
-msgstr ""
+msgstr "Способ синхронизации"
 
 #: src/Admin/SettingsPage.php:474
 msgid "Query every open order (safe default)"
-msgstr ""
+msgstr "Запрашивать каждый незавершённый заказ (безопасный вариант)"
 
 #: src/Admin/SettingsPage.php:475
 msgid "Account-wide \"changed statuses\" feed (fewer requests)"
-msgstr ""
+msgstr "Общая лента «изменённых статусов» аккаунта (меньше запросов)"
 
 #: src/Admin/SettingsPage.php:477
 msgid "The changes feed is shared by everything that uses your Dalli account: if another system reads it, each of you will miss updates. Use it only when this shop is the sole consumer."
-msgstr ""
+msgstr "Лента изменений общая для всего, что использует ваш аккаунт Dalli: если её читает другая система, обе будут пропускать обновления. Включайте, только если этот магазин — единственный потребитель."
 
 #: src/Admin/SettingsPage.php:484
 msgid "Tracking link"
-msgstr ""
+msgstr "Ссылка для отслеживания"
 
 #: src/Admin/SettingsPage.php:487
 msgid "Optional public tracking page. Use {barcode} where the tracking number goes. Shown to customers when set."
-msgstr ""
+msgstr "Необязательная публичная страница отслеживания. Вместо номера отслеживания подставьте {barcode}. Если задана, показывается покупателям."
 
 #: src/Admin/SettingsPage.php:497
 msgid "Order status mapping"
-msgstr ""
+msgstr "Соответствие статусов заказа"
 
 #: src/Admin/SettingsPage.php:499
 msgid "Optionally change the WooCommerce order status when the delivery status changes. Leave \"Do not change\" to keep control of order statuses. Moving to \"Completed\" sends the customer e-mail."
-msgstr ""
+msgstr "При необходимости меняйте статус заказа WooCommerce при изменении статуса доставки. Оставьте «Не менять», чтобы управлять статусами самостоятельно. Переход в «Выполнен» отправляет письмо покупателю."
 
 #: src/Admin/SettingsPage.php:509
 msgid "Do not change"
-msgstr ""
+msgstr "Не менять"
 
 #: src/Admin/SettingsPage.php:518
 msgid "Logging"
-msgstr ""
+msgstr "Журналирование"
 
 #: src/Admin/SettingsPage.php:525
 #: src/Admin/ToolsPage.php:189
 msgid "Debug log"
-msgstr ""
+msgstr "Журнал отладки"
 
 #. translators: %s: log source name
 #: src/Admin/SettingsPage.php:529
 #, php-format
 msgid "Log API requests and responses (source %s, see WooCommerce → Status → Logs). Logs contain customer data; the token is always redacted."
-msgstr ""
+msgstr "Записывать запросы и ответы API (источник %s, см. WooCommerce → Состояние → Журналы). Журналы содержат данные покупателей; токен всегда скрывается."
 
 #. translators: %s: PHP constant name
 #: src/Admin/SettingsPage.php:567
 #, php-format
 msgid "Defined by the %s constant in wp-config.php."
-msgstr ""
+msgstr "Задан константой %s в wp-config.php."
 
 #: src/Admin/SettingsPage.php:579
 msgid "Not set"
-msgstr ""
+msgstr "Не задан"
 
 #: src/Admin/SettingsPage.php:584
 msgid "Remove the saved token"
-msgstr ""
+msgstr "Удалить сохранённый токен"
 
 #: src/Admin/SettingsPage.php:590
 msgid "Leave empty to keep the saved token."
-msgstr ""
+msgstr "Оставьте пустым, чтобы сохранить текущий токен."
 
 #: src/Admin/SettingsPage.php:628
 msgid "Test connection"
-msgstr ""
+msgstr "Проверить соединение"
 
 #: src/Admin/SettingsPage.php:630
 msgid "Calls the harmless \"services\" method with the saved settings. Save your changes first."
-msgstr ""
+msgstr "Вызывает безопасный метод «services» с сохранёнными настройками. Сначала сохраните изменения."
 
 #: src/Admin/SettingsPage.php:654
 msgid "Checking…"
-msgstr ""
+msgstr "Проверка…"
 
 #: src/Admin/SettingsPage.php:655
 msgid "The request failed."
-msgstr ""
+msgstr "Запрос не удался."
 
 #: src/Admin/SettingsPage.php:684
 msgid "Dalli test mode is on. The test platform is shared by all users: never send real customer data to it."
-msgstr ""
+msgstr "Включён тестовый режим Dalli. Тестовая платформа общая для всех пользователей: не отправляйте на неё реальные данные покупателей."
 
 #: src/Admin/SettingsPage.php:687
 msgid "Enter your Dalli API token to enable delivery rates."
-msgstr ""
+msgstr "Введите API-токен Dalli, чтобы включить расчёт доставки."
 
 #. translators: %d: number of delivery types available in the contract
 #: src/Admin/SettingsPage.php:710
 #, php-format
 msgid "Connected. %d delivery type is available in your contract."
 msgid_plural "Connected. %d delivery types are available in your contract."
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Соединение установлено. В вашем договоре доступен %d тип доставки."
+msgstr[1] "Соединение установлено. В вашем договоре доступно %d типа доставки."
+msgstr[2] "Соединение установлено. В вашем договоре доступно %d типов доставки."
 
 #: src/Admin/ToolsPage.php:66
 msgid "Dalli tools"
-msgstr ""
+msgstr "Инструменты Dalli"
 
 #: src/Admin/ToolsPage.php:85
 msgid "Dalli delivery tools"
-msgstr ""
+msgstr "Инструменты доставки Dalli"
 
 #: src/Admin/ToolsPage.php:87
 msgid "Open settings"
-msgstr ""
+msgstr "Открыть настройки"
 
 #: src/Admin/ToolsPage.php:90
 msgid "Transfer act"
-msgstr ""
+msgstr "Акт приёма-передачи"
 
 #: src/Admin/ToolsPage.php:91
 msgid "Download the acceptance and transfer act (PDF) for all orders sent to Dalli today. Orders sent on other days are ignored by Dalli."
-msgstr ""
+msgstr "Скачайте акт приёма-передачи (PDF) по всем заказам, отправленным в Dalli сегодня. Заказы, отправленные в другие дни, Dalli игнорирует."
 
 #: src/Admin/ToolsPage.php:94
 msgid "Download today's act"
-msgstr ""
+msgstr "Скачать акт за сегодня"
 
 #: src/Admin/ToolsPage.php:98
 msgid "Orders that could not be sent"
-msgstr ""
+msgstr "Заказы, которые не удалось отправить"
 
 #: src/Admin/ToolsPage.php:101
 msgid "Diagnostics"
-msgstr ""
+msgstr "Диагностика"
 
 #: src/Admin/ToolsPage.php:141
 msgid "None. Everything went through."
-msgstr ""
+msgstr "Нет. Всё отправлено."
 
 #: src/Admin/ToolsPage.php:144
 msgid "Order"
-msgstr ""
+msgstr "Заказ"
 
 #: src/Admin/ToolsPage.php:144
 msgid "Error"
-msgstr ""
+msgstr "Ошибка"
 
 #: src/Admin/ToolsPage.php:166
 msgid "Yes"
-msgstr ""
+msgstr "Да"
 
 #: src/Admin/ToolsPage.php:167
 msgid "No"
-msgstr ""
+msgstr "Нет"
 
 #: src/Admin/ToolsPage.php:180
 msgid "Plugin version"
-msgstr ""
+msgstr "Версия плагина"
 
 #: src/Admin/ToolsPage.php:181
 msgid "API endpoint host"
-msgstr ""
+msgstr "Хост API"
 
 #: src/Admin/ToolsPage.php:184
 msgid "Token configured"
-msgstr ""
+msgstr "Токен задан"
 
 #: src/Admin/ToolsPage.php:185
 msgid "Token from wp-config.php"
-msgstr ""
+msgstr "Токен из wp-config.php"
 
 #: src/Admin/ToolsPage.php:186
 msgid "Order creation trigger"
-msgstr ""
+msgstr "Условие создания заказа"
 
 #: src/Admin/ToolsPage.php:187
 msgid "Status sync enabled"
-msgstr ""
+msgstr "Синхронизация статусов включена"
 
 #: src/Admin/ToolsPage.php:188
 msgid "Next status sync"
-msgstr ""
+msgstr "Следующая синхронизация"
 
 #: src/Admin/ToolsPage.php:188
 msgid "Not scheduled"
-msgstr ""
+msgstr "Не запланирована"
 
 #: src/Api/Client.php:75
 msgid "The Dalli API token is not configured."
-msgstr ""
+msgstr "API-токен Dalli не задан."
 
 #: src/Api/XmlParser.php:36
 msgid "Empty response from the Dalli API."
-msgstr ""
+msgstr "Пустой ответ от API Dalli."
 
 #: src/Api/XmlParser.php:39
 msgid "Unexpected DOCTYPE in the Dalli API response."
-msgstr ""
+msgstr "Неожиданный DOCTYPE в ответе API Dalli."
 
 #: src/Api/XmlParser.php:50
 #: src/Api/XmlParser.php:55
 msgid "Malformed XML in the Dalli API response."
-msgstr ""
+msgstr "Некорректный XML в ответе API Dalli."
 
 #: src/Api/XmlParser.php:273
 msgid "Unexpected cancelOrder response."
-msgstr ""
+msgstr "Неожиданный ответ метода cancelOrder."
 
 #: src/Api/XmlParser.php:418
 msgid "The response does not contain a file."
-msgstr ""
+msgstr "Ответ не содержит файла."
 
 #: src/Api/XmlParser.php:422
 msgid "The file in the response is not valid base64."
-msgstr ""
+msgstr "Файл в ответе не является корректным base64."
 
 #: src/Domain/Catalog.php:49
 msgid "CDEK"
-msgstr ""
+msgstr "СДЭК"
 
 #: src/Domain/Catalog.php:50
 msgid "Yandex Delivery"
-msgstr ""
+msgstr "Яндекс Доставка"
 
 #: src/Domain/Catalog.php:51
 msgid "5Post"
-msgstr ""
+msgstr "5Post"
 
 #: src/Domain/Catalog.php:52
 msgid "Magnit"
-msgstr ""
+msgstr "Магнит"
 
 #: src/Domain/Catalog.php:75
 #: src/Frontend/Checkout.php:86
 #: src/Orders/OrderData.php:186
 msgid "Pickup point"
-msgstr ""
+msgstr "Пункт выдачи"
 
 #: src/Domain/Catalog.php:166
 msgid "Awaiting synchronisation"
-msgstr ""
+msgstr "Ожидает синхронизации"
 
 #: src/Domain/Catalog.php:167
 msgid "New"
-msgstr ""
+msgstr "Новый"
 
 #: src/Domain/Catalog.php:168
 msgid "Pickup created"
-msgstr ""
+msgstr "Создан забор"
 
 #: src/Domain/Catalog.php:169
 msgid "Picked up from sender"
-msgstr ""
+msgstr "Забран у отправителя"
 
 #: src/Domain/Catalog.php:170
 msgid "Assembled at fulfilment warehouse"
-msgstr ""
+msgstr "Скомплектован на складе фулфилмента"
 
 #: src/Domain/Catalog.php:171
 msgid "Disassembled at fulfilment warehouse"
-msgstr ""
+msgstr "Разукомплектован на склад фулфилмента"
 
 #: src/Domain/Catalog.php:172
 msgid "Received by warehouse"
-msgstr ""
+msgstr "Получен складом"
 
 #: src/Domain/Catalog.php:173
 msgid "Customs control in progress"
-msgstr ""
+msgstr "Производится таможенный контроль"
 
 #: src/Domain/Catalog.php:174
 msgid "Customs control completed"
-msgstr ""
+msgstr "Таможенный контроль произведён"
 
 #: src/Domain/Catalog.php:175
 msgid "Delivery confirmed"
-msgstr ""
+msgstr "Доставка согласована"
 
 #: src/Domain/Catalog.php:176
 msgid "Delivery could not be confirmed"
-msgstr ""
+msgstr "Не удалось согласовать доставку"
 
 #: src/Domain/Catalog.php:177
 msgid "Transfer to another warehouse planned"
-msgstr ""
+msgstr "Планируется отправка на другой склад"
 
 #: src/Domain/Catalog.php:178
 msgid "Sent to another warehouse"
-msgstr ""
+msgstr "Отправлено на другой склад"
 
 #: src/Domain/Catalog.php:179
 msgid "Inventory check"
-msgstr ""
+msgstr "Инвентаризация"
 
 #: src/Domain/Catalog.php:180
 msgid "Ready for pickup at the point"
-msgstr ""
+msgstr "Готов к выдаче в пункте выдачи"
 
 #: src/Domain/Catalog.php:181
 msgid "Handed to courier"
-msgstr ""
+msgstr "Выдан курьеру на доставку"
 
 #: src/Domain/Catalog.php:182
 msgid "Delivered (preliminary)"
-msgstr ""
+msgstr "Доставлен (предварительно)"
 
 #: src/Domain/Catalog.php:183
 msgid "Partially delivered (preliminary)"
-msgstr ""
+msgstr "Частично доставлен (предварительно)"
 
 #: src/Domain/Catalog.php:184
 msgid "Not delivered, per courier"
-msgstr ""
+msgstr "Не доставлен со слов курьера"
 
 #: src/Domain/Catalog.php:185
 msgid "Returned by courier"
-msgstr ""
+msgstr "Возвращён курьером"
 
 #: src/Domain/Catalog.php:186
 msgid "Delivery date changed"
-msgstr ""
+msgstr "Перенос даты доставки"
 
 #: src/Domain/Catalog.php:187
 msgid "Delivered"
-msgstr ""
+msgstr "Доставлен"
 
 #: src/Domain/Catalog.php:188
 msgid "Partially delivered"
-msgstr ""
+msgstr "Доставлен частично"
 
 #: src/Domain/Catalog.php:189
 msgid "Not delivered (return or cancellation)"
-msgstr ""
+msgstr "Не доставлен (возврат или отмена)"
 
 #: src/Domain/Catalog.php:190
 msgid "Return to sender planned"
-msgstr ""
+msgstr "Планируется возврат отправителю"
 
 #: src/Domain/Catalog.php:191
 msgid "Returned to sender"
-msgstr ""
+msgstr "Возвращён отправителю"
 
 #: src/Domain/Catalog.php:192
 msgid "Return of the remainder planned"
-msgstr ""
+msgstr "Планируется возврат остатка"
 
 #: src/Domain/Catalog.php:193
 msgid "Remainder returned to sender"
-msgstr ""
+msgstr "Остаток возвращён отправителю"
 
 #: src/Domain/Catalog.php:194
 msgid "Arrived at carrier warehouse"
-msgstr ""
+msgstr "Прибыл на склад перевозчика"
 
 #: src/Domain/Catalog.php:195
 msgid "Picked up from carrier"
-msgstr ""
+msgstr "Забран у перевозчика"
 
 #: src/Domain/Catalog.php:238
 msgid "express"
-msgstr ""
+msgstr "экспресс"
 
 #: src/Domain/Catalog.php:240
 msgid "urgent"
-msgstr ""
+msgstr "срочная"
 
 #: src/Domain/Catalog.php:243
 msgid "oversized cargo"
-msgstr ""
+msgstr "крупногабаритный груз"
 
 #: src/Frontend/AjaxController.php:91
 msgid "Your session has expired. Please reload the page."
-msgstr ""
+msgstr "Сессия истекла. Пожалуйста, перезагрузите страницу."
 
 #: src/Frontend/AjaxController.php:94
 msgid "Your cart is empty."
-msgstr ""
+msgstr "Ваша корзина пуста."
 
 #: src/Frontend/AjaxController.php:98
 msgid "Dalli delivery is not selected."
-msgstr ""
+msgstr "Доставка Dalli не выбрана."
 
 #: src/Frontend/AjaxController.php:166
 #: src/Frontend/AjaxController.php:210
 msgid "The selected delivery method does not use pickup points."
-msgstr ""
+msgstr "Выбранный способ доставки не использует пункты выдачи."
 
 #: src/Frontend/AjaxController.php:172
 msgid "Enter your city first."
-msgstr ""
+msgstr "Сначала укажите город."
 
 #: src/Frontend/AjaxController.php:177
 msgid "Pickup points are temporarily unavailable. Please try again later."
-msgstr ""
+msgstr "Пункты выдачи временно недоступны. Пожалуйста, попробуйте позже."
 
 #: src/Frontend/AjaxController.php:219
 msgid "This pickup point is not available. Please choose another one."
-msgstr ""
+msgstr "Этот пункт выдачи недоступен. Пожалуйста, выберите другой."
 
 #: src/Frontend/AjaxController.php:236
 #: src/Frontend/AjaxController.php:260
 msgid "Delivery intervals are not available for this method."
-msgstr ""
+msgstr "Для этого способа доставки интервалы недоступны."
 
 #: src/Frontend/AjaxController.php:241
 msgid "Delivery intervals are temporarily unavailable."
-msgstr ""
+msgstr "Интервалы доставки временно недоступны."
 
 #: src/Frontend/AjaxController.php:287
 msgid "This delivery interval is not available. Please choose another one."
-msgstr ""
+msgstr "Этот интервал доставки недоступен. Пожалуйста, выберите другой."
 
 #: src/Frontend/Checkout.php:84
 msgid "Choose pickup point"
-msgstr ""
+msgstr "Выбрать пункт выдачи"
 
 #: src/Frontend/Checkout.php:85
 msgid "Change pickup point"
-msgstr ""
+msgstr "Изменить пункт выдачи"
 
 #: src/Frontend/Checkout.php:87
 msgid "No pickup point chosen yet."
-msgstr ""
+msgstr "Пункт выдачи ещё не выбран."
 
 #: src/Frontend/Checkout.php:88
 msgid "Choose a pickup point"
-msgstr ""
+msgstr "Выберите пункт выдачи"
 
 #. translators: %s: town name
 #: src/Frontend/Checkout.php:90
 #, php-format
 msgid "Pickup points in %s"
-msgstr ""
+msgstr "Пункты выдачи: %s"
 
 #: src/Frontend/Checkout.php:91
 msgid "Search by name or address"
-msgstr ""
+msgstr "Поиск по названию или адресу"
 
 #: src/Frontend/Checkout.php:92
 msgid "Close"
-msgstr ""
+msgstr "Закрыть"
 
 #: src/Frontend/Checkout.php:93
 msgid "Select"
-msgstr ""
+msgstr "Выбрать"
 
 #: src/Frontend/Checkout.php:94
 msgid "Selected"
-msgstr ""
+msgstr "Выбран"
 
 #: src/Frontend/Checkout.php:95
 msgid "Loading…"
-msgstr ""
+msgstr "Загрузка…"
 
 #: src/Frontend/Checkout.php:96
 msgid "No pickup points found."
-msgstr ""
+msgstr "Пункты выдачи не найдены."
 
 #. translators: %d: number of pickup points
 #: src/Frontend/Checkout.php:98
 #, php-format
 msgid "%d pickup points"
-msgstr ""
+msgstr "Пунктов выдачи: %d"
 
 #: src/Frontend/Checkout.php:99
 msgid "Showing the first results, refine your search to see more."
-msgstr ""
+msgstr "Показаны первые результаты, уточните поиск, чтобы увидеть больше."
 
 #: src/Frontend/Checkout.php:100
 msgid "Something went wrong. Please try again."
-msgstr ""
+msgstr "Что-то пошло не так. Пожалуйста, попробуйте ещё раз."
 
 #: src/Frontend/Checkout.php:101
 msgid "Prepaid orders only"
-msgstr ""
+msgstr "Только предоплаченные заказы"
 
 #: src/Frontend/Checkout.php:102
 msgid "Parcel locker"
-msgstr ""
+msgstr "Постамат"
 
 #: src/Frontend/Checkout.php:103
 msgid "Delivery date"
-msgstr ""
+msgstr "Дата доставки"
 
 #: src/Frontend/Checkout.php:104
 msgid "Delivery time"
-msgstr ""
+msgstr "Время доставки"
 
 #: src/Frontend/Checkout.php:105
 msgid "As soon as possible"
-msgstr ""
+msgstr "Как можно скорее"
 
 #: src/Frontend/Checkout.php:106
 msgid "Please choose a pickup point."
-msgstr ""
+msgstr "Пожалуйста, выберите пункт выдачи."
 
 #: src/Frontend/CheckoutValidator.php:32
 msgid "This delivery option is available for prepaid orders only. Please choose online payment or another delivery option."
-msgstr ""
+msgstr "Этот способ доставки доступен только для предоплаченных заказов. Выберите онлайн-оплату или другой способ доставки."
 
 #. translators: %s: carrier name
 #: src/Frontend/CheckoutValidator.php:42
 #, php-format
 msgid "Please choose a %s pickup point."
-msgstr ""
+msgstr "Пожалуйста, выберите пункт выдачи %s."
 
 #: src/Frontend/CheckoutValidator.php:49
 msgid "The chosen pickup point accepts prepaid orders only. Please choose online payment or another pickup point."
-msgstr ""
+msgstr "Выбранный пункт выдачи принимает только предоплаченные заказы. Выберите онлайн-оплату или другой пункт выдачи."
 
 #: src/Frontend/CheckoutValidator.php:52
 msgid "The chosen pickup point does not accept cash. Please choose another payment method or pickup point."
-msgstr ""
+msgstr "Выбранный пункт выдачи не принимает наличные. Выберите другой способ оплаты или другой пункт выдачи."
 
 #: src/Orders/OrderData.php:182
 msgid "Carrier"
-msgstr ""
+msgstr "Перевозчик"
 
 #: src/Orders/OrderData.php:188
 msgid "Opening hours"
-msgstr ""
+msgstr "Режим работы"
 
 #. translators: 1: date, 2: start time, 3: end time
 #: src/Orders/OrderData.php:196
 #, php-format
 msgid "%1$s, %2$s–%3$s"
-msgstr ""
+msgstr "%1$s, %2$s–%3$s"
 
 #: src/Orders/OrderData.php:205
 msgid "Tracking number"
-msgstr ""
+msgstr "Номер для отслеживания"
 
 #: src/Orders/OrderData.php:208
 msgid "Delivery status"
-msgstr ""
+msgstr "Статус доставки"
 
 #: src/Orders/OrderSync.php:155
 #: src/Orders/PayloadFactory.php:50
 msgid "The order does not use the Dalli shipping method."
-msgstr ""
+msgstr "Заказ не использует способ доставки Dalli."
 
 #: src/Orders/OrderSync.php:160
 msgid "The order was already sent to Dalli."
-msgstr ""
+msgstr "Заказ уже отправлен в Dalli."
 
 #: src/Orders/OrderSync.php:185
 msgid "Dalli did not return a barcode."
-msgstr ""
+msgstr "Dalli не вернула штрихкод."
 
 #: src/Orders/OrderSync.php:248
 msgid "Delivery cancelled in Dalli. The status will change after Dalli processes the request."
-msgstr ""
+msgstr "Доставка отменена в Dalli. Статус изменится после обработки запроса в Dalli."
 
 #. translators: %s: error message
 #: src/Orders/OrderSync.php:274
 #, php-format
 msgid "Dalli: the order could not be sent. %s"
-msgstr ""
+msgstr "Dalli: не удалось отправить заказ. %s"
 
 #: src/Orders/PayloadFactory.php:60
 msgid "The Dalli service code for this order is unknown."
-msgstr ""
+msgstr "Код услуги Dalli для этого заказа неизвестен."
 
 #: src/Orders/PayloadFactory.php:72
 msgid "No pickup point was chosen for this order."
-msgstr ""
+msgstr "Для этого заказа не выбран пункт выдачи."
 
 #: src/Orders/PayloadFactory.php:94
 msgid "This delivery option accepts prepaid orders only, but the order is paid on receipt."
-msgstr ""
+msgstr "Этот способ доставки принимает только предоплаченные заказы, но заказ оплачивается при получении."
 
 #. translators: %s: order number
 #: src/Orders/PayloadFactory.php:103
 #, php-format
 msgid "Order %s"
-msgstr ""
+msgstr "Заказ %s"
 
 #. translators: 1: Dalli status label, 2: Dalli status code
 #: src/Orders/StatusSync.php:300
 #, php-format
 msgid "Dalli delivery status: %1$s (%2$s)"
-msgstr ""
+msgstr "Статус доставки Dalli: %1$s (%2$s)"
 
 #. translators: %s: Dalli status code
 #: src/Orders/StatusSync.php:323
 #, php-format
 msgid "Status changed by the Dalli delivery status %s."
-msgstr ""
+msgstr "Статус изменён по статусу доставки Dalli %s."
 
 #: src/Plugin.php:157
-msgid "Courier Delivery Connector for Dalli requires WooCommerce to be installed and active."
-msgstr ""
+msgid "Kurvio Courier Connector for Dalli requires WooCommerce to be installed and active."
+msgstr "Плагин «Интеграция доставки Dalli» требует установленного и активного WooCommerce."
 
 #: src/Plugin.php:178
 msgid "Settings"
-msgstr ""
+msgstr "Настройки"
 
 #: src/Shipping/ShippingMethod.php:35
 msgid "Live delivery rates and pickup points from the Dalli courier service and its partners. Connection settings are under WooCommerce → Settings → Shipping → Dalli."
-msgstr ""
+msgstr "Расчёт доставки в реальном времени и пункты выдачи курьерской службы Dalli и её партнёров. Параметры подключения находятся в разделе WooCommerce → Настройки → Доставка → Dalli."
 
 #: src/Shipping/ShippingMethod.php:68
 msgid "Method title"
-msgstr ""
+msgstr "Название метода"
 
 #: src/Shipping/ShippingMethod.php:70
 msgid "Shown in the admin only; customers see the carrier and delivery type of each rate."
-msgstr ""
+msgstr "Показывается только в админке; покупатели видят перевозчика и тип доставки каждого тарифа."
 
 #: src/Shipping/ShippingMethod.php:75
 msgid "Tax status"
-msgstr ""
+msgstr "Налоговый статус"
 
 #: src/Shipping/ShippingMethod.php:80
 msgid "Taxable"
-msgstr ""
+msgstr "Облагается налогом"
 
 #: src/Shipping/ShippingMethod.php:81
 msgctxt "Tax status"
 msgid "None"
-msgstr ""
+msgstr "Нет"
 
 #: src/Shipping/ShippingMethod.php:85
 msgid "Carriers"
-msgstr ""
+msgstr "Перевозчики"
 
 #: src/Shipping/ShippingMethod.php:90
 msgid "Only the selected carriers are priced. Each one adds a request to the Dalli API (cached)."
-msgstr ""
+msgstr "Рассчитывается только стоимость выбранных перевозчиков. Каждый добавляет запрос к API Dalli (с кэшированием)."
 
 #: src/Shipping/ShippingMethod.php:93
 msgid "Delivery types"
-msgstr ""
+msgstr "Типы доставки"
 
 #: src/Shipping/ShippingMethod.php:100
 msgid "Markup, %"
-msgstr ""
+msgstr "Наценка, %"
 
 #: src/Shipping/ShippingMethod.php:103
 msgid "Percentage added to the carrier price."
-msgstr ""
+msgstr "Процент, добавляемый к цене перевозчика."
 
 #: src/Shipping/ShippingMethod.php:108
 msgid "Fixed markup"
-msgstr ""
+msgstr "Фиксированная наценка"
 
 #: src/Shipping/ShippingMethod.php:111
 msgid "Amount added to the carrier price (may be negative to give a discount)."
-msgstr ""
+msgstr "Сумма, добавляемая к цене перевозчика (может быть отрицательной — это скидка)."
 
 #: src/Shipping/ShippingMethod.php:116
 msgid "Free shipping over"
-msgstr ""
+msgstr "Бесплатная доставка от"
 
 #: src/Shipping/ShippingMethod.php:119
 msgid "Delivery is free when the cart total reaches this amount. Leave empty to disable."
-msgstr ""
+msgstr "Доставка бесплатна, когда сумма корзины достигает этого значения. Оставьте пустым, чтобы отключить."
 
 #: src/Shipping/ShippingMethod.php:124
 msgid "Fixed price"
-msgstr ""
+msgstr "Фиксированная цена"
 
 #: src/Shipping/ShippingMethod.php:127
 msgid "Charge this price for every rate instead of the carrier price. Leave empty to disable."
-msgstr ""
+msgstr "Брать эту цену за каждый тариф вместо цены перевозчика. Оставьте пустым, чтобы отключить."
 
 #: src/Shipping/ShippingMethod.php:132
 msgid "Delivery period"
-msgstr ""
+msgstr "Срок доставки"
 
 #: src/Shipping/ShippingMethod.php:134
 msgid "Show the estimated delivery period next to the rate name"
-msgstr ""
+msgstr "Показывать ориентировочный срок доставки рядом с названием тарифа"
 
 #. translators: %s: carrier name, e.g. CDEK
 #: src/Shipping/ShippingMethod.php:249
 #, php-format
 msgid "%s pickup point"
-msgstr ""
+msgstr "Пункт выдачи %s"
 
 #. translators: %s: carrier name, e.g. CDEK
 #: src/Shipping/ShippingMethod.php:252
 #, php-format
 msgid "%s courier"
-msgstr ""
+msgstr "Курьер %s"
 
 #: src/Support/Format.php:73
 msgid "same day"
-msgstr ""
+msgstr "в день заказа"
 
 #. translators: %d: number of days
 #: src/Support/Format.php:76
 #, php-format
 msgid "%d day"
 msgid_plural "%d days"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%d день"
+msgstr[1] "%d дня"
+msgstr[2] "%d дней"
 
 #. translators: %s: delivery period such as "1-2"
 #: src/Support/Format.php:79
 #, php-format
 msgid "%s days"
-msgstr ""
+msgstr "%s дн."
 
 #: templates/emails/delivery.php:15
 #: templates/emails/plain/delivery.php:15
 #: templates/order-delivery.php:17
 msgid "Delivery"
-msgstr ""
+msgstr "Доставка"
 
 #: templates/emails/delivery.php:21
 #: templates/emails/plain/delivery.php:20
 #: templates/order-delivery.php:29
 msgid "Track the delivery"
-msgstr ""
+msgstr "Отследить доставку"
 
 #: templates/order-delivery.php:35
 msgid "Delivery history"
-msgstr ""
+msgstr "История доставки"

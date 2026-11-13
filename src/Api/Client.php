@@ -72,7 +72,7 @@ class Client {
 	public function token(): string {
 		$token = $this->settings->token();
 		if ( '' === $token ) {
-			throw ApiException::config( esc_html__( 'The Dalli API token is not configured.', 'courier-delivery-connector-for-dalli' ) );
+			throw ApiException::config( esc_html__( 'The Dalli API token is not configured.', 'kurvio-courier-connector-for-dalli' ) );
 		}
 		return $token;
 	}

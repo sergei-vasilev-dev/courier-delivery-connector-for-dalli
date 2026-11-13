@@ -1,5 +1,5 @@
 /**
- * Courier Delivery Connector for Dalli - Checkout block integration.
+ * Kurvio Courier Connector for Dalli - Checkout block integration.
  *
  * Adds the pickup point / delivery interval widget under the shipping options of the Checkout block
  * through the ExperimentalOrderShippingPackages slot, and blocks order submission until a pickup point

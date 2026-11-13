@@ -9,9 +9,9 @@ require_once dirname( __DIR__ ) . '/vendor/autoload.php';
 
 define( 'ABSPATH', __DIR__ . '/' );
 define( 'DALLI_DELIVERY_VERSION', '1.0.0-test' );
-define( 'DALLI_DELIVERY_FILE', dirname( __DIR__ ) . '/courier-delivery-connector-for-dalli.php' );
+define( 'DALLI_DELIVERY_FILE', dirname( __DIR__ ) . '/kurvio-courier-connector-for-dalli.php' );
 define( 'DALLI_DELIVERY_PATH', dirname( __DIR__ ) . '/' );
-define( 'DALLI_DELIVERY_URL', 'http://example.test/wp-content/plugins/courier-delivery-connector-for-dalli/' );
+define( 'DALLI_DELIVERY_URL', 'http://example.test/wp-content/plugins/kurvio-courier-connector-for-dalli/' );
 define( 'MINUTE_IN_SECONDS', 60 );
 define( 'HOUR_IN_SECONDS', 3600 );
 define( 'DAY_IN_SECONDS', 86400 );

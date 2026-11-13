@@ -160,12 +160,12 @@ class OrderActions {
 
 		check_admin_referer( self::ACTION_HOOK . '_' . $order_id );
 		if ( ! current_user_can( 'manage_woocommerce' ) ) {
-			wp_die( esc_html__( 'You are not allowed to do this.', 'courier-delivery-connector-for-dalli' ), '', array( 'response' => 403 ) );
+			wp_die( esc_html__( 'You are not allowed to do this.', 'kurvio-courier-connector-for-dalli' ), '', array( 'response' => 403 ) );
 		}
 
 		$order = wc_get_order( $order_id );
 		if ( ! $order instanceof \WC_Order ) {
-			wp_die( esc_html__( 'Order not found.', 'courier-delivery-connector-for-dalli' ), '', array( 'response' => 404 ) );
+			wp_die( esc_html__( 'Order not found.', 'kurvio-courier-connector-for-dalli' ), '', array( 'response' => 404 ) );
 		}
 
 		switch ( $do ) {
@@ -173,10 +173,10 @@ class OrderActions {
 				$result = $this->sync->send( $order );
 				if ( $result['ok'] ) {
 					/* translators: %s: Dalli barcode */
-					$this->flash( sprintf( __( 'Order sent to Dalli. Tracking number: %s', 'courier-delivery-connector-for-dalli' ), OrderData::barcode( $order ) ), 'success' );
+					$this->flash( sprintf( __( 'Order sent to Dalli. Tracking number: %s', 'kurvio-courier-connector-for-dalli' ), OrderData::barcode( $order ) ), 'success' );
 				} else {
 					/* translators: %s: error message */
-					$this->flash( sprintf( __( 'Dalli rejected the order: %s', 'courier-delivery-connector-for-dalli' ), $result['message'] ), 'error' );
+					$this->flash( sprintf( __( 'Dalli rejected the order: %s', 'kurvio-courier-connector-for-dalli' ), $result['message'] ), 'error' );
 				}
 				break;
 
@@ -187,16 +187,16 @@ class OrderActions {
 
 			case 'refresh':
 				if ( $this->status_sync->sync_order( $order ) ) {
-					$this->flash( __( 'Delivery status refreshed.', 'courier-delivery-connector-for-dalli' ), 'success' );
+					$this->flash( __( 'Delivery status refreshed.', 'kurvio-courier-connector-for-dalli' ), 'success' );
 				} else {
-					$this->flash( __( 'Could not refresh the delivery status. See the Dalli log for details.', 'courier-delivery-connector-for-dalli' ), 'warning' );
+					$this->flash( __( 'Could not refresh the delivery status. See the Dalli log for details.', 'kurvio-courier-connector-for-dalli' ), 'warning' );
 				}
 				break;
 
 			case 'sticker':
 				$barcode = OrderData::barcode( $order );
 				if ( '' === $barcode ) {
-					$this->flash( __( 'The order has not been sent to Dalli.', 'courier-delivery-connector-for-dalli' ), 'error' );
+					$this->flash( __( 'The order has not been sent to Dalli.', 'kurvio-courier-connector-for-dalli' ), 'error' );
 					break;
 				}
 				$this->stream_stickers( array( $barcode ), $order->get_edit_order_url() );
@@ -215,7 +215,7 @@ class OrderActions {
 	public function handle_act(): void {
 		check_admin_referer( self::ACT_HOOK );
 		if ( ! current_user_can( 'manage_woocommerce' ) ) {
-			wp_die( esc_html__( 'You are not allowed to do this.', 'courier-delivery-connector-for-dalli' ), '', array( 'response' => 403 ) );
+			wp_die( esc_html__( 'You are not allowed to do this.', 'kurvio-courier-connector-for-dalli' ), '', array( 'response' => 403 ) );
 		}
 		try {
 			$pdf = $this->api->act( array() );
@@ -241,7 +241,7 @@ class OrderActions {
 			$this->flash(
 				sprintf(
 					/* translators: %s: error message */
-					__( 'Could not get the stickers: %s Dalli only returns stickers for orders sent today.', 'courier-delivery-connector-for-dalli' ),
+					__( 'Could not get the stickers: %s Dalli only returns stickers for orders sent today.', 'kurvio-courier-connector-for-dalli' ),
 					$e->display_message()
 				),
 				'error'
@@ -276,8 +276,8 @@ class OrderActions {
 	 * @return array<string,string>
 	 */
 	public function add_bulk_actions( $actions ) {
-		$actions['dalli_send']     = __( 'Send to Dalli', 'courier-delivery-connector-for-dalli' );
-		$actions['dalli_stickers'] = __( 'Print Dalli stickers', 'courier-delivery-connector-for-dalli' );
+		$actions['dalli_send']     = __( 'Send to Dalli', 'kurvio-courier-connector-for-dalli' );
+		$actions['dalli_stickers'] = __( 'Print Dalli stickers', 'kurvio-courier-connector-for-dalli' );
 		return $actions;
 	}
 
@@ -311,7 +311,7 @@ class OrderActions {
 			$this->flash(
 				sprintf(
 					/* translators: 1: number of orders sent, 2: number of failures */
-					__( 'Dalli: %1$d order(s) sent, %2$d failed. Failures are listed in the order notes.', 'courier-delivery-connector-for-dalli' ),
+					__( 'Dalli: %1$d order(s) sent, %2$d failed. Failures are listed in the order notes.', 'kurvio-courier-connector-for-dalli' ),
 					$queued,
 					$failed
 				),
@@ -328,7 +328,7 @@ class OrderActions {
 			}
 		}
 		if ( ! $barcodes ) {
-			$this->flash( __( 'None of the selected orders has been sent to Dalli.', 'courier-delivery-connector-for-dalli' ), 'warning' );
+			$this->flash( __( 'None of the selected orders has been sent to Dalli.', 'kurvio-courier-connector-for-dalli' ), 'warning' );
 			return $redirect_to;
 		}
 		$this->stream_stickers( $barcodes, (string) $redirect_to );

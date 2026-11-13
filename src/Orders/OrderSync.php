@@ -152,12 +152,12 @@ class OrderSync {
 	 */
 	public function send( \WC_Order $order ): array {
 		if ( ! OrderData::is_dalli_order( $order ) ) {
-			return $this->fail( $order, __( 'The order does not use the Dalli shipping method.', 'courier-delivery-connector-for-dalli' ), false );
+			return $this->fail( $order, __( 'The order does not use the Dalli shipping method.', 'kurvio-courier-connector-for-dalli' ), false );
 		}
 		if ( OrderData::is_sent( $order ) ) {
 			return array(
 				'ok'      => true,
-				'message' => __( 'The order was already sent to Dalli.', 'courier-delivery-connector-for-dalli' ),
+				'message' => __( 'The order was already sent to Dalli.', 'kurvio-courier-connector-for-dalli' ),
 				'retry'   => false,
 			);
 		}
@@ -182,7 +182,7 @@ class OrderSync {
 			foreach ( $errors as $error ) {
 				$messages[] = '' !== $error['code'] ? sprintf( '[%s] %s', $error['code'], $error['message'] ) : $error['message'];
 			}
-			$message = $messages ? implode( '; ', $messages ) : __( 'Dalli did not return a barcode.', 'courier-delivery-connector-for-dalli' );
+			$message = $messages ? implode( '; ', $messages ) : __( 'Dalli did not return a barcode.', 'kurvio-courier-connector-for-dalli' );
 			return $this->fail( $order, $message, false );
 		}
 
@@ -193,7 +193,7 @@ class OrderSync {
 		$order->add_order_note(
 			sprintf(
 				/* translators: %s: Dalli barcode */
-				__( 'Order sent to Dalli. Tracking number: %s', 'courier-delivery-connector-for-dalli' ),
+				__( 'Order sent to Dalli. Tracking number: %s', 'kurvio-courier-connector-for-dalli' ),
 				$barcode
 			)
 		);
@@ -231,7 +231,7 @@ class OrderSync {
 		if ( '' === $barcode ) {
 			return array(
 				'ok'      => false,
-				'message' => __( 'The order has not been sent to Dalli.', 'courier-delivery-connector-for-dalli' ),
+				'message' => __( 'The order has not been sent to Dalli.', 'kurvio-courier-connector-for-dalli' ),
 			);
 		}
 		try {
@@ -245,7 +245,7 @@ class OrderSync {
 		}
 
 		if ( $result['ok'] ) {
-			$order->add_order_note( __( 'Delivery cancelled in Dalli. The status will change after Dalli processes the request.', 'courier-delivery-connector-for-dalli' ) );
+			$order->add_order_note( __( 'Delivery cancelled in Dalli. The status will change after Dalli processes the request.', 'kurvio-courier-connector-for-dalli' ) );
 			$order->save();
 			if ( function_exists( 'as_schedule_single_action' ) ) {
 				as_schedule_single_action( time() + 5 * MINUTE_IN_SECONDS, self::ACTION_SYNC_ORDER, array( $order->get_id() ), self::GROUP );
@@ -271,7 +271,7 @@ class OrderSync {
 			$order->add_order_note(
 				sprintf(
 					/* translators: %s: error message */
-					__( 'Dalli: the order could not be sent. %s', 'courier-delivery-connector-for-dalli' ),
+					__( 'Dalli: the order could not be sent. %s', 'kurvio-courier-connector-for-dalli' ),
 					$message
 				)
 			);

@@ -1,4 +1,4 @@
-# Courier Delivery Connector for Dalli (интеграция доставки Dalli для WooCommerce)
+# Kurvio Courier Connector for Dalli (интеграция доставки Dalli для WooCommerce)
 
 Интеграция WooCommerce с курьерской службой [Dalli](https://dalli-service.com/): расчёт доставки в реальном времени, пункты выдачи партнёров,
 автоматическое создание заказов, отслеживание статусов и наклейки. English version: [README.md](README.md).
