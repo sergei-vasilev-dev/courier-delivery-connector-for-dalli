@@ -21,6 +21,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v7
+      - name: Version from the plugin header (needed for manual runs, where there is no tag)
+        run: echo "VERSION=$(sed -n 's/^ \* Version:[[:space:]]*//p' kurvio-courier-connector-for-dalli.php | head -1 | tr -d '[:space:]')" >> "$GITHUB_ENV"
       - name: Plugin (trunk and tag)
         if: ${{ !inputs.assets_only }}
         uses: 10up/action-wordpress-plugin-deploy@stable
