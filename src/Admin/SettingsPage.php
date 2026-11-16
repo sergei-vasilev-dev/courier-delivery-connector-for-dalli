@@ -408,6 +408,45 @@ class SettingsPage {
 			)
 		);
 		$fields[] = $this->field(
+			'map_provider',
+			array(
+				'title'   => __( 'Pickup point map', 'kurvio-courier-connector-for-dalli' ),
+				'type'    => 'select',
+				'class'   => 'wc-enhanced-select',
+				'options' => array(
+					'leaflet' => __( 'OpenStreetMap (Leaflet, no key needed)', 'kurvio-courier-connector-for-dalli' ),
+					'yandex'  => __( 'Yandex Maps (API key required)', 'kurvio-courier-connector-for-dalli' ),
+					'none'    => __( 'No map, list only', 'kurvio-courier-connector-for-dalli' ),
+				),
+				'desc'    => __( 'OpenStreetMap loads map tiles from tile.openstreetmap.org. Yandex Maps loads the script and tiles from api-maps.yandex.ru and requires a key and acceptance of the Yandex Maps terms. If the Yandex key is empty or the script cannot be loaded, OpenStreetMap is used instead.', 'kurvio-courier-connector-for-dalli' ),
+			)
+		);
+		$fields[] = $this->field(
+			'yandex_maps_key',
+			array(
+				'title'    => __( 'Yandex Maps API key', 'kurvio-courier-connector-for-dalli' ),
+				'type'     => 'text',
+				'desc'     => __( 'Key of the "JavaScript API and HTTP Geocoder" in the Yandex developer dashboard. In the key settings, restrict the allowed sites (HTTP Referer) to this store. The key is public: it is printed in the page source. You can also define DALLI_YANDEX_MAPS_KEY in wp-config.php.', 'kurvio-courier-connector-for-dalli' ),
+				'desc_tip' => false,
+			)
+		);
+		$fields[] = $this->field(
+			'cutoff_time',
+			array(
+				'title' => __( 'Order cut-off time', 'kurvio-courier-connector-for-dalli' ),
+				'type'  => 'text',
+				'desc'  => __( 'Orders placed before this time (site time zone, HH:MM) can be delivered the next day; later orders from the day after. Leave empty to use only the dates offered by Dalli.', 'kurvio-courier-connector-for-dalli' ),
+			)
+		);
+		$fields[] = $this->field(
+			'require_interval',
+			array(
+				'title' => __( 'Require date and time', 'kurvio-courier-connector-for-dalli' ),
+				'type'  => 'checkbox',
+				'desc'  => __( 'Customers must choose a delivery date and time (no "as soon as possible" option)', 'kurvio-courier-connector-for-dalli' ),
+			)
+		);
+		$fields[] = $this->field(
 			'choose_interval',
 			array(
 				'title' => __( 'Delivery interval', 'kurvio-courier-connector-for-dalli' ),

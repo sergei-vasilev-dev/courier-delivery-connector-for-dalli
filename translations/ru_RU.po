@@ -1203,3 +1203,51 @@ msgstr "Отследить доставку"
 #: templates/order-delivery.php:35
 msgid "Delivery history"
 msgstr "История доставки"
+
+msgid "Choose this pickup point"
+msgstr "Выбрать этот пункт выдачи"
+
+msgid "Show on map"
+msgstr "Показать на карте"
+
+msgid "Loading the map…"
+msgstr "Загружаем карту…"
+
+msgid "The map is unavailable. You can choose a point from the list."
+msgstr "Карта недоступна. Выберите пункт из списка."
+
+msgid "Please choose a delivery date and time."
+msgstr "Выберите дату и время доставки."
+
+msgid "Pickup point map"
+msgstr "Карта пунктов выдачи"
+
+msgid "OpenStreetMap (Leaflet, no key needed)"
+msgstr "OpenStreetMap (Leaflet, ключ не нужен)"
+
+msgid "Yandex Maps (API key required)"
+msgstr "Яндекс Карты (нужен API-ключ)"
+
+msgid "No map, list only"
+msgstr "Без карты, только список"
+
+msgid "OpenStreetMap loads map tiles from tile.openstreetmap.org. Yandex Maps loads the script and tiles from api-maps.yandex.ru and requires a key and acceptance of the Yandex Maps terms. If the Yandex key is empty or the script cannot be loaded, OpenStreetMap is used instead."
+msgstr "OpenStreetMap загружает плитки карты с tile.openstreetmap.org. Яндекс Карты загружают скрипт и плитки с api-maps.yandex.ru, для них нужны ключ и согласие с условиями Яндекс Карт. Если ключ Яндекса пуст, используется OpenStreetMap."
+
+msgid "Yandex Maps API key"
+msgstr "API-ключ Яндекс Карт"
+
+msgid "Key of the \"JavaScript API and HTTP Geocoder\" in the Yandex developer dashboard. In the key settings, restrict the allowed sites (HTTP Referer) to this store. The key is public: it is printed in the page source. You can also define DALLI_YANDEX_MAPS_KEY in wp-config.php."
+msgstr "Ключ «JavaScript API и HTTP Геокодер» из кабинета разработчика Яндекса. В настройках ключа ограничьте разрешённые сайты (HTTP Referer) адресом этого магазина. Ключ публичный: он виден в коде страницы. Можно также задать константу DALLI_YANDEX_MAPS_KEY в wp-config.php."
+
+msgid "Order cut-off time"
+msgstr "Время отсечки заказов"
+
+msgid "Orders placed before this time (site time zone, HH:MM) can be delivered the next day; later orders from the day after. Leave empty to use only the dates offered by Dalli."
+msgstr "Заказы, оформленные до этого времени (часовой пояс сайта, ЧЧ:ММ), можно доставить на следующий день, более поздние — со дня после. Пусто — только даты, которые предлагает Dalli."
+
+msgid "Require date and time"
+msgstr "Обязательные дата и время"
+
+msgid "Customers must choose a delivery date and time (no \"as soon as possible\" option)"
+msgstr "Покупатель обязан выбрать дату и время доставки (без варианта «как можно скорее»)"

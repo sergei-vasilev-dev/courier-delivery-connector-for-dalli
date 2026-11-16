@@ -80,6 +80,8 @@ class Checkout {
 		return array(
 			'ajaxUrl' => admin_url( 'admin-ajax.php' ),
 			'nonce'   => wp_create_nonce( AjaxController::NONCE ),
+			'requireInterval' => ( new \DalliDelivery\Settings() )->is_enabled( 'require_interval' ),
+			'map'             => self::map_config(),
 			'i18n'    => array(
 				'choosePoint'      => __( 'Choose pickup point', 'kurvio-courier-connector-for-dalli' ),
 				'changePoint'      => __( 'Change pickup point', 'kurvio-courier-connector-for-dalli' ),
@@ -103,9 +105,42 @@ class Checkout {
 				'deliveryDate'     => __( 'Delivery date', 'kurvio-courier-connector-for-dalli' ),
 				'deliveryInterval' => __( 'Delivery time', 'kurvio-courier-connector-for-dalli' ),
 				'earliest'         => __( 'As soon as possible', 'kurvio-courier-connector-for-dalli' ),
+				'chooseThisPoint'  => __( 'Choose this pickup point', 'kurvio-courier-connector-for-dalli' ),
+				'showOnMap'        => __( 'Show on map', 'kurvio-courier-connector-for-dalli' ),
+				'mapLoading'       => __( 'Loading the map…', 'kurvio-courier-connector-for-dalli' ),
+				'mapUnavailable'   => __( 'The map is unavailable. You can choose a point from the list.', 'kurvio-courier-connector-for-dalli' ),
 				'pickPointError'   => __( 'Please choose a pickup point.', 'kurvio-courier-connector-for-dalli' ),
 			),
 		);
+	}
+
+	/**
+	 * Map configuration for the pickup point dialog. Libraries are loaded lazily by the widget when the dialog opens.
+	 *
+	 * @return array<string,mixed>
+	 */
+	public static function map_config(): array {
+		$settings = new Settings();
+		$provider = $settings->map_provider();
+		$config   = array(
+			'provider'    => $provider,
+			'assetsUrl'   => DALLI_DELIVERY_URL . 'assets/lib/',
+			'version'     => DALLI_DELIVERY_VERSION,
+			/**
+			 * Filters the Leaflet tile layer URL template (default: OpenStreetMap standard tiles).
+			 *
+			 * @since 1.1.0
+			 *
+			 * @param string $url Tile URL template.
+			 */
+			'tileUrl'     => (string) apply_filters( 'dalli_delivery_map_tile_url', 'https://tile.openstreetmap.org/{z}/{x}/{y}.png' ),
+			'attribution' => (string) apply_filters( 'dalli_delivery_map_attribution', '© OpenStreetMap' ),
+			'lang'        => str_replace( '-', '_', determine_locale() ),
+		);
+		if ( 'yandex' === $provider ) {
+			$config['yandexKey'] = $settings->yandex_maps_key();
+		}
+		return $config;
 	}
 
 	/**
@@ -188,6 +223,9 @@ class Checkout {
 		$customer = WC()->customer;
 		$town     = $customer ? ( '' !== $customer->get_shipping_city() ? $customer->get_shipping_city() : $customer->get_billing_city() ) : '';
 		$pvz      = $this->selection->pvz_for( (string) $rate['partner'], (string) $town );
+		if ( Catalog::TYPE_COURIER === $rate['type'] && Catalog::supports_intervals( (int) $rate['service'] ) && $this->settings->is_enabled( 'choose_interval' ) && $this->settings->is_enabled( 'require_interval' ) && ! $this->selection->interval() ) {
+			return __( 'Please choose a delivery date and time.', 'kurvio-courier-connector-for-dalli' );
+		}
 		return ( new CheckoutValidator() )->check( $rate, $pvz, $this->paytype_for( $gateway, (string) $rate['partner'] ) );
 	}
 

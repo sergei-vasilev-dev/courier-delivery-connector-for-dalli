@@ -3,7 +3,7 @@
  * Plugin Name:          Kurvio Courier Connector for Dalli
  * Plugin URI:           https://github.com/sergei-vasilev-dev/courier-delivery-connector-for-dalli
  * Description:          Unofficial WooCommerce integration with the Dalli courier service: live shipping rates, pickup points, order creation, tracking and labels. Not affiliated with or endorsed by Dalli.
- * Version:              1.0.3
+ * Version:              1.1.0
  * Requires at least:    6.4
  * Requires PHP:         8.1
  * Requires Plugins:     woocommerce
@@ -21,7 +21,7 @@
 
 defined( 'ABSPATH' ) || exit;
 
-define( 'DALLI_DELIVERY_VERSION', '1.0.3' );
+define( 'DALLI_DELIVERY_VERSION', '1.1.0' );
 define( 'DALLI_DELIVERY_FILE', __FILE__ );
 define( 'DALLI_DELIVERY_PATH', plugin_dir_path( __FILE__ ) );
 define( 'DALLI_DELIVERY_URL', plugin_dir_url( __FILE__ ) );

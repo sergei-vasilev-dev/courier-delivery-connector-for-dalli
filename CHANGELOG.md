@@ -3,6 +3,13 @@
 All notable changes to this project are documented in this file. The format is based on
 [Keep a Changelog](https://keepachangelog.com/en/1.1.0/) and the project adheres to [Semantic Versioning](https://semver.org/).
 
+## [1.1.0] - 2026-11-16
+
+### Added
+- Pickup point map in the selection dialog: OpenStreetMap through bundled Leaflet and Leaflet.markercluster (default, no key) or Yandex Maps JavaScript API 2.1 with a key from the settings or `DALLI_YANDEX_MAPS_KEY`; falls back to OpenStreetMap, the list works without the map.
+- Order cut-off time and "require date and time" settings for courier delivery.
+- Filters `dalli_delivery_map_tile_url` and `dalli_delivery_map_attribution`.
+
 ## [1.0.3] - 2026-11-13
 
 ### Changed

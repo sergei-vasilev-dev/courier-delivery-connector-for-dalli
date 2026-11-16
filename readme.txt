@@ -5,7 +5,7 @@ Requires at least: 6.4
 Tested up to: 7.1
 Requires PHP: 8.1
 Requires Plugins: woocommerce
-Stable tag: 1.0.3
+Stable tag: 1.1.0
 WC requires at least: 8.5
 WC tested up to: 11.3
 License: GPLv2 or later
@@ -40,7 +40,7 @@ Unofficial WooCommerce integration with the Dalli courier service: live shipping
 
 == External services ==
 
-This plugin sends data from your server to the Dalli API. Nothing is loaded from third-party servers in the browser, and the plugin has no tracking or telemetry.
+This plugin sends data from your server to the Dalli API. In the browser, the optional pickup point map loads map tiles from OpenStreetMap, or from Yandex Maps if you enable it. The plugin has no tracking or telemetry.
 
 * **Service:** Dalli API ([dalli-service.com](https://dalli-service.com/)); endpoint `https://api.dalli-service.com/v1/` (Moscow branch) or `https://spbapi.dalli-service.com/v1/` (St. Petersburg branch), as chosen in the settings.
 * **When and what is sent:**
@@ -50,6 +50,13 @@ This plugin sends data from your server to the Dalli API. Nothing is loaded from
     * When statuses, stickers, acts or cancellations are requested: order numbers and barcodes.
 * **Why:** to calculate delivery cost, deliver the parcel and track it. Data is sent only when you configure the plugin with your own Dalli token.
 * **Dalli legal documents:** [User agreement](https://dalli-service.com/clients/dokumenty/polzovatelskoye-soglasheniye/) and [Privacy policy](https://dalli-service.com/clients/dokumenty/politika-konfidenczialnosti/) (Russian; all documents: [dalli-service.com/clients/dokumenty/](https://dalli-service.com/clients/dokumenty/)). They apply to the data you send to Dalli. As the merchant you are responsible for informing your customers and for having a legal basis to pass their data to the carrier.
+
+* **Service (optional, enabled by default): OpenStreetMap tile servers** ([openstreetmap.org](https://www.openstreetmap.org/)); requests go to `https://tile.openstreetmap.org/`. When the customer opens the pickup point dialog, the visitor's browser requests map tiles for the displayed area (so OpenStreetMap receives the visitor's IP address and the map area). No personal data entered in the checkout is sent. [Tile usage policy](https://operations.osmfoundation.org/policies/tiles/), [Privacy policy](https://osmfoundation.org/wiki/Privacy_Policy). You can change the tile server with the `dalli_delivery_map_tile_url` filter or disable the map under WooCommerce → Settings → Shipping → Dalli → "Pickup point map".
+* **Service (optional, off by default): Yandex Maps JavaScript API** ([yandex.ru](https://yandex.ru/dev/jsapi-v2-1/)); the script and tiles are loaded from `https://api-maps.yandex.ru/` only if you choose "Yandex Maps" and enter your own API key. The visitor's browser sends the key, the visitor's IP address and the displayed map area to Yandex when the pickup point dialog opens. [Terms of use](https://yandex.ru/legal/maps_termsofuse/), [Privacy policy](https://yandex.ru/legal/confidential/).
+
+= Bundled third-party libraries =
+
+* [Leaflet](https://leafletjs.com/) 1.9.4 (BSD 2-Clause) and [Leaflet.markercluster](https://github.com/Leaflet/Leaflet.markercluster) 1.5.3 (MIT) in `assets/lib/`, unmodified minified builds with their licences; the original source code is available in the linked repositories and npm packages `leaflet` and `leaflet.markercluster`.
 
 == Installation ==
 
@@ -120,6 +127,10 @@ Copy `templates/order-delivery.php` (and `templates/emails/delivery.php`) to `yo
 9. Dalli tools page (transfer act, orders needing attention, diagnostics).
 
 == Changelog ==
+
+= 1.1.0 =
+* Pickup point dialog now shows a map with clustered markers (OpenStreetMap via bundled Leaflet by default, Yandex Maps with your API key); the list stays available and works without the map.
+* Order cut-off time: orders before the cut-off can be delivered the next day, later orders from the day after. Optional "require date and time" for courier delivery.
 
 = 1.0.3 =
 * Renamed to Kurvio Courier Connector for Dalli (new slug) at the request of the plugin review team.

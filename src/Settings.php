@@ -59,6 +59,10 @@ class Settings {
 			'default_time_min'   => '10:00',
 			'default_time_max'   => '22:00',
 			'choose_interval'    => 'yes',
+			'cutoff_time'        => '14:00',
+			'map_provider'       => 'leaflet',
+			'yandex_maps_key'    => '',
+			'require_interval'   => '',
 			'sticker_format'     => '4',
 			'sync_enabled'       => 'yes',
 			'sync_interval'      => '15',
@@ -146,6 +150,31 @@ class Settings {
 		 * @param string $url Endpoint URL.
 		 */
 		return (string) apply_filters( 'dalli_delivery_api_url', $url );
+	}
+
+	/**
+	 * Yandex Maps JavaScript API key: constant first, then the stored option.
+	 *
+	 * @return string
+	 */
+	public function yandex_maps_key(): string {
+		if ( defined( 'DALLI_YANDEX_MAPS_KEY' ) && is_string( DALLI_YANDEX_MAPS_KEY ) && '' !== DALLI_YANDEX_MAPS_KEY ) {
+			return trim( DALLI_YANDEX_MAPS_KEY );
+		}
+		return trim( (string) $this->get( 'yandex_maps_key' ) );
+	}
+
+	/**
+	 * Map provider that will actually be used: none|leaflet|yandex (Yandex needs a key).
+	 *
+	 * @return string
+	 */
+	public function map_provider(): string {
+		$provider = (string) $this->get( 'map_provider' );
+		if ( 'yandex' === $provider && '' === $this->yandex_maps_key() ) {
+			return 'leaflet';
+		}
+		return in_array( $provider, array( 'none', 'leaflet', 'yandex' ), true ) ? $provider : 'leaflet';
 	}
 
 	/**

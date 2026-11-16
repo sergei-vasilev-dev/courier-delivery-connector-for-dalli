@@ -305,7 +305,7 @@ class AjaxController {
 		$key    = 'dalli_int_' . md5( $this->settings->api_url() . '|' . $address . '|' . $rate['service'] . '|' . wp_date( 'Y-m-d' ) );
 		$cached = get_transient( $key );
 		if ( is_array( $cached ) ) {
-			return $cached;
+			return $this->apply_cutoff( $cached );
 		}
 		try {
 			$dates = $this->api->intervals( $address, (int) $rate['service'], 'dates', wp_date( 'Y-m-d' ) );
@@ -314,7 +314,43 @@ class AjaxController {
 		}
 		unset( $dates[''] );
 		set_transient( $key, $dates, 10 * MINUTE_IN_SECONDS );
-		return $dates;
+		return $this->apply_cutoff( $dates );
+	}
+
+	/**
+	 * Earliest delivery date by the order cut-off time (site time zone): before the cut-off the next day, after it the day after.
+	 *
+	 * @return string Y-m-d, empty when the cut-off is disabled.
+	 */
+	private function earliest_date(): string {
+		$cutoff = trim( (string) $this->settings->get( 'cutoff_time' ) );
+		if ( ! preg_match( '/^([01]?\d|2[0-3]):([0-5]\d)$/', $cutoff, $m ) ) {
+			return '';
+		}
+		$now    = new \DateTimeImmutable( 'now', wp_timezone() );
+		$limit  = $now->setTime( (int) $m[1], (int) $m[2] );
+		$days   = $now < $limit ? 1 : 2;
+		return $now->modify( '+' . $days . ' days' )->format( 'Y-m-d' );
+	}
+
+	/**
+	 * Drop dates earlier than the cut-off allows.
+	 *
+	 * @param array<string,mixed> $dates Date => intervals.
+	 * @return array<string,mixed>
+	 */
+	private function apply_cutoff( array $dates ): array {
+		$earliest = $this->earliest_date();
+		if ( '' === $earliest ) {
+			return $dates;
+		}
+		return array_filter(
+			$dates,
+			static function ( $date ) use ( $earliest ) {
+				return (string) $date >= $earliest;
+			},
+			ARRAY_FILTER_USE_KEY
+		);
 	}
 
 	/**
