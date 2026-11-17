@@ -64,14 +64,14 @@ class ShippingMethod extends \WC_Shipping_Method {
 	private function build_form_fields(): array {
 		$partners = Catalog::partners();
 		return array(
-			'title'          => array(
+			'title'           => array(
 				'title'       => __( 'Method title', 'kurvio-courier-connector-for-dalli' ),
 				'type'        => 'text',
 				'description' => __( 'Shown in the admin only; customers see the carrier and delivery type of each rate.', 'kurvio-courier-connector-for-dalli' ),
 				'default'     => __( 'Dalli delivery', 'kurvio-courier-connector-for-dalli' ),
 				'desc_tip'    => true,
 			),
-			'tax_status'     => array(
+			'tax_status'      => array(
 				'title'   => __( 'Tax status', 'kurvio-courier-connector-for-dalli' ),
 				'type'    => 'select',
 				'class'   => 'wc-enhanced-select',
@@ -81,7 +81,7 @@ class ShippingMethod extends \WC_Shipping_Method {
 					'none'    => _x( 'None', 'Tax status', 'kurvio-courier-connector-for-dalli' ),
 				),
 			),
-			'partners'       => array(
+			'partners'        => array(
 				'title'    => __( 'Carriers', 'kurvio-courier-connector-for-dalli' ),
 				'type'     => 'multiselect',
 				'class'    => 'wc-enhanced-select',
@@ -89,14 +89,14 @@ class ShippingMethod extends \WC_Shipping_Method {
 				'options'  => $partners,
 				'desc_tip' => __( 'Only the selected carriers are priced. Each one adds a request to the Dalli API (cached).', 'kurvio-courier-connector-for-dalli' ),
 			),
-			'types'          => array(
+			'types'           => array(
 				'title'   => __( 'Delivery types', 'kurvio-courier-connector-for-dalli' ),
 				'type'    => 'multiselect',
 				'class'   => 'wc-enhanced-select',
 				'default' => array( Catalog::TYPE_COURIER, Catalog::TYPE_PVZ ),
 				'options' => Catalog::types(),
 			),
-			'markup_percent' => array(
+			'markup_percent'  => array(
 				'title'       => __( 'Markup, %', 'kurvio-courier-connector-for-dalli' ),
 				'type'        => 'text',
 				'default'     => '0',
@@ -104,7 +104,7 @@ class ShippingMethod extends \WC_Shipping_Method {
 				'desc_tip'    => true,
 				'class'       => 'wc_input_decimal',
 			),
-			'markup_fixed'   => array(
+			'markup_fixed'    => array(
 				'title'       => __( 'Fixed markup', 'kurvio-courier-connector-for-dalli' ),
 				'type'        => 'text',
 				'default'     => '0',
@@ -112,7 +112,7 @@ class ShippingMethod extends \WC_Shipping_Method {
 				'desc_tip'    => true,
 				'class'       => 'wc_input_decimal',
 			),
-			'free_over'      => array(
+			'free_over'       => array(
 				'title'       => __( 'Free shipping over', 'kurvio-courier-connector-for-dalli' ),
 				'type'        => 'text',
 				'default'     => '',
@@ -120,7 +120,19 @@ class ShippingMethod extends \WC_Shipping_Method {
 				'desc_tip'    => true,
 				'class'       => 'wc_input_decimal',
 			),
-			'fixed_price'    => array(
+			'free_over_basis' => array(
+				'title'       => __( 'Free shipping threshold counts', 'kurvio-courier-connector-for-dalli' ),
+				'type'        => 'select',
+				'class'       => 'wc-enhanced-select',
+				'default'     => 'after_discount',
+				'options'     => array(
+					'after_discount'  => __( 'Cart total after discounts and coupons', 'kurvio-courier-connector-for-dalli' ),
+					'before_discount' => __( 'Cart total before discounts and coupons', 'kurvio-courier-connector-for-dalli' ),
+				),
+				'description' => __( 'Which amount is compared with "Free shipping over".', 'kurvio-courier-connector-for-dalli' ),
+				'desc_tip'    => true,
+			),
+			'fixed_price'     => array(
 				'title'       => __( 'Fixed price', 'kurvio-courier-connector-for-dalli' ),
 				'type'        => 'text',
 				'default'     => '',
@@ -128,7 +140,7 @@ class ShippingMethod extends \WC_Shipping_Method {
 				'desc_tip'    => true,
 				'class'       => 'wc_input_decimal',
 			),
-			'show_period'    => array(
+			'show_period'     => array(
 				'title'   => __( 'Delivery period', 'kurvio-courier-connector-for-dalli' ),
 				'type'    => 'checkbox',
 				'label'   => __( 'Show the estimated delivery period next to the rate name', 'kurvio-courier-connector-for-dalli' ),
@@ -199,9 +211,11 @@ class ShippingMethod extends \WC_Shipping_Method {
 			'rounding_direction' => $settings->get( 'rounding_direction' ),
 		);
 
+		$threshold_total = 'before_discount' === $this->get_option( 'free_over_basis' ) ? $this->contents_before_discount( $package, $contents ) : $contents;
+
 		$price_rules = new PriceRules();
 		foreach ( $rates as $rate ) {
-			$cost = $price_rules->apply( $rate->price, $contents, $rules );
+			$cost = $price_rules->apply( $rate->price, $threshold_total, $rules );
 
 			$args = array(
 				'id'        => $this->get_rate_id( $rate->partner . '_' . $rate->type . '_' . $rate->service ),
@@ -234,6 +248,25 @@ class ShippingMethod extends \WC_Shipping_Method {
 				$this->add_rate( $args );
 			}
 		}
+	}
+
+	/**
+	 * Cart contents cost before discounts (sum of line subtotals of the items that need shipping).
+	 *
+	 * @param array<string,mixed> $package  Package.
+	 * @param float               $fallback Value to use when the package has no line data.
+	 * @return float
+	 */
+	private function contents_before_discount( array $package, float $fallback ): float {
+		$sum   = 0.0;
+		$found = false;
+		foreach ( (array) ( $package['contents'] ?? array() ) as $item ) {
+			if ( isset( $item['line_subtotal'], $item['data'] ) && $item['data'] instanceof \WC_Product && $item['data']->needs_shipping() ) {
+				$sum  += (float) $item['line_subtotal'];
+				$found = true;
+			}
+		}
+		return $found ? $sum : $fallback;
 	}
 
 	/**

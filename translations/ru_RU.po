@@ -1251,3 +1251,19 @@ msgstr "Обязательные дата и время"
 
 msgid "Customers must choose a delivery date and time (no \"as soon as possible\" option)"
 msgstr "Покупатель обязан выбрать дату и время доставки (без варианта «как можно скорее»)"
+
+#: src/Shipping/ShippingMethod.php
+msgid "Free shipping threshold counts"
+msgstr "Порог бесплатной доставки считать от"
+
+#: src/Shipping/ShippingMethod.php
+msgid "Cart total after discounts and coupons"
+msgstr "суммы корзины со скидками и промокодами"
+
+#: src/Shipping/ShippingMethod.php
+msgid "Cart total before discounts and coupons"
+msgstr "суммы корзины без скидок и промокодов"
+
+#: src/Shipping/ShippingMethod.php
+msgid "Which amount is compared with \"Free shipping over\"."
+msgstr "С какой суммой сравнивается значение «Бесплатная доставка от»."
