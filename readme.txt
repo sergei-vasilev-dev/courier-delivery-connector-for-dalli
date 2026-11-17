@@ -5,7 +5,7 @@ Requires at least: 6.4
 Tested up to: 7.1
 Requires PHP: 8.1
 Requires Plugins: woocommerce
-Stable tag: 1.1.0
+Stable tag: 1.2.0
 WC requires at least: 8.5
 WC tested up to: 11.3
 License: GPLv2 or later
@@ -127,6 +127,9 @@ Copy `templates/order-delivery.php` (and `templates/emails/delivery.php`) to `yo
 9. Dalli tools page (transfer act, orders needing attention, diagnostics).
 
 == Changelog ==
+
+= 1.2.0 =
+* New option "Free shipping threshold counts": compare the free shipping amount with the cart total before or after discounts and coupons.
 
 = 1.1.0 =
 * Pickup point dialog now shows a map with clustered markers (OpenStreetMap via bundled Leaflet by default, Yandex Maps with your API key); the list stays available and works without the map.
