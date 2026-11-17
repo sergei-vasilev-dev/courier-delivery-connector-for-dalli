@@ -327,9 +327,9 @@ class AjaxController {
 		if ( ! preg_match( '/^([01]?\d|2[0-3]):([0-5]\d)$/', $cutoff, $m ) ) {
 			return '';
 		}
-		$now    = new \DateTimeImmutable( 'now', wp_timezone() );
-		$limit  = $now->setTime( (int) $m[1], (int) $m[2] );
-		$days   = $now < $limit ? 1 : 2;
+		$now   = new \DateTimeImmutable( 'now', wp_timezone() );
+		$limit = $now->setTime( (int) $m[1], (int) $m[2] );
+		$days  = $now < $limit ? 1 : 2;
 		return $now->modify( '+' . $days . ' days' )->format( 'Y-m-d' );
 	}
 

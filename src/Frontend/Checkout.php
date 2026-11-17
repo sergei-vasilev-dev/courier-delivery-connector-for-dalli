@@ -78,11 +78,11 @@ class Checkout {
 	 */
 	public static function script_data(): array {
 		return array(
-			'ajaxUrl' => admin_url( 'admin-ajax.php' ),
-			'nonce'   => wp_create_nonce( AjaxController::NONCE ),
+			'ajaxUrl'         => admin_url( 'admin-ajax.php' ),
+			'nonce'           => wp_create_nonce( AjaxController::NONCE ),
 			'requireInterval' => ( new \DalliDelivery\Settings() )->is_enabled( 'require_interval' ),
 			'map'             => self::map_config(),
-			'i18n'    => array(
+			'i18n'            => array(
 				'choosePoint'      => __( 'Choose pickup point', 'kurvio-courier-connector-for-dalli' ),
 				'changePoint'      => __( 'Change pickup point', 'kurvio-courier-connector-for-dalli' ),
 				'pickupPoint'      => __( 'Pickup point', 'kurvio-courier-connector-for-dalli' ),
@@ -134,6 +134,13 @@ class Checkout {
 			 * @param string $url Tile URL template.
 			 */
 			'tileUrl'     => (string) apply_filters( 'dalli_delivery_map_tile_url', 'https://tile.openstreetmap.org/{z}/{x}/{y}.png' ),
+			/**
+			 * Filters the map attribution text shown on the Leaflet map.
+			 *
+			 * @since 1.1.0
+			 *
+			 * @param string $attribution Attribution text.
+			 */
 			'attribution' => (string) apply_filters( 'dalli_delivery_map_attribution', '© OpenStreetMap' ),
 			'lang'        => str_replace( '-', '_', determine_locale() ),
 		);
