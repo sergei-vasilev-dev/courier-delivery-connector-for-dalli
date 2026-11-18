@@ -86,6 +86,7 @@ class Checkout {
 				'choosePoint'      => __( 'Choose pickup point', 'kurvio-courier-connector-for-dalli' ),
 				'changePoint'      => __( 'Change pickup point', 'kurvio-courier-connector-for-dalli' ),
 				'pickupPoint'      => __( 'Pickup point', 'kurvio-courier-connector-for-dalli' ),
+				'enterCity'        => __( 'Enter your city to choose a pickup point.', 'kurvio-courier-connector-for-dalli' ),
 				'noPointChosen'    => __( 'No pickup point chosen yet.', 'kurvio-courier-connector-for-dalli' ),
 				'modalTitle'       => __( 'Choose a pickup point', 'kurvio-courier-connector-for-dalli' ),
 				/* translators: %s: town name */

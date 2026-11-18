@@ -1267,3 +1267,7 @@ msgstr "суммы корзины без скидок и промокодов"
 #: src/Shipping/ShippingMethod.php
 msgid "Which amount is compared with \"Free shipping over\"."
 msgstr "С какой суммой сравнивается значение «Бесплатная доставка от»."
+
+#: src/Frontend/Checkout.php
+msgid "Enter your city to choose a pickup point."
+msgstr "Укажите город, чтобы выбрать пункт выдачи."

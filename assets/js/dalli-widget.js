@@ -102,9 +102,13 @@
 				box.appendChild( el( 'br' ) );
 				box.appendChild( el( 'small', { text: state.pvz.address + ( state.pvz.schedule ? ' · ' + state.pvz.schedule : '' ) } ) );
 			} else {
-				box.appendChild( el( 'span', { class: 'dalli-widget__hint', text: t.noPointChosen } ) );
+				box.appendChild( el( 'span', { class: 'dalli-widget__hint', text: state.town === '' ? t.enterCity : t.noPointChosen } ) );
 			}
 			var button = el( 'button', { type: 'button', class: 'button dalli-widget__choose', text: state.pvz ? t.changePoint : t.choosePoint } );
+			if ( state.town === '' ) {
+				// The points are searched by the city, so the chooser stays inactive until the city is entered.
+				button.disabled = true;
+			}
 			button.addEventListener( 'click', function () {
 				self.openDialog( button );
 			} );

@@ -149,6 +149,7 @@ class AjaxController {
 				'service' => (int) $rate['service'],
 			),
 			'needsPvz'  => Catalog::TYPE_PVZ === $rate['type'],
+			'town'      => (string) ( $address['city'] ?? '' ),
 			'intervals' => Catalog::TYPE_COURIER === $rate['type'] && Catalog::supports_intervals( (int) $rate['service'] ) && $this->settings->is_enabled( 'choose_interval' ),
 			'pvz'       => $pvz ? $this->public_point( $pvz ) : null,
 			'interval'  => $interval,
