@@ -3,6 +3,11 @@
 All notable changes to this project are documented in this file. The format is based on
 [Keep a Changelog](https://keepachangelog.com/en/1.1.0/) and the project adheres to [Semantic Versioning](https://semver.org/).
 
+## [1.2.1] - 2026-11-18
+
+### Changed
+- The pickup point chooser is disabled until the city is entered and shows a hint, instead of opening an empty list.
+
 ## [1.2.0] - 2026-11-17
 
 ### Added
